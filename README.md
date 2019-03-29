@@ -1,33 +1,42 @@
 # cchao-blog
 
 基于[VuePress](https://vuepress.vuejs.org/zh/ "VuePres官方文档")生成的一款博客系统。
+![](https://img.shields.io/badge/vuepress-0.14.10-brightgreen.svg)
+
+## 目录
+- [相关依赖](#相关依赖)
+- [开发指南](#开发指南)
+- [项目目录结构](#项目目录结构)
+
 
 ### 相关依赖
 
 1. [VuePress](https://vuepress.vuejs.org/zh/ "VuePres官方文档")：Vue 驱动的静态网站生成器;
 2. [Valine](https://valine.js.org/ "Valine无后台评论系统")：无后端评论系统;
 
-### 开发环境，启动服务
+### 开发指南
+
+## 开发环境，启动服务
 ```bash
 $ npm run start
 ```
 
-### 开发环境，调试显示console
+## 开发环境，调试显示console
 ```bash
 $ npm run dev
 ```
 
-### 生产环境，构建项目
+## 生产环境，构建项目
 ```bash
 $ npm run build
 ```
 
-### 部署(TODO: 待完善)
+## 部署(TODO: 待完善)
 ```bash
 $ npm run upload
 ```
 
-### 项目目录说明
+### 项目目录结构
 
 ```
 |-- docs
