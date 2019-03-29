@@ -1,9 +1,10 @@
 # cchao-blog
 
 基于[VuePress](https://vuepress.vuejs.org/zh/ "VuePres官方文档")生成的一款博客系统。
+
 ![](https://img.shields.io/badge/vuepress-0.14.10-brightgreen.svg)
 
-## 目录
+### 目录
 - [相关依赖](#相关依赖)
 - [开发指南](#开发指南)
 - [项目目录结构](#项目目录结构)

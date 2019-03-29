@@ -1,3 +1,5 @@
 /dist/
 
+deploy.sh
+
 node_modules
