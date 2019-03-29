@@ -1,5 +1,5 @@
 ﻿module.exports = {
-  title: '大米饭 香喷喷',
+  title: 'hao',
   description: '描述陈晨',
   head: [
     ['link', { rel: 'icon', href: '/favicons.png' }]
