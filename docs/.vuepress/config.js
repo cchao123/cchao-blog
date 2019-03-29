@@ -35,7 +35,11 @@ function getPageArticle(params) {
 }
 
 function getGiteArticle(params) {
-  return null
+  return [
+    ['', 'Git项目版本管理规范说明'],
+    ['git-commit', 'Git提交规范'],
+    ['tool', '相关工具']
+  ]
 }
 
 function getNoteArticle(params) {

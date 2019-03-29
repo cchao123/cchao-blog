@@ -1,6 +1,6 @@
 # cchao-blog
 
-基于[VuePress](https://vuepress.vuejs.org/zh/ "VuePres官方文档")生成的一款博客系统
+基于[VuePress](https://vuepress.vuejs.org/zh/ "VuePres官方文档")生成的一款博客系统。
 
 ### 相关依赖
 
@@ -30,15 +30,15 @@ $ npm run upload
 ### 项目目录说明
 
 ```
-|-- docs                    项目的开发目录
-| |-- .vuepress             项目的基本配置
+|-- docs
+| |-- .vuepress             项目的开发目录
 | | |-- components          自定义组件
 | | |-- nav                 右上方导航
 | | | |-- index.js
 | | |-- public              静态资源
 | | | |-- logo.png          网站logo
 | | |-- theme               自定义主题
-| | | |-- config.js
+| | | |-- config.js         配置文件
 | | |-- index等...          页面目录
 | | |-- README.md           自定义首页
 |-- dist                    存储构建之后的项目目录
@@ -48,3 +48,4 @@ $ npm run upload
 |-- package-lock.json
 |-- README.md               你当前所看到的项目说明
 ```
+
