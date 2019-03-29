@@ -1,11 +1,11 @@
-### cchao-blog
+# cchao-blog
 
 基于[VuePress](https://vuepress.vuejs.org/zh/ "VuePres官方文档")生成的一款博客系统
 
 ### 相关依赖
 
-1. [VuePress](https://vuepress.vuejs.org/zh/, VuePres官方文档)
-2. [Valine](https://valine.js.org/, Valine无后台评论系统)
+1. [VuePress](https://vuepress.vuejs.org/zh/ "VuePres官方文档")Vue 驱动的静态网站生成器
+2. [Valine](https://valine.js.org/ "Valine无后台评论系统")无后端评论系统
 
 ### 开发环境，启动服务
 ```bash
