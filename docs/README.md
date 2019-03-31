@@ -1,9 +1,9 @@
 ---
 home: true
-heroImage: /logo.png
-heroText: logo的标题
-tagline: Meet 1000 Books & Unit Them Into 1 Wiki
-actionText: 按钮
+heroImage: /logo.jpg
+heroText: cchao
+tagline: 描述
+actionText: Go
 actionLink: /note/
 features:
 - title: 简洁至上
