@@ -7,7 +7,10 @@
   dest: './dist',
   port: '9999',
   themeConfig: {
-    lastUpdated: '更新时间',
+    serviceWorker: {
+      updatePopup: true
+    },
+    lastUpdated: 'Last Updated',
     nav: require('./nav/index'),
     // 为以下路由添加侧边栏
     sidebar: {
