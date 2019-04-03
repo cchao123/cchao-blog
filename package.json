@@ -10,6 +10,7 @@
     "webpack-dev-middleware": "^3.6.0"
   },
   "dependencies": {
+    "@vuepress/theme-default": "^1.0.0-alpha.46",
     "leancloud-storage": "^3.12.0"
   }
 }
