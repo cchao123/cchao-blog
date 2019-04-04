@@ -1,12 +1,13 @@
 ﻿module.exports = {
   title: 'cchao',
-  description: '描述陈晨',
+  description: '这是一段描述',
   head: [
     ['link', { rel: 'icon', href: '/favicons.png' }]
   ],
   dest: './dist',
   port: '9999',
   themeConfig: {
+    theme: 'sky',
     serviceWorker: {
       updatePopup: true
     },
