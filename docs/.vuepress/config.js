@@ -65,7 +65,7 @@ function getNoteArticle(params) {
     {
       title: 'Vue',
       children: [
-
+        'test'
       ]
     }
   ]
