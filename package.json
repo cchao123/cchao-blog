@@ -3,7 +3,8 @@
     "start": "npm run docs:dev",
     "build": "npm run docs:build",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "copy": "vuepress eject sky"
   },
   "devDependencies": {
     "vuepress": "^0.14.10",
