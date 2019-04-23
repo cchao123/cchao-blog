@@ -1,38 +1,45 @@
 <template>
   <header class="navbar">
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
+    <div class="content-wrap">
+      <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
-    <router-link
-      :to="$localePath"
-      class="home-link"
-    >
-      <img
-        class="logo"
-        v-if="$site.themeConfig.logo"
-        :src="$withBase($site.themeConfig.logo)"
-        :alt="$siteTitle"
+      <router-link
+        :to="$localePath"
+        class="home-link"
       >
-      <span
-        ref="siteName"
-        class="site-name"
-        v-if="$siteTitle"
-        :class="{ 'can-hide': $site.themeConfig.logo }"
-      >{{ $siteTitle }}</span>
-    </router-link>
+        <img
+          class="logo"
+          v-if="$site.themeConfig.logo"
+          :src="$withBase($site.themeConfig.logo)"
+          :alt="$siteTitle"
+        >
+        <span
+          ref="siteName"
+          class="site-name"
+          v-if="$siteTitle"
+          :class="{ 'can-hide': $site.themeConfig.logo }"
+        >{{ $siteTitle }}</span>
+      </router-link>
 
-    <div
-      class="links"
-      :style="{
-        'max-width': linksWrapMaxWidth + 'px'
-      }"
-    >
+      <!-- <div
+        class="links"
+        :style="{
+          'max-width': linksWrapMaxWidth + 'px'
+        }"
+      > -->
+
       <AlgoliaSearchBox
         v-if="isAlgoliaSearch"
         :options="algolia"
       />
-      <SearchBox v-else-if="$site.themeConfig.search !== false"/>
+
+      <!-- 搜索框 -->
+      <!-- <SearchBox v-else-if="$site.themeConfig.search !== false"/> -->
+
+      <!-- 导航 -->
       <NavLinks class="can-hide"/>
     </div>
+    <!-- </div> -->
   </header>
 </template>
 
@@ -110,7 +117,7 @@ $navbar-horizontal-padding = 1.5rem
   .links
     padding-left 1.5rem
     box-sizing border-box
-    background-color white
+    // background-color white
     white-space nowrap
     font-size 0.9rem
     position absolute

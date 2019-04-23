@@ -7,7 +7,6 @@
   dest: './dist',
   port: '9999',
   themeConfig: {
-    theme: 'sky',
     serviceWorker: {
       updatePopup: true
     },

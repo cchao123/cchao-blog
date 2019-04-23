@@ -20,6 +20,10 @@ body
 .page
   padding-left $sidebarWidth
 
+.content-wrap
+  width $wraoWidth
+  margin 0 auto
+
 .navbar
   position fixed
   z-index 20
@@ -27,9 +31,10 @@ body
   left 0
   right 0
   height $navbarHeight
-  background-color #fff
   box-sizing border-box
   border-bottom 1px solid $borderColor
+  background url('./header.jpg') no-repeat
+  background-size cover
 
 .sidebar-mask
   position fixed
@@ -39,6 +44,7 @@ body
   width 100vw
   height 100vh
   display none
+  background-color rgba(0, 0, 0, .3)
 
 .sidebar
   font-size 15px
@@ -167,6 +173,7 @@ th, td
   padding-top $navbarHeight
 
 .theme-container
+  // background red
   &.sidebar-open
     .sidebar-mask
       display: block

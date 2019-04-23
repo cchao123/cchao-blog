@@ -38,6 +38,7 @@
 
     <Home v-else-if="$page.frontmatter.home"/>
 
+    <!-- 这里是页面 TODO添加动画 -->
     <Page
       v-else
       :sidebar-items="sidebarItems"
@@ -148,6 +149,14 @@ export default {
   },
 
   methods: {
+    onScroll () {
+      if (window.scrollY > 100) {
+        console.log('收')
+      } else {
+        console.log('回')
+      }
+    },
+
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
     },
