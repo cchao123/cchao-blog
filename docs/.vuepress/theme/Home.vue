@@ -139,11 +139,18 @@ export default {
     p
       color lighten($textColor, 25%)
   .footer
-    background #155b97
+    color #fff
+    color #79b8ff
+    background #044289
     padding 2.5rem
     border-top 1px solid $borderColor
     text-align center
     color lighten($textColor, 25%)
+    a
+      color #79b8ff
+      color #fff
+
+
 
 @media (max-width: $MQMobile)
   .home

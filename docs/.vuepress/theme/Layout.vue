@@ -11,15 +11,20 @@
       @toggle-sidebar="toggleSidebar"
     />
 
+
+    <!-- 遮罩层 -->
     <div
       class="sidebar-mask"
       @click="toggleSidebar(false)"
     ></div>
+
+
     <!-- home页面文章流 -->
     <!-- nav：点击切换下面的页面 -->
 
 
     <!-- 旁边的导航做成页卡形式的 -->
+    <!-- 上部分nav 下部分是文章里的nav -->
     <!-- <Sidebar
       :items="sidebarItems"
       @toggle-sidebar="toggleSidebar"
