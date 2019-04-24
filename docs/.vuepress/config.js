@@ -54,18 +54,6 @@ function getNoteArticle(params) {
         '',
         'a',
       ]
-    },
-    {
-      title: 'Node',
-      children: [
-
-      ]
-    },
-    {
-      title: 'Vue',
-      children: [
-        'test'
-      ]
     }
   ]
 }
