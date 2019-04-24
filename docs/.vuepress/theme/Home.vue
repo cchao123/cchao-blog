@@ -13,11 +13,7 @@
       </div>
     </div>
 
-    <div v-for="item in this.$site.pages">
-      <router-link :to="item.path"><p v-if="isAtc(item.path)">{{ item.title }}</p></router-link>
-    </div>
-
-
+    <ArcticWrap :posts="this.$site.pages" />
     <Content custom/>
 
     <div class="footer" v-if="data.footer">{{ data.footer }}</div>
@@ -26,14 +22,10 @@
 
 <script>
 import NavLink from "./NavLink.vue";
-
+import ArcticWrap from "./ArcticWrap.vue";
 export default {
-  components: { NavLink },
-  methods: {
-    isAtc (file) {
-      if (/posts/.test(file)) return true
-    },
-  },
+  components: { NavLink, ArcticWrap },
+
   computed: {
 
     data() {
