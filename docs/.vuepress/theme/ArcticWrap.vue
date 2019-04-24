@@ -44,9 +44,13 @@ export default {
   .arctic-flow
     flex: 1
   .arctic-flow
-    background #ccc
+    .atc-item
+      background #fff
+      margin 10px 0
+      padding 20px 5px
+      border-radius 8px
   .arctic-other
     width 300px
     margin-left 20px
-    background #ccc
+    background #fff
 </style>
