@@ -6,6 +6,7 @@
     @touchend="onTouchEnd"
   >
     <Navbar
+      ref="navbar"
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
     />
@@ -14,8 +15,12 @@
       class="sidebar-mask"
       @click="toggleSidebar(false)"
     ></div>
+    <!-- home页面文章流 -->
+    <!-- nav：点击切换下面的页面 -->
 
-    <Sidebar
+
+    <!-- 旁边的导航做成页卡形式的 -->
+    <!-- <Sidebar
       :items="sidebarItems"
       @toggle-sidebar="toggleSidebar"
     >
@@ -27,7 +32,8 @@
         name="sidebar-bottom"
         slot="bottom"
       />
-    </Sidebar>
+    </Sidebar> -->
+
 
     <div
       class="custom-layout"
@@ -36,9 +42,10 @@
       <component :is="$page.frontmatter.layout"/>
     </div>
 
-    <Home v-else-if="$page.frontmatter.home"/>
+    <Home v-else-if="$page.frontmatter.home" ref="home"/>
 
     <!-- 这里是页面 TODO添加动画 -->
+    <!-- 这个page是主要内容页面 -->
     <Page
       v-else
       :sidebar-items="sidebarItems"
@@ -128,7 +135,10 @@ export default {
   },
 
   mounted () {
+    console.log(this.$page.frontmatter.layout)
     window.addEventListener('scroll', this.onScroll)
+
+    // 监听一个窗口变化事件 切换的时候改变
 
     // configure progress bar
     nprogress.configure({ showSpinner: false })
@@ -150,10 +160,15 @@ export default {
 
   methods: {
     onScroll () {
-      if (window.scrollY > 100) {
-        console.log('收')
+      var sTop = document.documentElement.scrollTop || document.body.scrollTop;
+      console.log(sTop)
+      if (sTop < 100) {
+        this.$refs.navbar.height = 21
+        this.$refs.home.padding = 21
       } else {
-        console.log('回')
+        this.$refs.navbar.height = 5
+        this.$refs.home.padding = 5
+
       }
     },
 
@@ -190,3 +205,11 @@ export default {
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="./styles/theme.styl" lang="stylus"></style>
+<style>
+.fade-enter-active, .fade-leave-active {
+ transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+ opacity: 0;
+}
+</style>

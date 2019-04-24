@@ -24,6 +24,12 @@
       </p>
     </div>
 
+    <div v-for="(artItem, index) in $site.pages" :key="index" style="background: #fff">
+      <router-link :to="artItem.path">{{ artItem.title }}</router-link>
+      <p style="font-size: 1.25rem"></p>
+
+    </div>
+
     <div
       class="features"
       v-if="data.features && data.features.length"
@@ -38,7 +44,7 @@
       </div>
     </div>
 
-    <Content custom/>
+    <!-- <Content custom/> -->
 
     <div
       class="footer"
@@ -55,7 +61,12 @@ import NavLink from './NavLink.vue'
 export default {
   components: { NavLink },
   mounted() {
-    console.log(this.data)
+    // console.log(this.$site.pages)
+  },
+  data () {
+    return {
+      padding: 21
+    }
   },
   computed: {
     data () {
@@ -76,7 +87,7 @@ export default {
 @import './styles/config.styl'
 
 .home
-  padding $navbarHeight 2rem 0
+  padding $navbarHeight 0rem 0
   max-width 960px
   margin 0px auto
   .hero
@@ -128,6 +139,7 @@ export default {
     p
       color lighten($textColor, 25%)
   .footer
+    background #155b97
     padding 2.5rem
     border-top 1px solid $borderColor
     text-align center
@@ -143,8 +155,8 @@ export default {
 
 @media (max-width: $MQMobileNarrow)
   .home
-    padding-left 1.5rem
-    padding-right 1.5rem
+    // padding-left 1.5rem
+    // padding-right 1.5rem
     .hero
       img
         max-height 210px

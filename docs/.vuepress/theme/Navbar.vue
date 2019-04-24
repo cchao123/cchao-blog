@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar">
+  <header class="navbar" :style="`height:${height}rem;line-height:${height - 1.4}rem`">
     <div class="content-wrap">
       <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
@@ -28,10 +28,10 @@
         }"
       > -->
 
-      <AlgoliaSearchBox
-        v-if="isAlgoliaSearch"
-        :options="algolia"
-      />
+        <AlgoliaSearchBox
+          v-if="isAlgoliaSearch"
+          :options="algolia"
+        />
 
       <!-- 搜索框 -->
       <!-- <SearchBox v-else-if="$site.themeConfig.search !== false"/> -->
@@ -54,6 +54,7 @@ export default {
 
   data () {
     return {
+      height: 21,
       linksWrapMaxWidth: null
     }
   },
@@ -71,6 +72,7 @@ export default {
     }
     handleLinksWrapWidth()
     window.addEventListener('resize', handleLinksWrapWidth, false)
+
   },
 
   computed: {

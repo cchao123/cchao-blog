@@ -1,9 +1,9 @@
 <template>
   <div class="page">
     <slot name="top"/>
-
+    <!-- 这个是内容分 -->
     <Content :custom="false"/>
-
+    <!-- 右下页脚 -->
     <div class="page-edit">
       <div
         class="edit-link"
@@ -26,6 +26,7 @@
       </div>
     </div>
 
+    <!-- 下一篇文章 -->
     <div class="page-nav" v-if="prev || next">
       <p class="inner">
         <span

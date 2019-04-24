@@ -16,15 +16,20 @@ body
   -moz-osx-font-smoothing grayscale
   font-size 16px
   color $textColor
+  overflow-y scroll
 
 .page
   padding-left $sidebarWidth
 
 .content-wrap
+  color white
   width $wraoWidth
   margin 0 auto
+  .site-name
+    color white
 
 .navbar
+  transition 0.2s
   position fixed
   z-index 20
   top 0
@@ -35,6 +40,7 @@ body
   border-bottom 1px solid $borderColor
   background url('./header.jpg') no-repeat
   background-size cover
+  background-position 0 0
 
 .sidebar-mask
   position fixed
@@ -48,7 +54,7 @@ body
 
 .sidebar
   font-size 15px
-  background-color #fff
+  // background-image url('./bg.jpg')
   width $sidebarWidth
   position fixed
   z-index 10

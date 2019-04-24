@@ -8,10 +8,14 @@ module.exports = [
     link: '/note/'
   },
   {
+    text: 'GIT',
+    link: '/git/'
+  },
+  {
     text: 'MORE',
     items: [
       {
-        text: 'focus-outside',
+        text: '123123',
         link: 'https://vuepress.vuejs.org/guide/getting-started.html#global-installation'
       },
     ]
