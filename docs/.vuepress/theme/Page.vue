@@ -1,5 +1,5 @@
 <template>
-  <div class="page aaa">
+  <div class="page">
     <slot name="top"/>
 
     <ArcticWrap>

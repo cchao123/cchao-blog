@@ -1,5 +1,6 @@
 <template>
   <div class="sidebar">
+    <!-- 这是导航 -->
     <NavLinks/>
     <slot name="top"/>
     <ul class="sidebar-links" v-if="items.length">
