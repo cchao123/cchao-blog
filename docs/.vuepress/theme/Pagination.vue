@@ -48,7 +48,7 @@ export default {
   display flex
   margin-bottom 20px
   border-radius 8px
-  padding 30px 0
+  padding 5px 0
   li
     color #333
     cursor pointer

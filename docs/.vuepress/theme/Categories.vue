@@ -1,6 +1,8 @@
 <template>
   <div class="categories">
-    目录
+    <div class="atc-title">
+      Categories
+    </div>
   </div>
 </template>
 
@@ -12,6 +14,9 @@ export default {
 </script>
 
 <style lang="stylus">
+.atc-title
+  border-left 5px solid red
+  padding-left 5px
 .categories
   background #fff
   // position -webkit-sticky

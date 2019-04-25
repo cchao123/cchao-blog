@@ -9,6 +9,7 @@
       </div>
       <Pagination />
     </div>
+    <!-- TODO 窗口缩小就隐藏 -->
     <div class="articl-aside">
       <AboutMe />
       <!-- <HotArticle /> -->
@@ -50,6 +51,7 @@ export default {
 </script>
 
 <style lang="stylus">
+@import './styles/config.styl'
 .articl-wrap
   margin-top 20px
   display flex
@@ -65,4 +67,15 @@ export default {
     margin-bottom 20px
     width 300px
     margin-left 20px
+
+
+@media (max-width: $MQNarrow)
+  .articl-aside
+    display none
+
+@media (max-width: $MQNarrow) and (min-width: $MQMobile)
+  .articl-aside
+    display none
+
+
 </style>

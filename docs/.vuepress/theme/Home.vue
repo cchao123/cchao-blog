@@ -46,7 +46,7 @@ export default {
 @import './styles/config.styl';
 
 .home {
-  padding: $navbarHeight 2rem 0;
+  padding: $navbarHeight 0rem 0;
   max-width: 1200px;
   margin: 0px auto;
 
@@ -143,8 +143,8 @@ export default {
 
 @media (max-width: $MQMobileNarrow) {
   .home {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    // padding-left: 1.5rem;
+    // padding-right: 1.5rem;
 
     .hero {
       img {
