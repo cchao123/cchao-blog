@@ -1,23 +1,31 @@
 <template>
-  <div class="arctic-wrap">
-    <div class="arctic-flow">
+  <div class="articl-wrap">
+    <div class="articl-flow">
       <div class="atc-item" v-for="item in posts" v-if="isAtc(item.path)">
         <router-link :to="item.path"><p>{{ item.title }}</p></router-link>
+        <p>{{ item.frontmatter.date || item.lastUpdated }}</p>
+        <p>{{ item.frontmatter.description }}</p>
+        <span v-for="tag in item.frontmatter.tags">{{ tag }}</span>
       </div>
       <Pagination />
     </div>
-    <div class="arctic-aside">
-      121321321321
+    <div class="articl-aside">
+      <AboutMe />
+      <!-- <HotArticle /> -->
+      <Categories />
+      <!-- <Sidebar /> -->
     </div>
   </div>
-    <!-- 分页器 -->
-
 </template>
 
 <script>
 import Pagination from "./Pagination.vue";
+import AboutMe from "./AboutMe.vue";
+import HotArticle from "./AboutMe.vue";
+import Categories from "./Categories.vue";
+
 export default {
-  components: { Pagination },
+  components: { Pagination , AboutMe, HotArticle , Categories},
   data () {
     return {
       page: 1,
@@ -42,20 +50,19 @@ export default {
 </script>
 
 <style lang="stylus">
-.arctic-wrap
+.articl-wrap
   margin-top 20px
   display flex
-  .arctic-flow
+  .articl-flow
     flex: 1
-  .arctic-flow
+  .articl-flow
     .atc-item
       background #fff
       margin-bottom 20px
-      padding 20px 5px
+      padding 20px 30px
       border-radius 8px
-  .arctic-aside
+  .articl-aside
     margin-bottom 20px
     width 300px
     margin-left 20px
-    background #fff
 </style>

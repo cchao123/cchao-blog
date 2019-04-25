@@ -1,10 +1,11 @@
 <template>
   <ul class="pagination-wrap">
-    <li>←</li>
+    <!-- prev, pager, next -->
+    <li @click="pageTurning('prev')">前</li>
     <li class="pag-atcive" v-if="!total">{{ currentPage }}</li>
     <!-- <li v-else-if="total">123</li> -->
     <li :class="item === currentPage ? 'pag-atcive' :''" v-for="item in Math.ceil(total / pageSize)" :key="item" @click="pageTurning(item)">{{ item }}</li>
-    <li>→</li>
+    <li @click="pageTurning('next')">后 </li>
   </ul>
 </template>
 
@@ -31,7 +32,9 @@ export default {
   },
   methods: {
     pageTurning (item) {
-      this.currentPage = item
+      if (!isNaN(item)) this.currentPage = item
+      if (item === 'prev' && this.currentPage > 1) this.currentPage --
+      if (item === 'next' && this.currentPage < Math.ceil(this.total / this.pageSize)) this.currentPage ++
     }
   }
 }

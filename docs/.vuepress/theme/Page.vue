@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page aaa">
     <slot name="top"/>
 
     <Content :custom="false"/>
