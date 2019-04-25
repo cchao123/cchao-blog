@@ -4,6 +4,7 @@
       <div class="atc-item" v-for="item in posts" v-if="isAtc(item.path)">
         <router-link :to="item.path"><p>{{ item.title }}</p></router-link>
       </div>
+      <Pagination />
     </div>
     <div class="arctic-aside">
       121321321321
@@ -14,7 +15,9 @@
 </template>
 
 <script>
+import Pagination from "./Pagination.vue";
 export default {
+  components: { Pagination },
   data () {
     return {
       page: 1,
