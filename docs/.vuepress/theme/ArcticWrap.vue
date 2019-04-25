@@ -1,11 +1,11 @@
 <template>
   <div class="arctic-wrap">
     <div class="arctic-flow">
-      <div class="atc-item" v-for="item in posts">
-        <router-link :to="item.path"><p v-if="isAtc(item.path)">{{ item.title }}</p></router-link>
+      <div class="atc-item" v-for="item in posts" v-if="isAtc(item.path)">
+        <router-link :to="item.path"><p>{{ item.title }}</p></router-link>
       </div>
     </div>
-    <div class="arctic-other">
+    <div class="arctic-aside">
       121321321321
     </div>
   </div>
@@ -40,16 +40,18 @@ export default {
 
 <style lang="stylus">
 .arctic-wrap
+  margin-top 20px
   display flex
   .arctic-flow
     flex: 1
   .arctic-flow
     .atc-item
       background #fff
-      margin 10px 0
+      margin-bottom 20px
       padding 20px 5px
       border-radius 8px
-  .arctic-other
+  .arctic-aside
+    margin-bottom 20px
     width 300px
     margin-left 20px
     background #fff
