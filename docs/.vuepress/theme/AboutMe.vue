@@ -17,13 +17,17 @@
   padding 20px 5px
   border-radius 8px
   padding 20px
+
   .author-head
+    transition 0.5s
     display table
     margin: -120px auto 30px
     padding: 5px
     border 1px solid #e0e0e0
     border-radius 50%
     background-color #fff
+    &:hover
+      transform rotate(360deg)
 
 .atc-title
   border-left 5px solid red

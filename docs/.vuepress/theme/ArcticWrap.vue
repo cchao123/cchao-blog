@@ -7,7 +7,8 @@
         <p>{{ item.frontmatter.description }}</p>
         <span v-for="tag in item.frontmatter.tags">{{ tag }}</span>
       </div>
-      <Pagination />
+      <slot name="content"></slot>
+      <Pagination v-if="posts" />
     </div>
     <!-- TODO 窗口缩小就隐藏 -->
     <div class="articl-aside">
@@ -52,7 +53,14 @@ export default {
 
 <style lang="stylus">
 @import './styles/config.styl'
+.content
+  background #fff
+  border-radius 8px
+
 .articl-wrap
+  padding: $navbarHeight 0rem 0;
+  max-width 1200px
+  margin 0 auto
   margin-top 20px
   display flex
   .articl-flow
