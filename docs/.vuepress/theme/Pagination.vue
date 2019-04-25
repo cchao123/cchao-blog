@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     pageTurning (item) {
-      this.currentPage= item
+      this.currentPage = item
     }
   }
 }
