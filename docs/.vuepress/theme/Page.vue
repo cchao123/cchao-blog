@@ -2,7 +2,7 @@
   <div class="page aaa">
     <slot name="top"/>
 
-    <ArcticWrap :posts="false">
+    <ArcticWrap>
       <template v-slot:content>
         <Content :custom="false"/>
 
