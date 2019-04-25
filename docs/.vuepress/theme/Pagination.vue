@@ -1,8 +1,9 @@
 <template>
   <ul class="pagination-wrap">
     <li>←</li>
-    <li v-if="!total">{{ currentPage }}</li>
-    <li v-else v-for="item in Math.ceil(total / pageSize)" :key="item" @click="pageTurning(item)">{{ item }}</li>
+    <li class="pag-atcive" v-if="!total">{{ currentPage }}</li>
+    <!-- <li v-else-if="total">123</li> -->
+    <li :class="item === currentPage ? 'pag-atcive' :''" v-for="item in Math.ceil(total / pageSize)" :key="item" @click="pageTurning(item)">{{ item }}</li>
     <li>→</li>
   </ul>
 </template>
@@ -16,7 +17,7 @@ export default {
     },
     total: {
       type: Number,
-      default: 0 // 总条目数
+      default: 50 // 总条目数
     },
     pageSize: {
       type: Number,
@@ -30,7 +31,7 @@ export default {
   },
   methods: {
     pageTurning (item) {
-      console.log(item)
+      this.currentPage= item
     }
   }
 }
@@ -38,19 +39,26 @@ export default {
 
 <style lang="stylus">
 .pagination-wrap
+  align-items center
+  justify-content center
   list-style none
   display flex
-  background #fff
   margin-bottom 20px
   border-radius 8px
   padding 30px 0
   li
+    color #333
+    cursor pointer
+    background white
     align-items center
     justify-content center
     display flex
-    margin 0 2px
+    margin 0 5px
     width 30px
     height 30px
     border-radius 8px
     box-shadow 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12)
+  .pag-atcive
+    background #ccc
+    color #fff
 </style>
