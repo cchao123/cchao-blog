@@ -45,9 +45,9 @@ export default {
 .ca-fixed
   position fixed
   top $navbarHeight
-  width 300px
-  // 是个谜
   margin-top 20px
+  width 260px
+  padding 20px
 
 ul
   padding 0
