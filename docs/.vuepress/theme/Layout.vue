@@ -151,6 +151,15 @@ export default {
   },
 
   methods: {
+    onScroll () {
+      var sTop = document.documentElement.scrollTop || document.body.scrollTop
+      var top = document.querySelector('.navbar').offsetHeight + document.querySelector('.author').offsetHeight + 100 - 40
+      if (sTop >= top) {
+        document.querySelector('.categories').className += ' ca-fixed'
+      } else {
+        document.querySelector('.categories').className = 'categories'
+      }
+    },
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
     },

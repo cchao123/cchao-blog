@@ -13,13 +13,13 @@
       <!-- 文章主题 -->
       <slot name="content"></slot>
       <!-- 分页器 -->
-      <Pagination v-if="posts" />
+      <Pagination v-if="posts.length" />
     </div>
     <!-- 侧边栏 -->
     <div class="articl-aside">
 
       <AboutMe />
-      <!-- <HotArticle /> -->
+      <!-- <HotArticle />v-if="sidebarItems.length" -->
       <Categories :categories="sidebarItems"/>
       <!-- <Sidebar /> -->
     </div>
@@ -89,6 +89,7 @@ export default {
   margin-top 20px
   display flex
   .articl-flow
+    position relative
     flex: 1
     width 100%
     .articl-item
@@ -105,6 +106,8 @@ export default {
 @media (max-width: $MQNarrow)
   .articl-aside
     display none
+  // .articl-wrap
+  //   margin-top 0
 
 @media (max-width: $MQNarrow) and (min-width: $MQMobile)
   .articl-aside

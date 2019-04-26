@@ -1,7 +1,8 @@
 <template>
-  <div class="categories">
+  <div class="categories" v-if="categories.lenght || this.$page.headers">
     <div class="atc-title">
       Categories
+      {{ this.$page.headers }}
     </div>
     <div>
       <ul class="sidebar-links" v-if="categories.length">
@@ -40,6 +41,14 @@ export default {
 </script>
 
 <style lang="stylus">
+@import './styles/config.styl'
+.ca-fixed
+  position fixed
+  top $navbarHeight
+  width 300px
+  // 是个谜
+  margin-top 20px
+
 ul
   padding 0
   margin 0
@@ -69,6 +78,5 @@ a
   // position sticky
   // top 0
   padding 20px
-
 
 </style>
