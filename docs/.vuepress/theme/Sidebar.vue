@@ -83,7 +83,7 @@ function resolveOpenGroupIndex (route, items) {
 @import './styles/config.styl'
 
 .sidebar
-  ul
+    display none
     padding 0
     margin 0
     list-style-type none
@@ -105,6 +105,7 @@ function resolveOpenGroupIndex (route, items) {
 
 @media (max-width: $MQMobile)
   .sidebar
+    display block
     .nav-links
       display block
       .dropdown-wrapper .nav-dropdown .dropdown-item a.router-link-active::after

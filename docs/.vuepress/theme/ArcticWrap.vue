@@ -15,12 +15,12 @@
       <!-- 分页器 -->
       <Pagination v-if="posts" />
     </div>
-    <!-- TODO 窗口缩小就隐藏 -->
+    <!-- 侧边栏 -->
     <div class="articl-aside">
+
       <AboutMe />
       <!-- <HotArticle /> -->
-      <Categories />
-
+      <Categories :categories="sidebarItems"/>
       <!-- <Sidebar /> -->
     </div>
   </div>
@@ -32,6 +32,9 @@ import AboutMe from "./AboutMe.vue";
 import HotArticle from "./AboutMe.vue";
 import Categories from "./Categories.vue";
 import { formatTime } from './date.js'
+import { resolveSidebarItems } from './util'
+
+
 export default {
 
   components: { Pagination , AboutMe, HotArticle , Categories},
@@ -47,6 +50,16 @@ export default {
       total: 10
     }
   },
+  computed: {
+    sidebarItems () {
+      return resolveSidebarItems(
+        this.$page,
+        this.$route,
+        this.$site,
+        this.$localePath
+      )
+    },
+  },
   props: {
    posts: {
       type: Array,
@@ -56,9 +69,6 @@ export default {
     }
   },
   methods: {
-    // 一个新的数组来存放
-    // 然后排序
-    // 然后通过数组截取来做分页
     isAtc (file) {
       if (/posts/.test(file)) return true
     },
@@ -80,7 +90,7 @@ export default {
   display flex
   .articl-flow
     flex: 1
-  .articl-flow
+    width 100%
     .articl-item
       background #fff
       margin-bottom 20px
