@@ -19,7 +19,6 @@
     <div class="articl-aside">
 
       <AboutMe />
-      <!-- <HotArticle />v-if="sidebarItems.length" -->
       <Categories :categories="sidebarItems"/>
       <!-- <Sidebar /> -->
     </div>
