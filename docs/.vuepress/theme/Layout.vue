@@ -65,6 +65,7 @@ import Page from './Page.vue'
 import Sidebar from './Sidebar.vue'
 import SWUpdatePopup from './SWUpdatePopup.vue'
 import { resolveSidebarItems } from './util'
+//at.alicdn.com/t/font_1162703_iuucvxiz6l.js
 
 
 export default {
@@ -181,5 +182,6 @@ export default {
 }
 </script>
 
+<style src="./iconfont/iconfont.css"></style>
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="./styles/theme.styl" lang="stylus"></style>

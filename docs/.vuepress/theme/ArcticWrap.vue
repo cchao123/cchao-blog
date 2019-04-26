@@ -1,13 +1,18 @@
 <template>
   <div class="articl-wrap">
     <div class="articl-flow">
-      <div class="atc-item" v-for="item in posts" v-if="isAtc(item.path)">
-        <router-link :to="item.path"><p>{{ item.title }}</p></router-link>
-        <p>{{ item.frontmatter.date || item.lastUpdated | formatTime('yyyy-MM-dd') }}</p>
-        <p>{{ item.frontmatter.description }}</p>
-        <span v-for="tag in item.frontmatter.tags">{{ tag }}</span>
+      <div class="articl-item" v-for="item in posts" v-if="isAtc(item.path)">
+        <h3 class="articl-title"><router-link :to="item.path"><p>{{ item.title }}</p></router-link></h3>
+        <div class="articl-date"><i class="iconfont iconrili"></i>{{ item.frontmatter.date || item.lastUpdated | formatTime('yyyy-MM-dd') }}</div>
+        <div class="articl-date">{{ item.frontmatter.description }}</div>
+        <div class="articl-tag" v-if="item.frontmatter.tags">
+          <i class="iconfont iconbiaoqian"></i>
+          <span v-for="tag in item.frontmatter.tags">{{ tag }}</span>
+        </div>
       </div>
+      <!-- 文章主题 -->
       <slot name="content"></slot>
+      <!-- 分页器 -->
       <Pagination v-if="posts" />
     </div>
     <!-- TODO 窗口缩小就隐藏 -->
@@ -15,6 +20,7 @@
       <AboutMe />
       <!-- <HotArticle /> -->
       <Categories />
+
       <!-- <Sidebar /> -->
     </div>
   </div>
@@ -27,6 +33,7 @@ import HotArticle from "./AboutMe.vue";
 import Categories from "./Categories.vue";
 import { formatTime } from './date.js'
 export default {
+
   components: { Pagination , AboutMe, HotArticle , Categories},
 
   filters: {
@@ -74,7 +81,7 @@ export default {
   .articl-flow
     flex: 1
   .articl-flow
-    .atc-item
+    .articl-item
       background #fff
       margin-bottom 20px
       padding 20px 30px

@@ -1,11 +1,11 @@
 <template>
   <ul class="pagination-wrap">
     <!-- prev, pager, next -->
-    <li @click="pageTurning('prev')">前</li>
+    <li @click="pageTurning('prev')" class="iconfont iconhoutui"></li>
     <li class="pag-atcive" v-if="!total">{{ currentPage }}</li>
     <!-- <li v-else-if="total">123</li> -->
-    <li :class="item === currentPage ? 'pag-atcive' :''" v-for="item in Math.ceil(total / pageSize)" :key="item" @click="pageTurning(item)">{{ item }}</li>
-    <li @click="pageTurning('next')">后 </li>
+    <li :class="item === currentPage ? 'pag-atcive' :'da'" v-for="item in Math.ceil(total / pageSize)" :key="item" @click="pageTurning(item)">{{ item }}</li>
+    <li @click="pageTurning('next')" class="iconfont iconqianjin"></li>
   </ul>
 </template>
 

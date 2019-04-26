@@ -5,7 +5,6 @@
     <ArcticWrap>
       <template v-slot:content>
         <Content :custom="false"/>
-
         <div class="page-edit">
           <div class="edit-link" v-if="editLink">
             <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
