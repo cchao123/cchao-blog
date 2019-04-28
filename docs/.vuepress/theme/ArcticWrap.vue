@@ -101,8 +101,17 @@ export default {
     margin-left 20px
 
   .articl-tag
-    background #e0e0e0
-    color #333333
+    span
+      transition 0.3s
+      font-size 14px
+      background #e0e0e0
+      color #333333
+      padding 2px 5px
+      margin-right 5px
+      &:hover
+        background #a161bf
+        color #fff
+
 
 
 @media (max-width: $MQNarrow)

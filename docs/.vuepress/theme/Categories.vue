@@ -72,8 +72,8 @@ a
   display inline-block
 .nav-links
   display none
-  border-bottom 1px solid $borderColor
-  padding 0.5rem 0 0.75rem 0
+  // border-bottom 1px solid $borderColor
+  // padding 0.5rem 0 0.75rem 0
   a
     font-weight 600
   .nav-item, .repo-link

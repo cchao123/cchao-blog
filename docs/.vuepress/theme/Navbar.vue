@@ -1,6 +1,6 @@
 <template>
   <header class="navbar">
-    <div style="width:1200px;margin:0 auto;">
+    <div class="navbar-wrap">
       <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
       <router-link :to="$localePath" class="home-link">
@@ -17,13 +17,10 @@
           :class="{ 'can-hide': $site.themeConfig.logo }"
         >{{ $siteTitle }}</span>
       </router-link>
-
-      <div class="links" :style="{
-        'max-width': linksWrapMaxWidth + 'px'
-      }">
-        <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
-        <SearchBox v-else-if="$site.themeConfig.search !== false"/>
+      <div class="links">
         <NavLinks class="can-hide"/>
+        <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
+        <!-- <SearchBox v-else-if="$site.themeConfig.search !== false"/> -->
       </div>
     </div>
   </header>
@@ -90,6 +87,14 @@ function css(el, property) {
 $navbar-vertical-padding = 0.7rem;
 $navbar-horizontal-padding = 1.5rem;
 
+.navbar-wrap {
+  display: flex;
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
 .navbar {
   padding: $navbar-vertical-padding $navbar-horizontal-padding;
   line-height: $navbarHeight - 1.4rem;
@@ -114,14 +119,8 @@ $navbar-horizontal-padding = 1.5rem;
   }
 
   .links {
-    padding-left: 1.5rem;
-    box-sizing: border-box;
-    background-color: white;
+    // background-color: white;
     white-space: nowrap;
-    font-size: 0.9rem;
-    position: absolute;
-    right: $navbar-horizontal-padding;
-    top: $navbar-vertical-padding;
     display: flex;
 
     .search-box {
