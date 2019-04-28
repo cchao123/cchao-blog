@@ -18,13 +18,13 @@
         >{{ $siteTitle }}</span>
       </router-link>
 
-      <!-- <div class="links" :style="{
+      <div class="links" :style="{
         'max-width': linksWrapMaxWidth + 'px'
       }">
         <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
         <SearchBox v-else-if="$site.themeConfig.search !== false"/>
         <NavLinks class="can-hide"/>
-      </div> -->
+      </div>
     </div>
   </header>
 </template>

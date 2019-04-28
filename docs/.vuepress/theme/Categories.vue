@@ -2,7 +2,18 @@
   <div class="categories" v-if="categories.lenght || this.$page.headers">
     <div class="atc-title">
       Categories
-      {{ this.$page.headers }}
+
+    </div>
+    <div>
+      <!-- {{ this.$page.headers }} -->
+    <ul class="aaa">
+      <li v-for="item in $page.headers">
+        <a v-if="item.level ==2" :href="$page.path + '#' +item.title">{{ item.title }}</a>
+        <ol v-else>
+          <li><a :href="$page.path + '#' +item.title">{{ item.title }}</a><li/>
+        </ol>
+      </li>
+    </ul>
     </div>
     <div>
       <ul class="sidebar-links" v-if="categories.length">
@@ -34,14 +45,18 @@ export default {
   },
   props: ['categories'],
   components: { SidebarLink , SidebarGroup },
-  mounted() {
-
+  mounted () {
+    console.log(this.$page)
   }
 }
 </script>
 
 <style lang="stylus">
 @import './styles/config.styl'
+
+
+
+
 .ca-fixed
   position fixed
   top $navbarHeight
@@ -49,7 +64,7 @@ export default {
   width 260px
   padding 20px
 
-ul
+ul, ol
   padding 0
   margin 0
   list-style-type none
@@ -78,5 +93,11 @@ a
   // position sticky
   // top 0
   padding 20px
+
+.aaa
+  border-left 1px solid red
+  ol
+    border-left 1px solid red
+
 
 </style>

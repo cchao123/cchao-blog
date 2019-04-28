@@ -6,7 +6,6 @@
         <div class="articl-date"><i class="iconfont iconrili"></i>{{ item.frontmatter.date || item.lastUpdated | formatTime('yyyy-MM-dd') }}</div>
         <div class="articl-date">{{ item.frontmatter.description }}</div>
         <div class="articl-tag" v-if="item.frontmatter.tags">
-          <i class="iconfont iconbiaoqian"></i>
           <span v-for="tag in item.frontmatter.tags">{{ tag }}</span>
         </div>
       </div>
@@ -100,6 +99,10 @@ export default {
     margin-bottom 20px
     width 300px
     margin-left 20px
+
+  .articl-tag
+    background #e0e0e0
+    color #333333
 
 
 @media (max-width: $MQNarrow)

@@ -53,6 +53,9 @@
     </Page>
 
     <SWUpdatePopup :updateEvent="swUpdateEvent"/>
+
+
+    <div @click="goTop" class="goTop iconfont iconshang">{{ scrollTop }}</div>
   </div>
 </template>
 
@@ -74,11 +77,23 @@ export default {
 
   data () {
     return {
+      scrollTop: 0,
       isSidebarOpen: false,
       swUpdateEvent: null
     }
   },
-
+  watch: {
+    scrollTop: {
+      handler (val) {
+      var top = document.querySelector('.navbar').offsetHeight + document.querySelector('.author').offsetHeight + 100 - 40
+        if (val >= top && document.querySelector('.categories')) {
+          document.querySelector('.categories').className += ' ca-fixed'
+        } else {
+          if (document.querySelector('.categories')) document.querySelector('.categories').className = 'categories'
+        }
+      }
+    }
+  },
   computed: {
     shouldShowNavbar () {
       const { themeConfig } = this.$site
@@ -151,14 +166,11 @@ export default {
   },
 
   methods: {
+    goTop () {
+      document.body.scrollTop = document.documentElement.scrollTop = 0
+    },
     onScroll () {
-      var sTop = document.documentElement.scrollTop || document.body.scrollTop
-      var top = document.querySelector('.navbar').offsetHeight + document.querySelector('.author').offsetHeight + 100 - 40
-      if (sTop >= top) {
-        document.querySelector('.categories').className += ' ca-fixed'
-      } else {
-        document.querySelector('.categories').className = 'categories'
-      }
+      this.scrollTop = document.documentElement.scrollTop || document.body.scrollTop
     },
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
@@ -194,3 +206,13 @@ export default {
 <style src="./iconfont/iconfont.css"></style>
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="./styles/theme.styl" lang="stylus"></style>
+<style lang="stylus">
+.goTop
+  cursor pointer
+  padding 0.5rem
+  border 3px solid #ccc
+  border-radius 50%
+  position fixed
+  right 3rem
+  bottom 3rem
+</style>
