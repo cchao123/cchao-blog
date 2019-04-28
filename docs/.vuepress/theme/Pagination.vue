@@ -1,6 +1,7 @@
 <template>
   <ul class="pagination-wrap">
     <!-- prev, pager, next -->
+    {{ this.total}}
     <li @click="pageTurning('prev')" class="iconfont iconhoutui"></li>
     <li class="pag-atcive" v-if="!total">{{ currentPage }}</li>
     <!-- <li v-else-if="total">123</li> -->
@@ -18,7 +19,7 @@ export default {
     },
     total: {
       type: Number,
-      default: 50 // 总条目数
+      default: 1 // 总条目数
     },
     pageSize: {
       type: Number,

@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <ArcticWrap :posts="this.$site.pages" />
+    <ArticleWrap :posts="this.$site.pages" />
     <Content custom/>
 
     <div class="footer" v-if="data.footer">{{ data.footer }}</div>
@@ -22,9 +22,9 @@
 
 <script>
 import NavLink from "./NavLink.vue";
-import ArcticWrap from "./ArcticWrap.vue";
+import ArticleWrap from "./ArticleWrap.vue";
 export default {
-  components: { NavLink, ArcticWrap },
+  components: { NavLink, ArticleWrap },
 
   computed: {
 

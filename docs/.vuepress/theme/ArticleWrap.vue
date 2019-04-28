@@ -1,8 +1,8 @@
 <template>
   <div class="articl-wrap">
     <div class="articl-flow">
-      <div class="articl-item" v-for="item in posts" v-if="isAtc(item.path)">
-        <h3 class="articl-title"><router-link :to="item.path"><p>{{ item.title }}</p></router-link></h3>
+      <div class="articl-item" v-for="item in posts" v-if="isAtc(item)">
+        <h3 class="articl-title"><router-link :to="item.path">{{ item.title }}</router-link></h3>
         <div class="articl-date"><i class="iconfont iconrili"></i>{{ item.frontmatter.date || item.lastUpdated | formatTime('yyyy-MM-dd') }}</div>
         <div class="articl-date">{{ item.frontmatter.description }}</div>
         <div class="articl-tag" v-if="item.frontmatter.tags">
@@ -12,12 +12,16 @@
       <!-- 文章主题 -->
       <slot name="content"></slot>
       <!-- 分页器 -->
-      <Pagination v-if="posts.length" />
+      <Pagination v-if="posts.length" :currentPage="currentPage" :total="total" />
     </div>
     <!-- 侧边栏 -->
     <div class="articl-aside">
-
+      <!-- 关于作者 -->
       <AboutMe />
+      <FollowMe />
+      <!-- 标签分类 -->
+      <Tags />
+
       <Categories :categories="sidebarItems"/>
       <!-- <Sidebar /> -->
     </div>
@@ -29,13 +33,15 @@ import Pagination from "./Pagination.vue";
 import AboutMe from "./AboutMe.vue";
 import HotArticle from "./AboutMe.vue";
 import Categories from "./Categories.vue";
+import Tags from "./Tags.vue";
+import FollowMe from "./FollowMe.vue";
 import { formatTime } from './date.js'
 import { resolveSidebarItems } from './util'
 
 
 export default {
 
-  components: { Pagination , AboutMe, HotArticle , Categories},
+  components: { Pagination , AboutMe, HotArticle , Categories, Tags , FollowMe},
 
   filters: {
     formatTime (time, format) {
@@ -44,7 +50,7 @@ export default {
   },
   data () {
     return {
-      page: 1,
+      currentPage: 1,
       total: 10
     }
   },
@@ -68,7 +74,7 @@ export default {
   },
   methods: {
     isAtc (file) {
-      if (/posts/.test(file)) return true
+      if (/posts/.test(file.path)) return true
     },
   },
 }

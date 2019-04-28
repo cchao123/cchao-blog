@@ -2,10 +2,8 @@
   <div class="categories" v-if="categories.lenght || this.$page.headers">
     <div class="atc-title">
       Categories
-
     </div>
     <div>
-      <!-- {{ this.$page.headers }} -->
     <ul class="aaa">
       <li v-for="item in $page.headers">
         <a v-if="item.level ==2" :href="$page.path + '#' +item.title">{{ item.title }}</a>

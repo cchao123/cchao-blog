@@ -2,7 +2,7 @@
   <div class="page">
     <slot name="top"/>
 
-    <ArcticWrap>
+    <ArticleWrap>
       <template v-slot:content>
         <Content :custom="false"/>
         <div class="page-edit">
@@ -32,18 +32,18 @@
 
         <slot name="bottom"/>
       </template>
-    </ArcticWrap>
+    </ArticleWrap>
   </div>
 </template>
 
 <script>
 import { resolvePage, normalize, outboundRE, endingSlashRE } from "./util";
-import ArcticWrap from "./ArcticWrap.vue";
+import ArticleWrap from "./ArticleWrap.vue";
 
 export default {
   props: ["sidebarItems"],
 
-  components: { ArcticWrap },
+  components: { ArticleWrap },
 
   computed: {
     lastUpdated() {
