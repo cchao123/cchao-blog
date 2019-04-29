@@ -27,7 +27,7 @@ export default {
         verify: false,
         avatar: 'monsterid',
         path: window.location.pathname,
-        placeholder: '欢迎留言与我分享您的想法...',
+        placeholder: '来谈一谈对这篇文章的看法吧~',
       });
       this.valineRefresh = false
     }
@@ -51,3 +51,13 @@ export default {
   }
 }
 </script>
+
+
+<style lang="stylus">
+  .vcomment
+    background #fff
+    padding 20px
+    border-radius 8px
+    .info
+      display none
+</style>
