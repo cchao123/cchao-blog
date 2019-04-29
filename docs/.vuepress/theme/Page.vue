@@ -29,7 +29,8 @@
             </span>
           </p>
         </div>
-
+        <!-- 只给文章添加评论 -->
+        <Comments v-bind:is="viewComments"></Comments>
         <slot name="bottom"/>
       </template>
     </ArticleWrap>
@@ -39,11 +40,16 @@
 <script>
 import { resolvePage, normalize, outboundRE, endingSlashRE } from "./util";
 import ArticleWrap from "./ArticleWrap.vue";
+import Comments from "./Comments.vue";
 
 export default {
   props: ["sidebarItems"],
-
-  components: { ArticleWrap },
+  data () {
+    return {
+      viewComments: 'Comments'
+    }
+  },
+  components: { ArticleWrap , Comments},
 
   computed: {
     lastUpdated() {
