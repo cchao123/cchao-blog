@@ -100,6 +100,11 @@ This is a tip
 
 
 ```javascript
+
+  process.nextTick(function() {
+    console.log('6');
+  })
+
   new Promise(function (resolve) {
     console.log('1');
     resolve();
