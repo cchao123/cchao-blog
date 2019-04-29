@@ -1,17 +1,21 @@
 <template>
   <article-card>
-    <div slot="card-content">
-      123123
+    <div class="card-title" slot="card-title">Classification</div>
+    <div class="card-content" slot="card-content">
+
+
+      3
     </div>
   </article-card>
 </template>
 
 <script>
-import ArticleCard from './ArticleCard.vue'
+import ArticleCard from "./ArticleCard.vue";
+import SearchBox from "./SearchBox.vue";
+
 export default {
-  components: { ArticleCard }
-}
+  components: { ArticleCard, SearchBox }
+};
 </script>
 <style lang="stylus">
-
 </style>

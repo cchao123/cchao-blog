@@ -1,7 +1,13 @@
 <template>
   <article-card>
-    <div slot="card-content">
-      123123
+    <div class="card-title" slot="card-title">
+      Follow Me
+    </div>
+    <div class="card-content" slot="card-content">
+      <div>知乎</div>
+      <div>思否</div>
+      <div>掘金</div>
+      <div>GIthub</div>
     </div>
   </article-card>
 </template>

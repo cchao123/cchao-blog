@@ -1,6 +1,7 @@
 <template>
   <div class="search-box">
     <input
+      placeholder=" Search  for  more  content . . . "
       @input="query = $event.target.value"
       aria-label="Search"
       :value="query"
@@ -160,10 +161,11 @@ export default {
   margin-right 1rem
   input
     cursor text
-    width 10rem
+    width 100%
     color lighten($textColor, 25%)
     display inline-block
     border 1px solid darken($borderColor, 10%)
+    border-color #fff
     border-radius 2rem
     font-size 0.9rem
     line-height 2rem
