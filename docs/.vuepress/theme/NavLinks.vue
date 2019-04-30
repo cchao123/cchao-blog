@@ -131,7 +131,9 @@ export default {
       margin-left: 0;
     }
     .nav-item {
-      border-bottom 1px dashed #e7e7e9
+      width: 100%;
+      line-height: 1.25rem;
+      border-bottom 1px dashed #e7e7e9;
     }
     a {
       font-size 12px
