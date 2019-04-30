@@ -123,8 +123,9 @@ export default {
       margin-bottom: 20px;
       padding: 20px 30px;
       border-radius: 8px;
-
-      .article-title {
+      transition 0.5s
+      box-shadow 5px 5px 10px rgb(224,246,249)
+0      .article-title {
         a {
           transition 0.5s
           font-size 20px
