@@ -16,7 +16,7 @@
         <!-- <div class="article-tag" v-if="item.frontmatter.tags">
           <span v-for="tag in item.frontmatter.tags">{{ tag }}</span>
         </div>-->
-        <div class="article-more">MORE</div>
+        <div class="article-more">READ MORE</div>
       </div>
       <!-- 文章主题 -->
       <slot name="content"></slot>
@@ -126,7 +126,12 @@ export default {
 
       .article-title {
         a {
-          color: #333;
+          transition 0.5s
+          font-size 20px
+          color: #262626;
+          &:hover {
+            color #b09dae
+          }
         }
       }
     }
@@ -140,26 +145,31 @@ export default {
 
   .article-date {
     font-size: 14px;
-    color: #adadc5;
+    color: #565656;
+    cursor pointer
   }
 
   .article-description {
     line-height 30px
     margin 16px 0
-    font-size: 16px;
+    font-size: 16px
     color #393939
+    color #656565
+    font-size 14px
     // color: #976666;
   }
 
   .article-more {
+    font-size 12px
     cursor pointer
     transition 0.5s
-    border 1px solid #337ab7
-    color #337ab7
-    width: 4em;
-    text-align center;
+    border 1px solid #959dae
+    color #959dae
+    padding 2px 0
+    width: 7em
+    text-align center
     &:hover {
-      background #337ab7
+      background #959dae
       color #fff
     }
   }

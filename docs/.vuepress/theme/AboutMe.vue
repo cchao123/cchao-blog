@@ -7,7 +7,27 @@
           src="https://mllj2j8xvfl0.i.optimole.com/w:180/h:180/q:90/https://s20206.pcdn.co/wp-content/uploads/sites/60/2015/11/black-and-white-man-person-musician.jpg"
           alt
         >
-        <div class="card-title" slot="card-title">About Me</div>
+        <!-- <div class="card-title" slot="card-title">About Me</div> -->
+        <div class="author-info">
+          <div class="info-item">
+            <i>文章</i>
+            <ICountUp
+            :endVal="3"
+            :options="options" />
+          </div>
+          <div class="info-item">
+            <i>标签</i>
+            <ICountUp
+            :endVal="10"
+            :options="options" />
+          </div>
+          <div class="info-item">
+            <i>分类</i>
+            <ICountUp
+            :endVal="2"
+            :options="options" />
+          </div>
+        </div>
       </div>
     </div>
   </article-card>
@@ -15,9 +35,23 @@
 
 <script>
 import ArticleCard from "./ArticleCard.vue";
-
+// import ICountUp from 'vue-countup-v2';
+const ICountUp = () => import(/* webpackChunkName: "countup" */ 'vue-countup-v2')
 export default {
-  components: { ArticleCard }
+  components: { ArticleCard , ICountUp},
+  computed: {
+    options () {
+      return {
+        useEasing: true,
+        useGrouping: true,
+        separator: '',
+        decimal: '.',
+        decimalPlaces: '',
+        prefix: '',
+        suffix: ''
+      }
+    }
+  }
 };
 </script>
 
@@ -34,6 +68,20 @@ export default {
 
     &:hover {
       transform: rotate(360deg);
+    }
+  }
+}
+
+.author-info {
+  display flex
+  .info-item {
+    text-align center
+    flex 1
+    display flex
+    flex-direction column
+    justify-content center
+    span {
+      justify-content center
     }
   }
 }
