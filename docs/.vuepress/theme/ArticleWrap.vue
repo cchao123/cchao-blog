@@ -184,6 +184,9 @@ export default {
   .article-aside {
     display: none;
   }
+  .article-wrap {
+    margin-top 0
+  }
 }
 
 @media (max-width: $MQNarrow) and (min-width: $MQMobile) {
