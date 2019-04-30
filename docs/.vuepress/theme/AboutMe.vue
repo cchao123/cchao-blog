@@ -66,6 +66,7 @@ export default {
 }
 
 .author-info {
+  cursor pointer
   display flex
   .info-item {
     &:nth-child(1) {
