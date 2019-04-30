@@ -125,7 +125,7 @@ export default {
       border-radius: 8px;
       transition 0.5s
       box-shadow 5px 5px 10px rgb(224,246,249)
-0      .article-title {
+     .article-title {
         a {
           transition 0.5s
           font-size 20px

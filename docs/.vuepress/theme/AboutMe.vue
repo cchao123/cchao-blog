@@ -11,21 +11,15 @@
         <div class="author-info">
           <div class="info-item">
             <i>文章</i>
-            <ICountUp
-            :endVal="3"
-            :options="options" />
+            <CountUp startNum="0" endNum="10" times="10" speed="50" />
           </div>
           <div class="info-item">
             <i>标签</i>
-            <ICountUp
-            :endVal="10"
-            :options="options" />
+            <CountUp startNum="0" endNum="5" times="10" speed="50" />
           </div>
           <div class="info-item">
             <i>分类</i>
-            <ICountUp
-            :endVal="2"
-            :options="options" />
+            <CountUp startNum="0" endNum="2" times="10" speed="50" />
           </div>
         </div>
       </div>
@@ -35,10 +29,9 @@
 
 <script>
 import ArticleCard from "./ArticleCard.vue";
-// import ICountUp from 'vue-countup-v2';
-const ICountUp = () => import(/* webpackChunkName: "countup" */ 'vue-countup-v2')
+import CountUp from './CountUp';
 export default {
-  components: { ArticleCard , ICountUp},
+  components: { ArticleCard , CountUp},
   computed: {
     options () {
       return {
