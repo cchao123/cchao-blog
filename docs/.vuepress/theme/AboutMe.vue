@@ -10,15 +10,15 @@
         <!-- <div class="card-title" slot="card-title">About Me</div> -->
         <div class="author-info">
           <div class="info-item">
-            <i>文章</i>
+            <i class="iconfont iconwenzhang"></i>
             <CountUp startNum="0" endNum="10" times="10" speed="50" />
           </div>
           <div class="info-item">
-            <i>标签</i>
+            <i class="iconfont iconwenjianjia"></i>
             <CountUp startNum="0" endNum="5" times="10" speed="50" />
           </div>
           <div class="info-item">
-            <i>分类</i>
+            <i class="iconfont icontag"></i>
             <CountUp startNum="0" endNum="2" times="10" speed="50" />
           </div>
         </div>
@@ -68,12 +68,20 @@ export default {
 .author-info {
   display flex
   .info-item {
+    &:nth-child(1) {
+      border 0
+    }
+    border-left 1px dashed #e0e0e0
     text-align center
     flex 1
     display flex
     flex-direction column
     justify-content center
+    i {
+      font-size 20px
+    }
     span {
+      font-size 10px
       justify-content center
     }
   }
