@@ -89,7 +89,42 @@ a {
 }
 
 .sidebar-links {
-  padding: 1.5rem 0;
+  position relative;
+  // padding: 1.5rem 0;
+  padding: 0;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 7px;
+    bottom: 0;
+    width: 2px;
+    background-color: #ebedef;
+    opacity: .5;
+  }
+  a {
+    position relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 1px;
+      margin-top: -5px;
+      width: 6px;
+      height: 6px;
+      background-color: currentColor;
+      border-radius: 50%;
+    }
+  }
+}
+
+.sidebar-sub-header {
+  a {
+    &:before {
+      width 4px
+      height 4px
+    }
+  }
 }
 
 .atc-title {
