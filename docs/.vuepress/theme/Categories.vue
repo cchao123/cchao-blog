@@ -17,15 +17,15 @@
       </ul>
     </div>
     <div v-else>
-      <ul class="aaa">
+      <ul class="sidebar-links">
         <li v-for="item in $page.headers">
           <a v-if="item.level ==2" :href="$page.path + '#' +item.title">{{ item.title }}</a>
-          <ol v-else>
-            <li>
+          <ul class="sidebar-sub-headers" v-else>
+            <li class="sidebar-sub-header">
               <a :href="$page.path + '#' +item.title">{{ item.title }}</a>
             </li>
             <li/>
-          </ol>
+          </ul>
         </li>
       </ul>
     </div>
@@ -140,11 +140,4 @@ a {
   padding: 20px;
 }
 
-.aaa {
-  border-left: 1px solid red;
-
-  ol {
-    border-left: 1px solid red;
-  }
-}
 </style>
