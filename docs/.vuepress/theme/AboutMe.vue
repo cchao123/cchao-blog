@@ -11,15 +11,15 @@
         <div class="author-info">
           <div class="info-item">
             <i class="iconfont iconwenzhang"></i>
-            <CountUp startNum="0" endNum="10" times="10" speed="50" />
+            <CountUp startNum="0" :endNum="postsNum" times="10" speed="50" />
           </div>
-          <div class="info-item">
+          <!-- <div class="info-item">
             <i class="iconfont iconwenjianjia"></i>
-            <CountUp startNum="0" endNum="5" times="10" speed="50" />
-          </div>
+            <CountUp startNum="0" :endNum="classNum" times="10" speed="50" />
+          </div> -->
           <div class="info-item">
             <i class="iconfont icontag"></i>
-            <CountUp startNum="0" endNum="2" times="10" speed="50" />
+            <CountUp startNum="0" :endNum="tagsNum" times="10" speed="50" />
           </div>
         </div>
       </div>
@@ -31,6 +31,20 @@
 import ArticleCard from "./ArticleCard.vue";
 import CountUp from './CountUp';
 export default {
+  props: {
+    postsNum: {
+      type: Number,
+      default: 0
+    },
+    classNum: {
+      type: Number,
+      default: 0
+    },
+    tagsNum: {
+      type: Number,
+      default: 0
+    }
+  },
   components: { ArticleCard , CountUp},
   computed: {
     options () {

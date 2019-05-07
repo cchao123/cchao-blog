@@ -4,10 +4,6 @@ module.exports = [
     link: '/'
   },
   {
-    text: 'TAGS',
-    link: '/tags/'
-  },
-  {
     text: 'MORE',
     items: [
       {

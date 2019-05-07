@@ -30,10 +30,10 @@
     <!-- 侧边栏 -->
     <div class="article-aside">
       <!-- 关于作者 -->
-      <AboutMe/>
+      <AboutMe :tagsNum="tags.length" :postsNum="postsArr.length" />
       <FollowMe/>
       <!-- 标签分类 -->
-      <Tags/>
+      <Tags :tags="tags"/>
       <Search/>
 
       <Categories :categories="sidebarItems"/>
@@ -72,6 +72,7 @@ export default {
   },
   data() {
     return {
+      tags: [],
       postsArr: [], // 文章列表
       currentPage: 1,
       pageSize: 3
@@ -109,9 +110,13 @@ export default {
     getPosts () {
       this.posts.map((postItem, ind)=>{
         if (/posts/.test(postItem.path)) {
+          // 收集标签
+          postItem.frontmatter.tags.map((tagItem)=>{
+            if (this.tags.indexOf(tagItem) == -1) this.tags.push(tagItem)
+          })
           this.postsArr.push(postItem)
           // TODO 添加一个排序 时间 or hot值
-          console.log(postItem.lastUpdated)
+          // console.log(postItem.lastUpdated)
         }
       })
     },
