@@ -18,11 +18,11 @@ export default {
     },
     total: {
       type: Number,
-      default: 1 // 总条目数
+      default: 0 // 总条目数
     },
     pageSize: {
       type: Number,
-      default: 1 // 一页几条
+      default: 3 // 一页几条
     }
   },
   data () {

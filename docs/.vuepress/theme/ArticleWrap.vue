@@ -74,7 +74,7 @@ export default {
     return {
       postsArr: [], // 文章列表
       currentPage: 1,
-      pageSize: 5
+      pageSize: 3
     };
   },
   computed: {
