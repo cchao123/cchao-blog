@@ -4,8 +4,8 @@ module.exports = [
     link: '/'
   },
   {
-    text: 'NOTE',
-    link: '/note/'
+    text: 'TAGS',
+    link: '/tags/'
   },
   {
     text: 'MORE',

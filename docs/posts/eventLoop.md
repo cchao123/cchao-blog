@@ -1,7 +1,7 @@
 ---
 title: JS事件循环
 date: 2019/4/25
-description: 微信小程序最近被吐槽最多的一个更改，就是用户使用wx.getUserInfo（开发和体验版）时不会弹出授权，正式版不受影响。现在授权方式是需要引导用户点击一个授权按钮，然后再弹出授权。我最近围绕这个做了一些研究，来看看我是如何做好这个授权。
+description: 测试1
 tags:
   - JS
 ---
@@ -14,7 +14,7 @@ tags:
   试想一下 如果js设计为多线程 那么同时修改和删除同一个dom 浏览器又该如何执行?
 :::
 
-![](./mengbi.png)
+![](https://user-gold-cdn.xitu.io/2019/4/30/16a6caffd41710b3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 
 ## js需要异步
@@ -33,7 +33,7 @@ console.log("你好啊")
 :::
 
 #### 一方面代码慢慢跑着 另一方面用户已经抓狂
-![](./kasi.gif)
+![](https://user-gold-cdn.xitu.io/2019/4/30/16a6cb02c8125c9c?imageslim)
 
 
 ## js事件循环

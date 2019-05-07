@@ -1,12 +1,11 @@
 <template>
   <ul class="pagination-wrap">
     <!-- prev, pager, next -->
-    {{ this.total}}
-    <li @click="pageTurning('prev')" class="iconfont iconhoutui"></li>
+    <li @click="currentChange('prev')" class="iconfont iconhoutui"></li>
     <li class="pag-atcive" v-if="!total">{{ currentPage }}</li>
     <!-- <li v-else-if="total">123</li> -->
-    <li :class="item === currentPage ? 'pag-atcive' :'da'" v-for="item in Math.ceil(total / pageSize)" :key="item" @click="pageTurning(item)">{{ item }}</li>
-    <li @click="pageTurning('next')" class="iconfont iconqianjin"></li>
+    <li :class="item === currentPage ? 'pag-atcive' :'da'" v-for="item in Math.ceil(total / pageSize)" :key="item" @click="currentChange(item)">{{ item }}</li>
+    <li @click="currentChange('next')" class="iconfont iconqianjin"></li>
   </ul>
 </template>
 
@@ -23,7 +22,7 @@ export default {
     },
     pageSize: {
       type: Number,
-      default: 10 // 一页几条
+      default: 1 // 一页几条
     }
   },
   data () {
@@ -32,10 +31,19 @@ export default {
     }
   },
   methods: {
+    currentChange (item) {
+      if (!isNaN(item)) this.$emit('current-change', item)
+      var page = this.currentPage
+      if (item === 'prev' && this.currentPage > 1) {
+        this.$emit('current-change', --page)
+      }
+      if (item === 'next' && this.currentPage < Math.ceil(this.total / this.pageSize)) {
+        this.$emit('current-change', ++page)
+      }
+    },
     pageTurning (item) {
       if (!isNaN(item)) this.currentPage = item
-      if (item === 'prev' && this.currentPage > 1) this.currentPage --
-      if (item === 'next' && this.currentPage < Math.ceil(this.total / this.pageSize)) this.currentPage ++
+
     }
   }
 }

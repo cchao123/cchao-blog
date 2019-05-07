@@ -1,7 +1,7 @@
 <template>
   <div class="article-wrap">
     <div class="article-flow">
-      <div class="article-item" v-for="item in posts" v-if="isAtc(item)">
+      <div class="article-item" v-for="item in currentPost">
         <h3 class="article-title">
           <router-link :to="item.path">{{ item.title }}</router-link>
         </h3>
@@ -21,7 +21,11 @@
       <!-- 文章主题 -->
       <slot name="content"></slot>
       <!-- 分页器 -->
-      <Pagination v-if="posts.length" :currentPage="currentPage" :total="total"/>
+      <Pagination v-if="posts.length"
+        :currentPage="currentPage"
+        :total="total"
+        :pageSize="pageSize"
+        @current-change="handleCurrentChange"/>
     </div>
     <!-- 侧边栏 -->
     <div class="article-aside">
@@ -68,8 +72,9 @@ export default {
   },
   data() {
     return {
+      postsArr: [], // 文章列表
       currentPage: 1,
-      total: 10
+      pageSize: 5
     };
   },
   computed: {
@@ -80,6 +85,12 @@ export default {
         this.$site,
         this.$localePath
       );
+    },
+    total () {
+      return this.postsArr.length
+    },
+    currentPost() {
+      return this.postsArr.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)
     }
   },
   props: {
@@ -90,9 +101,22 @@ export default {
       }
     }
   },
+  mounted() {
+    this.getPosts()
+  },
   methods: {
-    isAtc(file) {
-      if (/posts/.test(file.path)) return true;
+    // 收集文章并
+    getPosts () {
+      this.posts.map((postItem, ind)=>{
+        if (/posts/.test(postItem.path)) {
+          this.postsArr.push(postItem)
+          // TODO 添加一个排序 时间 or hot值
+          console.log(postItem.lastUpdated)
+        }
+      })
+    },
+    handleCurrentChange (val) {
+      this.currentPage = val
     }
   }
 };
