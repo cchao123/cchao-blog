@@ -4,7 +4,7 @@
       <div class="author">
         <img
           class="author-head"
-          src="https://mllj2j8xvfl0.i.optimole.com/w:180/h:180/q:90/https://s20206.pcdn.co/wp-content/uploads/sites/60/2015/11/black-and-white-man-person-musician.jpg"
+          src="https://avatars1.githubusercontent.com/u/24643401?s=460&v=4"
           alt
         >
         <!-- <div class="card-title" slot="card-title">About Me</div> -->
@@ -68,6 +68,8 @@ export default {
 <style lang="stylus" scoped>
 .author {
   .author-head {
+    width 192px
+    height 192px
     transition: 0.5s;
     display: table;
     margin: -120px auto 30px;
