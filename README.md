@@ -22,6 +22,8 @@
 
 1. [VuePress](https://vuepress.vuejs.org/zh/ "VuePres官方文档")：Vue 驱动的静态网站生成器;
 2. [Valine](https://valine.js.org/ "Valine无后台评论系统")：无后端评论系统;
+3. [vuepress-theme-cchao](https://github.com/2020807070/vuepress-theme-cchao "此博客使用的vuepress主题")：vuepress主题;
+
 
 ### 开发指南
 
