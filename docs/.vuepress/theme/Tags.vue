@@ -2,7 +2,7 @@
   <article-card>
     <div class="card-title" slot="card-title">标签</div>
     <div class="card-content tags-content" slot="card-content">
-      <span class="tags-item" v-for="item in tags">{{ item }}</span>
+      <span class="tags-item" v-for="item in tags"># {{ item }}</span>
     </div>
   </article-card>
 </template>
@@ -27,12 +27,20 @@ export default {
 .tags-content
   display flex
   flex-wrap wrap
-  // justify-content space-between
+  justify-content space-between
+  // justify-content space-around
   justify-content space-around
+
   .tags-item
     font-size 12px
     color #fff
     margin 5px
     padding 3px 5px
-    background red
+    background-color rgb(44,62,80)
+    background-color rgb(170, 170, 170)
+    transition .5s
+    border-radius 3px
+    &:hover {
+      background-color rgb(44,62,80)
+    }
 </style>

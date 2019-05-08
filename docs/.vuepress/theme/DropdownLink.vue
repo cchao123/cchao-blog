@@ -141,6 +141,8 @@ export default {
       transition height .1s ease-out
       overflow hidden
       .dropdown-item
+        padding: 0;
+        border-bottom: 0px dashed #e7e7e9;
         h4
           border-top 0
           margin-top 0

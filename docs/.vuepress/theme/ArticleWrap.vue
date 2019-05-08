@@ -2,9 +2,8 @@
   <div class="article-wrap">
     <div class="article-flow">
       <template v-for="item in currentPost">
-        <div>
-          <div v-if="item.frontmatter.headimg" class="article-headimg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}">
-          </div>
+        <template>
+          <div v-if="item.frontmatter.headimg" class="article-headimg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"></div>
           <div class="article-item">
             <h3 class="article-title">
               <router-link :to="item.path">{{ item.title }}</router-link>
@@ -25,7 +24,7 @@
             </div>-->
             <div class="article-more">READ MORE</div>
           </div>
-        </div>
+        </template>
       </template>
 
       <!-- 文章主题 -->
@@ -163,6 +162,7 @@ export default {
     width: 100%;
 
     .article-headimg {
+      background-color #959dae
       widht: 100%;
       height: 15rem;
       border-top-left-radius: 8px;
