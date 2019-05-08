@@ -3,11 +3,8 @@
     <div class="article-flow">
       <template v-for="item in currentPost">
         <div>
-           <img style="border-top-left-radius: 8px;border-top-right-radius: 8px;"
-              src="http://www.vicchen.me/wp-content/uploads/2015/10/banner.jpg"
-              :alt="item.title"
-              width="100%"
-            >
+          <div v-if="item.frontmatter.headimg" class="article-headimg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}">
+          </div>
           <div class="article-item">
             <h3 class="article-title">
               <router-link :to="item.path">{{ item.title }}</router-link>
@@ -164,6 +161,15 @@ export default {
     position: relative;
     flex: 1;
     width: 100%;
+
+    .article-headimg {
+      widht: 100%;
+      height: 15rem;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      background-size: cover;
+      background-position: center center;
+    }
 
     .article-item {
       background: #fff;

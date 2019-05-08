@@ -1,5 +1,6 @@
 ---
 title: JS事件循环
+headimg: 'https://user-gold-cdn.xitu.io/2017/11/21/15fdd9dfc3293a5c?imageView2/1/w/1304/h/734/q/85/format/webp/interlace/1'
 date: 2019/4/25
 description: 测试1
 tags:

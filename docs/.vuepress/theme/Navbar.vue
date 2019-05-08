@@ -4,7 +4,6 @@
       <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
       <router-link :to="$localePath" class="home-link">
-        {{ $site.themeConfig.logo }}
         <img
           class="logo"
           v-if="$site.themeConfig.logo"
@@ -14,9 +13,15 @@
         <span
           ref="siteName"
           class="site-name"
-          v-if="$siteTitle"
+          v-else
           :class="{ 'can-hide': $site.themeConfig.logo }"
         >{{ $siteTitle }}</span>
+        <!-- <span
+          ref="siteName"
+          class="site-name"
+          v-if="$siteTitle"
+          :class="{ 'can-hide': $site.themeConfig.logo }"
+        >{{ $siteTitle }}</span> -->
       </router-link>
       <div class="links">
         <NavLinks class="can-hide"/>

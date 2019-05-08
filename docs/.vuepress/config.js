@@ -7,7 +7,7 @@
   dest: './dist',
   port: '9999',
   themeConfig: {
-    logo: '../../public/logo.png',
+    logo: 'https://raw.githubusercontent.com/2020807070/cchao-blog/feature/layout/docs/.vuepress/public/logo.png',
     serviceWorker: {
       updatePopup: true
     },
