@@ -73,10 +73,6 @@ a {
 
 .nav-links {
   display: none;
-  a {
-    font-weight: 600;
-  }
-
   .nav-item, .repo-link {
     display: block;
     line-height: 1.25rem;

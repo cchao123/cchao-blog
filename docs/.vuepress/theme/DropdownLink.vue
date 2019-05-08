@@ -91,7 +91,11 @@ export default {
       margin-left 0.4rem
   .nav-dropdown
     .dropdown-item
-      color inherit
+      line-height: 40px;
+      font-size: 10px;
+      padding: 10px 20px;
+      border-bottom: 1px dashed #e7e7e9;
+      color #565656
       line-height 1.7rem
       h4
         margin 0.45rem 0 0
@@ -170,7 +174,8 @@ export default {
       overflow-y auto
       position absolute
       top 100%
-      right 0
+      right 50%
+      transform translateX(50%)
       background-color #fff
       padding 0.6rem 0
       border 1px solid #ddd

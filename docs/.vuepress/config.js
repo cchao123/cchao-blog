@@ -7,6 +7,7 @@
   dest: './dist',
   port: '9999',
   themeConfig: {
+    logo: '../../public/logo.png',
     serviceWorker: {
       updatePopup: true
     },

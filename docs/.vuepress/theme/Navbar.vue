@@ -4,18 +4,19 @@
       <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
       <router-link :to="$localePath" class="home-link">
+        {{ $site.themeConfig.logo }}
         <img
           class="logo"
           v-if="$site.themeConfig.logo"
           :src="$withBase($site.themeConfig.logo)"
           :alt="$siteTitle"
         >
-        <!-- <span
+        <span
           ref="siteName"
           class="site-name"
           v-if="$siteTitle"
           :class="{ 'can-hide': $site.themeConfig.logo }"
-        >{{ $siteTitle }}</span> -->
+        >{{ $siteTitle }}</span>
       </router-link>
       <div class="links">
         <NavLinks class="can-hide"/>
@@ -130,6 +131,13 @@ $navbar-horizontal-padding = 1.5rem;
 
     .nav-links {
       flex: 1;
+      .nav-item {
+        a {
+          font-size 12px
+          letter-spacing 2px
+          font-weight normal
+        }
+      }
     }
   }
 }
