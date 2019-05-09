@@ -11,3 +11,46 @@ tags:
 
 
 ### 记录脚手架
+
+
+
+Commander node.js命令行界面的完整解决方案，受Ruby [Commander](https://github.com/commander-rb/commander)启发。
+
+# inquirer.js —— 一个用户与命令行交互的工具
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
