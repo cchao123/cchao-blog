@@ -1,6 +1,7 @@
 <template>
   <div class="article-wrap">
     <div class="article-flow">
+      <!-- <div style="position:">#TAGS</div> -->
       <template v-for="item in currentPost">
         <template>
           <div v-if="item.frontmatter.headimg" class="article-headimg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"></div>
@@ -44,7 +45,7 @@
       <AboutMe :tagsNum="tags.length" :postsNum="postsArr.length"/>
       <!-- <FollowMe/> -->
       <!-- 标签分类 -->
-      <Tags :tags="tags"/>
+      <Tags :tags="tags" @tag-fillter="tagFillter" />
       <Search/>
 
       <Categories :categories="sidebarItems"/>
@@ -120,14 +121,27 @@ export default {
     this.getPosts();
   },
   methods: {
+    // 标签筛选
+    tagFillter (tagItem) {
+      this.postsArr = []
+      this.posts.map((postItem, ind) => {
+        if (/posts/.test(postItem.path) && postItem.frontmatter.tags) {
+          if (postItem.frontmatter.tags.indexOf(tagItem) != -1) {
+            this.postsArr.push(postItem)
+          }
+        }
+      });
+    },
     // 收集文章并
     getPosts() {
       this.posts.map((postItem, ind) => {
         if (/posts/.test(postItem.path)) {
           // 收集标签
-          postItem.frontmatter.tags.map(tagItem => {
-            if (this.tags.indexOf(tagItem) == -1) this.tags.push(tagItem);
-          });
+          if (postItem.frontmatter.tags) {
+            postItem.frontmatter.tags.map(tagItem => {
+              if (this.tags.indexOf(tagItem) == -1) this.tags.push(tagItem);
+            });
+          }
           this.postsArr.push(postItem);
           // TODO 添加一个排序 时间 or hot值
           // console.log(postItem.lastUpdated)

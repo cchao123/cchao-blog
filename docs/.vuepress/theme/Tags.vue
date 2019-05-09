@@ -1,8 +1,8 @@
 <template>
   <article-card>
-    <div class="card-title" slot="card-title">标签</div>
+    <div class="card-title" slot="card-title">TAGS</div>
     <div class="card-content tags-content" slot="card-content">
-      <span class="tags-item" v-for="item in tags"># {{ item }}</span>
+      <span class="tags-item" v-for="item in tags" @click="tagFillter(item)"># {{ item }}</span>
     </div>
   </article-card>
 </template>
@@ -20,7 +20,12 @@ export default {
       }
     }
   },
-  components: { ArticleCard, SearchBox }
+  components: { ArticleCard, SearchBox },
+  methods: {
+    tagFillter (item) {
+      this.$emit('tag-fillter', item)
+    }
+  },
 };
 </script>
 <style lang="stylus">
