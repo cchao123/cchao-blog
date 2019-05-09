@@ -124,6 +124,15 @@ export default {
     // 标签筛选
     tagFillter (tagItem) {
       this.postsArr = []
+      if (!tagItem) {
+        this.posts.map((postItem, ind) => {
+          if (/posts/.test(postItem.path)) {
+            this.postsArr.push(postItem)
+          }
+        });
+        return false
+      }
+      this.postsArr = []
       this.posts.map((postItem, ind) => {
         if (/posts/.test(postItem.path) && postItem.frontmatter.tags) {
           if (postItem.frontmatter.tags.indexOf(tagItem) != -1) {
