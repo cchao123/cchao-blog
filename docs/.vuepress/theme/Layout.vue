@@ -68,9 +68,7 @@ import Navbar from './components/Navbar.vue'
 import Page from './components/Page.vue'
 import Sidebar from './components/Sidebar.vue'
 import SWUpdatePopup from './components/SWUpdatePopup.vue'
-import { resolveSidebarItems } from './components/util'
-//at.alicdn.com/t/font_1162703_iuucvxiz6l.js
-
+import { resolveSidebarItems } from './util/util'
 
 export default {
 

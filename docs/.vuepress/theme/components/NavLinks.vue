@@ -16,7 +16,7 @@
 
 <script>
 import DropdownLink from "./DropdownLink.vue";
-import { resolveNavLinkItem } from "./util";
+import { resolveNavLinkItem } from "./../util/util";
 import NavLink from "./NavLink.vue";
 
 export default {
