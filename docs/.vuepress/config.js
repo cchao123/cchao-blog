@@ -16,6 +16,7 @@
     // 为以下路由添加侧边栏
     sidebar: {
       '/note/': getNoteArticle(),
+      '/theme/': getThemeArticle(),
       '/git/': getGiteArticle(),
     }
   }
@@ -33,6 +34,26 @@ function getGiteArticle(params) {
     ['', 'Git项目版本管理规范说明'],
     ['git-commit', 'Git提交规范'],
     ['tool', '相关工具']
+  ]
+}
+
+function getThemeArticle(params) {
+  return [
+    {
+      title: '主题安装指南',
+      collapsable: false,
+      children: [
+        '',
+        'a',
+      ]
+    },
+    {
+      title: '不想手动配置？',
+      collapsable: false,
+      children: [
+        'cchao-cli'
+      ]
+    }
   ]
 }
 

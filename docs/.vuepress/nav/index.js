@@ -4,6 +4,10 @@ module.exports = [
     link: '/'
   },
   {
+    text: 'THTME',
+    link: '/theme/'
+  },
+  {
     text: 'MORE',
     items: [
       {
