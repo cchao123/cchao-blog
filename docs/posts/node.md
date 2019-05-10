@@ -8,3 +8,12 @@ tags:
   - cheerio
 ---
 
+
+中文文档：https://cnodejs.org/topic/5203a71844e76d216a727d2e
+
+用到的库：cheerio
+
+可以简单粗暴的理解为none界的jQuery
+
+
+npm install cheerio

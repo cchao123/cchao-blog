@@ -8,6 +8,15 @@ module.exports = [
     link: '/theme/'
   },
   {
+    text: 'FRIENDS',
+    items: [
+      {
+        text: '友情链接',
+        link: 'https://segmentfault.com/u/ccha1o'
+      }
+    ]
+  },
+  {
     text: 'MORE',
     items: [
       {
