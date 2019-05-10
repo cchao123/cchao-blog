@@ -16,8 +16,6 @@
     // 为以下路由添加侧边栏
     sidebar: {
       '/note/': getNoteArticle(),
-      '/index/': getIndexeArticle(),
-      '/page/': getPageArticle(),
       '/git/': getGiteArticle(),
     }
   }
@@ -27,14 +25,6 @@ function getIndexeArticle(params) {
   return [
     ['', 'README'],
     ['indexTwo', '导航第二页']
-  ]
-}
-
-function getPageArticle(params) {
-  return [
-    ['', 'README'],
-    ['GithubPages', 'GithubPages'],
-    ['VuePress', 'VuePress']
   ]
 }
 
@@ -50,10 +40,17 @@ function getNoteArticle(params) {
   return [
     {
       title: 'JavaScript',
-      collapsable: true,
+      collapsable: false,
       children: [
         '',
         'a',
+      ]
+    },
+    {
+      title: 'Note',
+      collapsable: false,
+      children: [
+        'b'
       ]
     }
   ]
