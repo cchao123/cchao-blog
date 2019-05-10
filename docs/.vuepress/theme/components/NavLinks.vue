@@ -96,7 +96,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl';
+@import './../styles/config.styl';
 
 .nav-links {
   display: flex;

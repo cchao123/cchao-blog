@@ -178,8 +178,8 @@ function find(page, items, offset) {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl';
-@require './styles/wrapper.styl';
+@import './../styles/config.styl';
+@require './../styles/wrapper.styl';
 
 .page {
   padding-bottom: 2rem;

@@ -48,7 +48,7 @@ export default {
       default: 0
     }
   },
-  components: { ArticleCard , CountUp},
+  components: { ArticleCard , CountUp },
   computed: {
     options () {
       return {

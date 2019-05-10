@@ -57,7 +57,6 @@
 <script>
 import Pagination from "./Pagination.vue";
 import AboutMe from "./AboutMe.vue";
-import HotArticlee from "./AboutMe.vue";
 import Categories from "./Categories.vue";
 import Tags from "./Tags.vue";
 import Search from "./Search.vue";
@@ -70,7 +69,6 @@ export default {
   components: {
     Pagination,
     AboutMe,
-    HotArticlee,
     Categories,
     Tags,
     FollowMe,
@@ -165,7 +163,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl';
+@import './../styles/config.styl';
 
 .content {
   background: #fff;
