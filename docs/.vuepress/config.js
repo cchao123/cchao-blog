@@ -18,17 +18,10 @@
     // 为以下路由添加侧边栏
     sidebar: {
       '/note/': getNoteArticle(),
-      '/theme/': getThemeArticle(),
+      '/redirect/': getRedirectArticle(),
       '/food/': getFoodeArticle(),
     }
   }
-}
-
-function getIndexeArticle(params) {
-  return [
-    ['', 'README'],
-    ['indexTwo', '导航第二页']
-  ]
 }
 
 function getFoodeArticle(params) {
@@ -38,10 +31,10 @@ function getFoodeArticle(params) {
   ]
 }
 
-function getThemeArticle(params) {
+function getRedirectArticle(params) {
   return [
     {
-      title: '主题安装指南',
+      title: '重定向到这里了',
       collapsable: false,
       children: [
         ''
