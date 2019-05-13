@@ -19,7 +19,7 @@
     sidebar: {
       '/note/': getNoteArticle(),
       '/theme/': getThemeArticle(),
-      '/git/': getGiteArticle(),
+      '/food/': getFoodeArticle(),
     }
   }
 }
@@ -31,11 +31,10 @@ function getIndexeArticle(params) {
   ]
 }
 
-function getGiteArticle(params) {
+function getFoodeArticle(params) {
   return [
-    ['', 'Git项目版本管理规范说明'],
-    ['git-commit', 'Git提交规范'],
-    ['tool', '相关工具']
+    ['', '蔬菜简介'],
+    ['Fruits', '水果简介']
   ]
 }
 
