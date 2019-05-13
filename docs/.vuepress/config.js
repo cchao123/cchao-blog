@@ -43,8 +43,7 @@ function getThemeArticle(params) {
       title: '主题安装指南',
       collapsable: false,
       children: [
-        '',
-        'a',
+        ''
       ]
     },
     {

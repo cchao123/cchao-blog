@@ -1,6 +1,5 @@
 ---
 title: VuePress报错TypeError：res.getHeader is not a function
-headimg: 'https://colorlib.com/activello/wp-content/uploads/sites/10/2015/11/oIpwxeeSPy1cnwYpqJ1w_Dufer-Collateral-test-1170x550.jpg'
 # description: 我是一片文章我是一片文章我是一片文章我是一片文章我是一片文章的介绍
 tags:
   - vuepress

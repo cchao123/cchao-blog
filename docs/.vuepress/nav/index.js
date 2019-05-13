@@ -11,8 +11,8 @@ module.exports = [
     text: 'FRIENDS',
     items: [
       {
-        text: '友情链接',
-        link: 'https://segmentfault.com/u/ccha1o'
+        text: '友情链接待加',
+        link: 'https://www.123hao123.top/'
       }
     ]
   },
