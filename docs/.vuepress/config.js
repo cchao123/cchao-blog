@@ -1,7 +1,7 @@
 ﻿module.exports = {
   theme: 'cchao',
-  title: 'cchao',
-  description: 'cchao',
+  title: "{{title}}",
+  description: "{{description}}",
   head: [
     ['link', { rel: 'icon', href: '/favicons.png' }]
   ],
