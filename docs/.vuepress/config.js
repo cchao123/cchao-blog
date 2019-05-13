@@ -1,4 +1,5 @@
 ﻿module.exports = {
+  theme: 'cchao'
   title: 'cchao',
   description: 'cchao',
   head: [
@@ -7,6 +8,7 @@
   dest: './dist',
   port: '9999',
   themeConfig: {
+    // 这里修改logo图片
     logo: 'https://raw.githubusercontent.com/2020807070/cchao-blog/feature/layout/docs/.vuepress/public/logo.png',
     serviceWorker: {
       updatePopup: true
