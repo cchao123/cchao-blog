@@ -72,8 +72,7 @@ export default {
     Categories,
     Tags,
     FollowMe,
-    Search
-  },
+    Search  },
 
   filters: {
     formatTime(time, format) {
@@ -138,6 +137,7 @@ export default {
           }
         }
       });
+      this.$emit('toast-show', this.postsArr.length)
     },
     // 收集文章并
     getPosts() {

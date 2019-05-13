@@ -28,6 +28,7 @@
     <SWUpdatePopup :updateEvent="swUpdateEvent"/>
 
     <div v-show="isShowGotoTop" @click="goTop" class="goTop iconfont iconicon-test"></div>
+
   </div>
 </template>
 
@@ -41,9 +42,8 @@ import Page from "./components/Page.vue";
 import Sidebar from "./components/Sidebar.vue";
 import SWUpdatePopup from "./components/SWUpdatePopup.vue";
 import { resolveSidebarItems } from "./util/util";
-
 export default {
-  components: { Home, Page, Sidebar, Navbar, SWUpdatePopup, TagsLayout },
+  components: { Home, Page, Sidebar, Navbar, SWUpdatePopup, TagsLayout},
 
   data() {
     return {
