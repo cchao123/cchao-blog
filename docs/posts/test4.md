@@ -1,6 +1,5 @@
 ---
-title: VuePress报错TypeError：res.getHeader is not a function
-# description: 我是一片文章我是一片文章我是一片文章我是一片文章我是一片文章的介绍
+title: 这是一个没有标题图片的文章
 tags:
   - vuepress
 ---

@@ -4,8 +4,8 @@ module.exports = [
     link: '/'
   },
   {
-    text: 'THTME',
-    link: '/theme/'
+    text: 'REDIRECT',
+    link: '/redirect/'
   },
   {
     text: 'FRIENDS',
