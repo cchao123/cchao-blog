@@ -17,7 +17,6 @@
     nav: require('./nav/index'),
     // 为以下路由添加侧边栏
     sidebar: {
-      '/note/': getNoteArticle(),
       '/redirect/': getRedirectArticle(),
       '/food/': getFoodeArticle(),
     }
@@ -45,26 +44,6 @@ function getRedirectArticle(params) {
       collapsable: false,
       children: [
         'cchao-cli'
-      ]
-    }
-  ]
-}
-
-function getNoteArticle(params) {
-  return [
-    {
-      title: 'JavaScript',
-      collapsable: false,
-      children: [
-        '',
-        'a',
-      ]
-    },
-    {
-      title: 'Note',
-      collapsable: false,
-      children: [
-        'b'
       ]
     }
   ]
