@@ -81,6 +81,7 @@ export default {
   },
   data() {
     return {
+      postsNum: 0,
       tags: [],
       postsArr: [], // 文章列表
       currentPage: 1,
@@ -88,10 +89,6 @@ export default {
     };
   },
   computed: {
-    postsNum () {
-      // TODO 这里的不准确
-      return 10
-    },
     tagShow () {
       return this.$route.path === '/'
     },
@@ -127,6 +124,7 @@ export default {
   methods: {
     // 标签筛选
     tagFillter (tagItem) {
+      this.currentPage = 1
       this.postsArr = []
       if (!tagItem) {
         this.posts.map((postItem, ind) => {
@@ -160,7 +158,9 @@ export default {
           // TODO 添加一个排序 时间 or hot值
           // console.log(postItem.lastUpdated)
         }
+
       });
+      if (!this.postsNum) this.postsNum = this.postsArr.length
     },
     handleCurrentChange(val) {
       this.currentPage = val;
