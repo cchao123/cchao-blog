@@ -23,7 +23,7 @@
             <!-- <div class="article-tag" v-if="item.frontmatter.tags">
           <span v-for="tag in item.frontmatter.tags">{{ tag }}</span>
             </div>-->
-            <div class="article-more">READ MORE</div>
+            <div class="article-more" @click="goDetail(item)">READ MORE</div>
           </div>
         </template>
       </template>
@@ -122,6 +122,10 @@ export default {
     this.getPosts();
   },
   methods: {
+    goDetail (item) {
+      var path = item.frontmatter.link || item.path
+      this.$router.push(path)
+    },
     // 标签筛选
     tagFillter (tagItem) {
       this.currentPage = 1

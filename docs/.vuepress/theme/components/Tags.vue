@@ -43,6 +43,7 @@ export default {
 <style lang="stylus">
 .iconqinglihuancun
   cursor pointer
+  font-size 20px!important
 
 .tags-content
   display flex
