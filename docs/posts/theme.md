@@ -7,4 +7,5 @@ description: 简约vuepress-theme-cchao
 tags:
   - vuepress-theme
   - blog
+  - vuepress
 ---

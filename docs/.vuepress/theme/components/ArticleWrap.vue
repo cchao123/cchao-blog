@@ -42,10 +42,10 @@
     <!-- 侧边栏 -->
     <div class="article-aside">
       <!-- 关于作者 -->
-      <AboutMe :tagsNum="tags.length" :postsNum="postsArr.length"/>
+      <AboutMe :tagsNum="tags.length" :postsNum="postsNum"/>
       <!-- <FollowMe/> -->
       <!-- 标签分类 -->
-      <Tags :tags="tags" @tag-fillter="tagFillter" />
+      <Tags :tags="tags" @tag-fillter="tagFillter" v-if="tagShow" />
       <Search/>
 
       <Categories :categories="sidebarItems"/>
@@ -88,6 +88,13 @@ export default {
     };
   },
   computed: {
+    postsNum () {
+      // TODO 这里的不准确
+      return 10
+    },
+    tagShow () {
+      return this.$route.path === '/'
+    },
     sidebarItems() {
       return resolveSidebarItems(
         this.$page,

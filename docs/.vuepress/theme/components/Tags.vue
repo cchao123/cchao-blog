@@ -1,8 +1,7 @@
 <template>
   <article-card>
     <div class="card-title" slot="card-title">
-      <span>TAGS </span>
-      <i class="iconfont iconqinglihuancun" @click="clearTags"></i>
+      <span>TAGS </span><i v-show="this.tagItem !== ''" class="iconfont iconqinglihuancun" @click="clearTags"></i>
     </div>
     <div class="card-content tags-content" slot="card-content">
       <span :class="tagItem === item ? 'tags-item tags-active' : 'tags-item' " v-for="item in tags" @click="tagFillter(item)"># {{ item }}</span>
@@ -42,6 +41,9 @@ export default {
 };
 </script>
 <style lang="stylus">
+.iconqinglihuancun
+  cursor pointer
+
 .tags-content
   display flex
   flex-wrap wrap
