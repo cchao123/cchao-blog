@@ -10,7 +10,7 @@
 
 ![](https://img.shields.io/badge/vuepress-0.14.10-brightgreen.svg)
 
-### 预览地址(http://123hao123.top)
+### [预览地址](http://123hao123.top)
 
 ### 目录
 - [相关依赖](#相关依赖)

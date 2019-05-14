@@ -5,15 +5,10 @@
 
 <script>
 export default {
-  props: {
-    msg: {
-      type: String,
-      default: '这是一条消息'
-    }
-  },
   data() {
     return {
-      flag: false
+      flag: false,
+      msg: ''
     };
   },
   methods: {
