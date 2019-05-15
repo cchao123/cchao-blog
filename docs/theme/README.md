@@ -36,12 +36,38 @@ module.exports = {
 创建`posts`用于渲染文章列表
 ```
 |-- docs
-| |-- .vuepress             开发目录
-| |-- posts                 需要手动创建
+| |-- .vuepress
+| |-- posts                 需要手动创建（必备）
 | | |-- xx1.md
 | | |-- xx2.md
 | | |-- xx3.md
 | | |-- ...
+| |-- RADEME.md             配置首页（必备）
+```
+
+> `posts`下的`.md文章` 配置
+```
+---
+title: 标题
+headimg: '封面图'
+date: 2019/4/21
+description: 文章描述
+tags:       文章标签
+  - JS
+  - eventLoop
+---
+```
+
+
+
+> `docs`下的`README.md` 配置
+```
+---
+home: true
+head: '头像'
+hideInfo: false         是否隐藏个人信息 默认不传均为false
+footer: footer部分
+---
 ```
 
 ## 运行

@@ -4,8 +4,8 @@
       <div class="author">
         <img
           class="author-head"
-          src="https://avatars1.githubusercontent.com/u/24643401?s=460&v=4"
-          alt
+          :src="$page.frontmatter.head || 'https://user-gold-cdn.xitu.io/2019/5/15/16aba753c5c2e3b5?w=406&h=392&f=gif&s=155219'"
+          alt="headimg"
         >
         <!-- <div class="card-title" slot="card-title">About Me</div> -->
         <div class="author-info">

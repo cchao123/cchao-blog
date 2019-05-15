@@ -46,7 +46,7 @@
     <!-- 侧边栏 -->
     <div class="article-aside">
       <!-- 关于作者 -->
-      <AboutMe />
+      <AboutMe v-show="!$page.frontmatter.hideInfo" />
       <!-- <FollowMe/> -->
       <Search />
       <!-- 标签分类 -->
