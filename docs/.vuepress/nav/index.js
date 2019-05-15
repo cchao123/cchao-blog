@@ -11,8 +11,12 @@ module.exports = [
     text: 'FRIENDS',
     items: [
       {
-        text: '友情链接待加',
+        text: '友情链接',
         link: 'https://www.123hao123.top/'
+      },
+      {
+        text: '立即添加',
+        link: '/pages/friends'
       }
     ]
   },
