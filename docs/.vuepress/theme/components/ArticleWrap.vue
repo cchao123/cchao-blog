@@ -4,7 +4,11 @@
       <!-- <div style="position:">#TAGS</div> -->
       <template v-for="item in currentPost">
         <template>
-          <div v-if="item.frontmatter.headimg" class="article-headimg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"></div>
+          <div
+            v-if="item.frontmatter.headimg"
+            class="article-headimg"
+            :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"
+          ></div>
           <div class="article-item">
             <h3 class="article-title">
               <router-link :to="item.frontmatter.link || item.path">{{ item.title }}</router-link>
@@ -42,12 +46,11 @@
     <!-- 侧边栏 -->
     <div class="article-aside">
       <!-- 关于作者 -->
-      <AboutMe :tagsNum="tags.length" :postsNum="postsNum"/>
+      <AboutMe />
       <!-- <FollowMe/> -->
+      <Search />
       <!-- 标签分类 -->
-      <Tags :tags="tags" @tag-fillter="tagFillter" v-if="tagShow" />
-      <Search/>
-
+      <Tags :tags="tags" @tag-fillter="tagFillter" v-if="tagShow"/>
       <Categories :categories="sidebarItems"/>
       <!-- <Sidebar /> -->
     </div>
@@ -72,7 +75,8 @@ export default {
     Categories,
     Tags,
     FollowMe,
-    Search  },
+    Search
+  },
 
   filters: {
     formatTime(time, format) {
@@ -82,6 +86,7 @@ export default {
   data() {
     return {
       postsNum: 0,
+      tagsNum: 0,
       tags: [],
       postsArr: [], // 文章列表
       currentPage: 1,
@@ -89,8 +94,8 @@ export default {
     };
   },
   computed: {
-    tagShow () {
-      return this.$route.path === '/'
+    tagShow() {
+      return this.$route.path === "/";
     },
     sidebarItems() {
       return resolveSidebarItems(
@@ -122,31 +127,31 @@ export default {
     this.getPosts();
   },
   methods: {
-    goDetail (item) {
-      var path = item.frontmatter.link || item.path
-      this.$router.push(path)
+    goDetail(item) {
+      var path = item.frontmatter.link || item.path;
+      this.$router.push(path);
     },
     // 标签筛选
-    tagFillter (tagItem) {
-      this.currentPage = 1
-      this.postsArr = []
+    tagFillter(tagItem) {
+      this.currentPage = 1;
+      this.postsArr = [];
       if (!tagItem) {
         this.posts.map((postItem, ind) => {
           if (/posts/.test(postItem.path)) {
-            this.postsArr.push(postItem)
+            this.postsArr.push(postItem);
           }
         });
-        return false
+        return false;
       }
-      this.postsArr = []
+      this.postsArr = [];
       this.posts.map((postItem, ind) => {
         if (/posts/.test(postItem.path) && postItem.frontmatter.tags) {
           if (postItem.frontmatter.tags.indexOf(tagItem) != -1) {
-            this.postsArr.push(postItem)
+            this.postsArr.push(postItem);
           }
         }
       });
-      this.$emit('toast-show', this.postsArr.length)
+      this.$emit("toast-show", this.postsArr.length);
     },
     // 收集文章并
     getPosts() {
@@ -162,9 +167,12 @@ export default {
           // TODO 添加一个排序 时间 or hot值
           // console.log(postItem.lastUpdated)
         }
-
       });
-      if (!this.postsNum) this.postsNum = this.postsArr.length
+
+      // if (!sessionStorage.getItem("tagsNum"))
+      //   sessionStorage.setItem("tagsNum", this.tags.length);
+      // if (!sessionStorage.getItem("postsNum"))
+      //   sessionStorage.setItem("postsNum", this.postsArr.length);
     },
     handleCurrentChange(val) {
       this.currentPage = val;
@@ -194,7 +202,7 @@ export default {
     width: 100%;
 
     .article-headimg {
-      background-color #959dae
+      background-color: #959dae;
       widht: 100%;
       height: 15rem;
       border-top-left-radius: 8px;
