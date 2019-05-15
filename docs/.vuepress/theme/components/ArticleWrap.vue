@@ -46,7 +46,7 @@
     <!-- 侧边栏 -->
     <div class="article-aside">
       <!-- 关于作者 -->
-      <AboutMe />
+      <AboutMe :tagsNum="tagsNum" :postsNum="postsNum" />
       <!-- <FollowMe/> -->
       <Search />
       <!-- 标签分类 -->
@@ -85,8 +85,7 @@ export default {
   },
   data() {
     return {
-      postsNum: 0,
-      tagsNum: 0,
+      isFirst: true,
       tags: [],
       postsArr: [], // 文章列表
       currentPage: 1,
@@ -94,6 +93,12 @@ export default {
     };
   },
   computed: {
+    postsNum() {
+      return window.sessionStorage.getItem('postsNum') * 1
+    },
+    tagsNum() {
+      return window.sessionStorage.getItem('tagsNum') * 1
+    },
     tagShow() {
       return this.$route.path === "/";
     },
@@ -168,11 +173,10 @@ export default {
           // console.log(postItem.lastUpdated)
         }
       });
-
-      // if (!sessionStorage.getItem("tagsNum"))
-      //   sessionStorage.setItem("tagsNum", this.tags.length);
-      // if (!sessionStorage.getItem("postsNum"))
-      //   sessionStorage.setItem("postsNum", this.postsArr.length);
+      if (!sessionStorage.getItem('postsNum')) {
+        sessionStorage.setItem('postsNum', this.postsArr.length)
+        sessionStorage.setItem('tagsNum', this.tags.length)
+      }
     },
     handleCurrentChange(val) {
       this.currentPage = val;

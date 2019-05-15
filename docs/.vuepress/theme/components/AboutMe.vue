@@ -34,21 +34,21 @@
 import ArticleCard from "./ArticleCard.vue";
 import CountUp from './CountUp';
 export default {
-  props: {
-    // postsNum: {
-    //   type: Number,
-    //   default: 0
-    // },
-    // classNum: {
-    //   type: Number,
-    //   default: 0
-    // },
-    // tagsNum: {
-    //   type: Number,
-    //   default: 0
-    // }
-  },
-  data() {
+  // props: {
+  //   postsNum: {
+  //     type: Number,
+  //     default: 0
+  //   },
+  //   classNum: {
+  //     type: Number,
+  //     default: 0
+  //   },
+  //   tagsNum: {
+  //     type: Number,
+  //     default: 0
+  //   }
+  // },
+  data () {
     return {
       postsNum: 0,
       tagsNum: 0
@@ -56,8 +56,10 @@ export default {
   },
   components: { ArticleCard , CountUp },
   mounted() {
-    this.postsNum = sessionStorage.getItem("postsNum");
-    this.tagsNum = sessionStorage.getItem("tagsNum");
+    setTimeout(() => {
+      this.postsNum = sessionStorage.getItem('postsNum')
+      this.tagsNum = sessionStorage.getItem('tagsNum')
+    }, 0);
   },
   computed: {
     options () {
