@@ -46,7 +46,7 @@
     <!-- 侧边栏 -->
     <div class="article-aside">
       <!-- 关于作者 -->
-      <AboutMe :tagsNum="tagsNum" :postsNum="postsNum" />
+      <AboutMe />
       <!-- <FollowMe/> -->
       <Search />
       <!-- 标签分类 -->
@@ -93,12 +93,6 @@ export default {
     };
   },
   computed: {
-    postsNum() {
-      return window.sessionStorage.getItem('postsNum') * 1
-    },
-    tagsNum() {
-      return window.sessionStorage.getItem('tagsNum') * 1
-    },
     tagShow() {
       return this.$route.path === "/";
     },

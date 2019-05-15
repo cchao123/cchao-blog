@@ -8,17 +8,16 @@ tags:
   - cheerio
 ---
 
-
-
+## Node爬虫抓取数据
 
 
 ### 所用到的模块
-- http:创建服务、处理流相关
-- fs：操作文件及文件夹(读、写)
-- cheerio：简单粗暴的理解为node界的juquey
+* http:创建服务、处理流相关
+* fs：操作文件及文件夹(读、写)
+* cheerio：简单粗暴的理解为node界的juquey
 
 
-#### 先爬来整张网页
+### 先爬来整张网页
 ```javascript
 // 引入所需模块
 var http = require('http');
@@ -42,7 +41,7 @@ http.get(Url, function (res) {
 });
 ```
 
-#### 过滤
+### 过滤
 ```javascript
 // 过滤页面信息
 function filterContent(htmlDate) {
@@ -110,7 +109,7 @@ function download(url, name) {
 }
 ```
 
-#### 成果展示
+### 成果展示
 
 
 ![](https://user-gold-cdn.xitu.io/2019/5/15/16ab95e6602948f5?w=1193&h=529&f=jpeg&s=101228)

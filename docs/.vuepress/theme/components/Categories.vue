@@ -43,10 +43,7 @@ export default {
     };
   },
   props: ["categories"],
-  components: { SidebarLink, SidebarGroup },
-  mounted() {
-    console.log(this.$page);
-  }
+  components: { SidebarLink, SidebarGroup }
 };
 </script>
 
