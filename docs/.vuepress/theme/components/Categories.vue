@@ -17,7 +17,7 @@
       </ul>
     </div>
     <div v-else>
-      <ul class="sidebar-links">
+      <ul class="sidebar-links else">
         <li v-for="item in $page.headers">
           <a v-if="item.level ==2" :href="$page.path + '#' +item.title">{{ item.title }}</a>
           <ul class="sidebar-sub-headers" v-else>
@@ -97,6 +97,8 @@ a {
   }
   a {
     position relative;
+    color #2c3e50
+    padding 0.35rem 1rem 0.35rem 1.25rem
     &:before {
       content: "";
       position: absolute;
@@ -111,6 +113,11 @@ a {
   }
 }
 
+.else {
+  a {
+    left 4px
+  }
+}
 .sidebar-sub-header {
   a {
     &:before {

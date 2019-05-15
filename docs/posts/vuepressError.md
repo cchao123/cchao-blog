@@ -49,7 +49,7 @@ eError: res.getHeader is not a function
 
 >运行npm install webpack-dev-middleware@3.6.0
 
-### 或 修改为以下package.josn 从新安装依赖
+### 或 修改为以下package.json 从新安装依赖
 
 ```
 {
