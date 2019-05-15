@@ -1,4 +1,5 @@
 ﻿module.exports = {
+  theme: 'cchao',
   title: 'cchao',
   description: 'cchao',
   head: [
