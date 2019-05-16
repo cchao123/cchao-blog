@@ -22,8 +22,8 @@
             <CountUp startNum="0" :endNum="tagsNum" times="10" speed="50" />
           </div>
         </div>
-        <div v-if="$page.frontmatter.introduction" class="introduction">
-          {{ $page.frontmatter.introduction }}
+        <div class="introduction">
+          {{ introduction }}
         </div>
       </div>
     </div>
@@ -51,14 +51,17 @@ export default {
   data () {
     return {
       postsNum: 0,
-      tagsNum: 0
+      tagsNum: 0,
+      introduction: ''
     }
   },
   components: { ArticleCard , CountUp },
   mounted() {
+    if (!sessionStorage.getItem('introduction')) { sessionStorage.setItem('introduction', this.$page.frontmatter.introduction) }
     setTimeout(() => {
       this.postsNum = sessionStorage.getItem('postsNum')
       this.tagsNum = sessionStorage.getItem('tagsNum')
+      this.introduction = sessionStorage.getItem('introduction')
     }, 0);
   },
   computed: {

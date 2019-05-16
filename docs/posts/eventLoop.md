@@ -11,7 +11,7 @@ tags:
 
 
 
-## JS设计为单线程
+## js设计为单线程
 ::: tip js设计为单线程还是跟他的用途有关
   试想一下 如果js设计为多线程 那么同时修改和删除同一个dom 浏览器又该如何执行?
 :::
@@ -19,7 +19,7 @@ tags:
 ![](https://user-gold-cdn.xitu.io/2019/4/30/16a6caffd41710b3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 
-## JS需要异步
+## js需要异步
 
 ```javascript
 for (var i=0;i<9999;i++){
@@ -38,7 +38,7 @@ console.log("你好啊")
 ![](https://user-gold-cdn.xitu.io/2019/4/30/16a6cb02c8125c9c?imageslim)
 
 
-## JS事件循环
+## js事件循环
 
 ::: tip  一、归类
  遇到同步任务直接执行,遇到异步任务分类为`宏任务(macro-task)`和`微任务(micro-task)`。
