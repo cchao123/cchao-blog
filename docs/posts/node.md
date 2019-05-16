@@ -11,13 +11,54 @@ tags:
 ## Node爬虫抓取数据
 
 
+
+
+[跳过介绍进入主题](#正文开始)
+
+
+### 背景
+> 本人于周六早上惊醒于翠花的电话轰炸中...
+
+![](https://user-gold-cdn.xitu.io/2019/5/16/16abe54479fc0f99?w=243&h=196&f=png&s=20645)
+
+> 一大早竟然问这么伤脑筋(愚蠢)的问题
+
+
+![](https://user-gold-cdn.xitu.io/2019/5/16/16abe58df19f22da?w=420&h=173&f=png&s=25530)
+
+> 本想赶紧打发了 继续我的回笼觉 没想到...
+
+> 乐（kou）于（shui）助（zhi）人（liu）的我当然要帮帮助他了！
+
+
+![](https://user-gold-cdn.xitu.io/2019/5/16/16abe5e09aecfea7?w=430&h=169&f=png&s=15923)
+
+> 看到这里的红色感叹号 不禁眉头一皱
+
+
+![](https://user-gold-cdn.xitu.io/2019/5/16/16abe60ae2d872e6?w=431&h=334&f=png&s=220271)
+
+> 打开网站 不出我所料 姹紫嫣红的gif图片差点闪瞎我的钛合金狗眼
+
+
+
+
+![](https://user-gold-cdn.xitu.io/2019/5/16/16abe626fd0d20ed?w=399&h=282&f=gif&s=1613048)
+
+### 几番浏览欣赏后收工大吉
+
+![](https://user-gold-cdn.xitu.io/2019/5/16/16abe685d9a061e9?w=423&h=189&f=png&s=17244)
+
+### 正文开始
+
 ### 所用到的模块
-* http:创建服务、处理流相关
-* fs：操作文件及文件夹(读、写)
-* cheerio：简单粗暴的理解为node界的juquey
+- http:创建服务、处理流相关
+- fs：操作文件及文件夹(读、写)
+- cheerio：简单粗暴的理解为node界的juquey
 
+#### 先爬来整张网页
 
-### 先爬来整张网页
+> 为了该文章正常发出 把翠花提供的链接换成站长之家的链接演示
 ```javascript
 // 引入所需模块
 var http = require('http');
@@ -41,7 +82,7 @@ http.get(Url, function (res) {
 });
 ```
 
-### 过滤
+#### 过滤
 ```javascript
 // 过滤页面信息
 function filterContent(htmlDate) {
@@ -54,6 +95,7 @@ function filterContent(htmlDate) {
     /* 轮播图列表信息遍历 */
     Content.find('.box').each(function (item, b) {
       var pic = $(this);
+      // 为什么是src2?  src获取不到 打印了一下发现有src2
       var src = formatUrl(pic.find('a').children('img').attr('src2'));
       var name = formatUrl(pic.find('a').children('img').attr('alt'));
       download(src, name)
@@ -62,6 +104,7 @@ function filterContent(htmlDate) {
         name
       })
     });
+    // 存放了抓取的图片信息
     console.log(ContentData)
   } else {
     console.log('html null');
@@ -97,7 +140,7 @@ function download(url, name) {
       if (!fs.existsSync('./images')) {
         fs.mkdirSync('./images');
       };
-      fs.writeFile(`./image/${name}.jpg`, imgData, 'binary', (error) => {
+      fs.writeFile(`./images/${name}.jpg`, imgData, 'binary', (error) => {
         if (error) {
           console.log(error);
         } else {
@@ -109,7 +152,14 @@ function download(url, name) {
 }
 ```
 
-### 成果展示
+#### 成果展示
 
+![](https://user-gold-cdn.xitu.io/2019/5/16/16abe735b0faa039?w=1239&h=647&f=png&s=175270)
 
 ![](https://user-gold-cdn.xitu.io/2019/5/15/16ab95e6602948f5?w=1193&h=529&f=jpeg&s=101228)
+
+
+
+
+#### 最后晒出劳动所得
+![](https://user-gold-cdn.xitu.io/2019/5/16/16abe8f5e9d0951b?w=573&h=567&f=png&s=599827)
