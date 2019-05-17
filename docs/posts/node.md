@@ -13,7 +13,7 @@ tags:
 
 
 
-[跳过介绍进入主题](#正文开始)
+
 
 
 ### 背景
@@ -58,7 +58,8 @@ tags:
 
 #### 先爬来整张网页
 
-> 为了该文章正常发出 把翠花提供的链接换成站长之家的链接演示
+> 为了该文章正常发出 把翠花提供的链接换成站长之家的链接来演示
+
 ```javascript
 // 引入所需模块
 var http = require('http');
@@ -74,7 +75,7 @@ http.get(Url, function (res) {
   });
   // 数据获取结束
   res.on('end', function () {
-    // 过滤页面
+    // 过滤出所需的元素
     filterContent(htmlDate);
   });
 }).on('error', function () {
@@ -83,22 +84,30 @@ http.get(Url, function (res) {
 ```
 
 #### 过滤
+> 分析页面结构 看看哪些是需要的 图片都在`#container`获取到这个节点
+
+![](https://user-gold-cdn.xitu.io/2019/5/16/16abee1ded6603bf?w=1154&h=800&f=png&s=596633)
+> 遍历.box 并拿到 a > img 的 `src` 和 `alt`
+
+
+![](https://user-gold-cdn.xitu.io/2019/5/16/16abee3ed787389c?w=740&h=352&f=png&s=68543)
 ```javascript
 // 过滤页面信息
 function filterContent(htmlDate) {
   if (htmlDate) {
     var $ = cheerio.load(htmlDate);
-    // 根据id获取轮播图列表信息
+    // 得到所需内容
     var Content = $('#container');
-    // 轮播图数据
+    // 存放一会抓来的信息
     var ContentData = [];
-    /* 轮播图列表信息遍历 */
     Content.find('.box').each(function (item, b) {
       var pic = $(this);
       // 为什么是src2?  src获取不到 打印了一下发现有src2
       var src = formatUrl(pic.find('a').children('img').attr('src2'));
       var name = formatUrl(pic.find('a').children('img').attr('alt'));
+      // 把抓来的信息交给download函数去下载
       download(src, name)
+      // 这里也存一份
       ContentData.push({
         src,
         name
@@ -116,6 +125,7 @@ function filterContent(htmlDate) {
 
 ![](https://user-gold-cdn.xitu.io/2019/5/15/16ab94b6c883ac6a?w=642&h=161&f=png&s=22958)
 > 抓取链接都带有_s是缩略图 需要一个方法帮来转换
+
 ```javascript
 // 或取高清链接
 function formatUrl(imgUrl) {
@@ -162,4 +172,5 @@ function download(url, name) {
 
 
 #### 最后晒出劳动所得
+
 ![](https://user-gold-cdn.xitu.io/2019/5/16/16abe8f5e9d0951b?w=573&h=567&f=png&s=599827)
