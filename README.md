@@ -50,23 +50,21 @@ $ npm run upload
 ### 项目目录结构
 
 ```
-|-- docs
-| |-- .vuepress             项目的开发目录
-| | |-- components          自定义组件
-| | |-- nav                 右上方导航
-| | | |-- index.js
-| | |-- public              静态资源
-| | | |-- logo.png          网站logo
-| | |-- theme               自定义主题
-| | | |-- config.js         配置文件
-| | |-- index等...          页面目录
-| | |-- README.md           自定义首页
-|-- dist                    存储构建之后的项目目录
-|-- node_modules
-|-- .gitignore
-|-- package.json            package配置文件
-|-- package-lock.json
-|-- README.md               你当前所看到的项目说明
+├──  docs
+| ├── .vuepress             项目的开发目录
+| | ├── nav                 右上方导航
+| | | └── index.js
+| | ├── public              静态资源
+| | | └── logo.png          网站logo
+| | | └── config.js         配置文件
+| ├── posts                 放置文章
+| ├── README.md             自定义首页
+├── dist                    存储构建之后的项目目录
+├── node_modules
+├── .gitignore
+├── package.json            package配置文件
+├── package-lock.json
+└──  README.md              你当前所看到的项目说明
 ```
 
 
