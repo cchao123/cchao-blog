@@ -17,12 +17,13 @@ export default {
 
   methods: {
     createValine() {
+      console.log(this.$site.themeConfig)
       const Valine = require('valine');
       window.AV = require('leancloud-storage')
       const valine =  new Valine({
         el: '#vcomments',
-        appId: 'VIha7MxNXOoUuwgzVFCIVVp5-gzGzoHsz',
-        appKey: 'pDfJpFxpyuStv2HMBgccu347',
+        appId: this.$site.themeConfig.comments.appId,
+        appKey: this.$site.themeConfig.comments.appKey,
         notify: false,
         verify: false,
         avatar: 'monsterid',
@@ -40,13 +41,6 @@ export default {
           this.createValine()
         }, 300)
       }
-
-      /**
-       * TODO:
-       * 1. 使用其他方法更新评论组件 或者使用其他较为好用的评论组件
-       * 2. 添加categories and tag
-       * 3. 更换其他主题
-       */
     }
   }
 }
