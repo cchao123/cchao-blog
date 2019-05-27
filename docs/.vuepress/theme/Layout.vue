@@ -17,7 +17,7 @@
     <div class="custom-layout" v-if="$page.frontmatter.layout">
       <component :is="$page.frontmatter.layout"/>
     </div>
-
+    <!-- 主页 -->
     <Home v-else-if="$page.frontmatter.home"/>
 
     <Page v-else :sidebar-items="sidebarItems">
@@ -28,7 +28,6 @@
     <SWUpdatePopup :updateEvent="swUpdateEvent"/>
 
     <div v-show="isShowGotoTop" @click="goTop" class="goTop iconfont iconicon-test"></div>
-
   </div>
 </template>
 
@@ -43,7 +42,7 @@ import Sidebar from "./components/Sidebar.vue";
 import SWUpdatePopup from "./components/SWUpdatePopup.vue";
 import { resolveSidebarItems } from "./util/util";
 export default {
-  components: { Home, Page, Sidebar, Navbar, SWUpdatePopup, TagsLayout},
+  components: { Home, Page, Sidebar, Navbar, SWUpdatePopup, TagsLayout },
 
   data() {
     return {
@@ -61,19 +60,25 @@ export default {
           top += e.offsetHeight;
         });
         top += len * 20; // length * margin
-        if (val >= top && document.querySelector(".categories")
-&& !(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+        if (
+          val >= top &&
+          document.querySelector(".categories") &&
+          !navigator.userAgent.match(
+            /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+          )
+        ) {
           document.querySelectorAll(".categories")[1].className += " ca-fixed";
         } else {
           if (document.querySelectorAll(".categories")[1])
-            document.querySelectorAll(".categories")[1].className = "categories";
+            document.querySelectorAll(".categories")[1].className =
+              "categories";
         }
       }
     }
   },
   computed: {
     isShowGotoTop() {
-      return this.scrollTop < 500 ? false : true ;
+      return this.scrollTop < 500 ? false : true;
     },
     shouldShowNavbar() {
       const { themeConfig } = this.$site;
@@ -192,6 +197,6 @@ export default {
   position: fixed;
   right: 3%;
   bottom: 5%;
-  font-size 30px
+  font-size: 30px;
 }
 </style>

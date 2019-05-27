@@ -1,8 +1,10 @@
 <template>
   <div class="article-wrap">
     <div class="article-flow">
-      <!-- <div style="position:">#TAGS</div> -->
-      <template v-for="item in currentPost">
+      <!-- 龙骨屏 -->
+      <article-skeleton v-if="currentPost.length === 0 && this.$page.path === '/' "/>
+      <!-- 文章列表 -->
+      <template v-else v-for="item in currentPost">
         <template>
           <div
             v-if="item.frontmatter.headimg"
@@ -31,7 +33,6 @@
           </div>
         </template>
       </template>
-
       <!-- 文章主题 -->
       <slot name="content"></slot>
       <!-- 分页器 -->
@@ -44,13 +45,14 @@
       />
     </div>
     <!-- 侧边栏 -->
-    <div class="article-aside">
+    <div class="article-aside" v-show="!this.$page.frontmatter.isAsideHide">
       <!-- 关于作者 -->
-      <AboutMe v-show="!$page.frontmatter.hideInfo" />
-      <!-- <FollowMe/> -->
-      <Search />
+      <AboutMe v-show="!$page.frontmatter.hideInfo"/>
+      <!-- 搜索 -->
+      <Search/>
       <!-- 标签分类 -->
       <Tags :tags="tags" @tag-fillter="tagFillter" v-if="tagShow"/>
+      <!--  -->
       <Categories :categories="sidebarItems"/>
       <!-- <Sidebar /> -->
     </div>
@@ -63,6 +65,7 @@ import AboutMe from "./AboutMe.vue";
 import Categories from "./Categories.vue";
 import Tags from "./Tags.vue";
 import Search from "./Search.vue";
+import ArticleSkeleton from "./ArticleSkeleton.vue";
 
 import FollowMe from "./FollowMe.vue";
 import { formatTime } from "./../util/date.js";
@@ -75,7 +78,8 @@ export default {
     Categories,
     Tags,
     FollowMe,
-    Search
+    Search,
+    ArticleSkeleton
   },
 
   filters: {
@@ -167,9 +171,9 @@ export default {
           // console.log(postItem.lastUpdated)
         }
       });
-      if (!sessionStorage.getItem('postsNum')) {
-        sessionStorage.setItem('postsNum', this.postsArr.length)
-        sessionStorage.setItem('tagsNum', this.tags.length)
+      if (!sessionStorage.getItem("postsNum")) {
+        sessionStorage.setItem("postsNum", this.postsArr.length);
+        sessionStorage.setItem("tagsNum", this.tags.length);
       }
     },
     handleCurrentChange(val) {
