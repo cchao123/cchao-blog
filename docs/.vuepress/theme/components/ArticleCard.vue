@@ -17,17 +17,4 @@
     padding-bottom 10px
     margin-bottom 10px
     position relative
-    // &:after
-    //   position absolute
-    //   content ''
-    //   bottom: 0
-    //   left 0
-    //   height 2px
-    //   width 40px
-    //   background #a161bf
-
-// .article-title
-//   background red
-
-
 </style>

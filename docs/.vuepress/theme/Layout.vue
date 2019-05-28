@@ -67,7 +67,7 @@ export default {
             /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
           )
         ) {
-          document.querySelectorAll(".categories")[1].className += " ca-fixed";
+          document.querySelectorAll(".categories")[1].className = "categories ca-fixed";
         } else {
           if (document.querySelectorAll(".categories")[1])
             document.querySelectorAll(".categories")[1].className =

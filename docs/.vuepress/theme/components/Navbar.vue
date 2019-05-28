@@ -16,12 +16,12 @@
           v-else
           :class="{ 'can-hide': $site.themeConfig.logo }"
         >{{ $siteTitle }}</span>
-        <!-- <span
+        <span
           ref="siteName"
           class="site-name"
           v-if="$siteTitle"
           :class="{ 'can-hide': $site.themeConfig.logo }"
-        >{{ $siteTitle }}</span> -->
+        >{{ $siteTitle }}</span>
       </router-link>
       <div class="links">
         <NavLinks class="can-hide"/>
@@ -120,7 +120,7 @@ $navbar-horizontal-padding = 1.5rem;
   .site-name {
     font-size: 1.3rem;
     font-weight: 600;
-    color: $textColor;
+    color: #fff;
     position: relative;
   }
 

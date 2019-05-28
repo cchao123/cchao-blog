@@ -22,13 +22,10 @@
                 class="article-tag"
                 v-if="item.frontmatter.tags"
               >
-                <span v-for="tag in item.frontmatter.tags">/ {{ tag }}</span>
+                <span v-for="tag in item.frontmatter.tags" @click="tagFillter(tag)">/ {{ tag }}</span>
               </template>
             </div>
             <div class="article-description">{{ item.frontmatter.description }}</div>
-            <!-- <div class="article-tag" v-if="item.frontmatter.tags">
-          <span v-for="tag in item.frontmatter.tags">{{ tag }}</span>
-            </div>-->
             <div class="article-more" @click="goDetail(item)">READ MORE</div>
           </div>
         </template>
@@ -51,34 +48,30 @@
       <!-- 搜索 -->
       <Search/>
       <!-- 标签分类 -->
-      <Tags :tags="tags" @tag-fillter="tagFillter" v-if="tagShow"/>
-      <!--  -->
+      <Tags ref="Tags" :tags="tags" @tag-fillter="tagFillter" v-if="tagShow"/>
+      <!-- 导航 -->
       <Categories :categories="sidebarItems"/>
-      <!-- <Sidebar /> -->
     </div>
   </div>
 </template>
 
 <script>
-import Pagination from "./Pagination.vue";
-import AboutMe from "./AboutMe.vue";
-import Categories from "./Categories.vue";
 import Tags from "./Tags.vue";
 import Search from "./Search.vue";
+import AboutMe from "./AboutMe.vue";
+import Pagination from "./Pagination.vue";
+import Categories from "./Categories.vue";
 import ArticleSkeleton from "./ArticleSkeleton.vue";
-
-import FollowMe from "./FollowMe.vue";
 import { formatTime } from "./../util/date.js";
 import { resolveSidebarItems } from "./../util/util";
 
 export default {
   components: {
-    Pagination,
+    Tags,
+    Search,
     AboutMe,
     Categories,
-    Tags,
-    FollowMe,
-    Search,
+    Pagination,
     ArticleSkeleton
   },
 
@@ -136,6 +129,7 @@ export default {
     },
     // 标签筛选
     tagFillter(tagItem) {
+      this.$refs.Tags.tagItem = tagItem
       this.currentPage = 1;
       this.postsArr = [];
       if (!tagItem) {
@@ -273,21 +267,21 @@ export default {
     }
   }
 
-  .article-tag {
-    span {
-      transition: 0.3s;
-      font-size: 14px;
-      background: #e0e0e0;
-      color: #333333;
-      padding: 2px 5px;
-      margin-right: 5px;
+  // .article-tag {
+  //   span {
+  //     transition: 0.3s;
+  //     font-size: 14px;
+  //     background: #e0e0e0;
+  //     color: #333333;
+  //     padding: 2px 5px;
+  //     margin-right: 5px;
 
-      &:hover {
-        background: #a161bf;
-        color: #fff;
-      }
-    }
-  }
+  //     &:hover {
+  //       background: #a161bf;
+  //       color: #fff;
+  //     }
+  //   }
+  // }
 }
 
 @media (max-width: $MQNarrow) {

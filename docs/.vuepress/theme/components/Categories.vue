@@ -131,9 +131,6 @@ a {
 
 .categories {
   background: #fff;
-  // position -webkit-sticky
-  // position sticky
-  // top 0
   padding: 20px;
 }
 

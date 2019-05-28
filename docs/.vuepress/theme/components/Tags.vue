@@ -37,7 +37,6 @@ export default {
       this.$emit('tag-fillter', null)
     },
     tagFillter (item) {
-      this.tagItem = item
       this.$emit('tag-fillter', item)
     }
   },
