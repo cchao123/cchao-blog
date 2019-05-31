@@ -1,7 +1,38 @@
-| 作者名称|站点|简介|
+---
+layout: PageLayout
+tags:
+  - JS
+  - eventLoop
+friends: [
+  {
+    head: '',
+    name: '隔壁老王',
+    blogLink: 'https://dojay.cn',
+    blogName: '隔壁老王的随笔',
+    introduce: '一枚喜欢撸猫的web前端开发'
+  },
+  {
+    head: '',
+    name: 'GongJS',
+    blogLink: 'https://gongjs.github.io/',
+    blogName: 'GongJS‘BLOG',
+    introduce: 'Talk is cheap. Show me the code'
+  },
+  {
+    head: '',
+    name: 'Finen',
+    blogLink: 'https://www.finen.top/',
+    blogName: 'Finen',
+    introduce: 'Stay Hungry! Stay Foolish!'
+  }
+]
+
+
+
+
+---
+<!-- | 作者名称|站点|简介|
 | --------   | -----  | :----:  |
-|隔壁老王的随笔| [隔壁老王的随笔](https://dojay.cn/) |一枚喜欢撸猫的web前端开发|
-|GongJS| [GongJS‘BLOG](https://gongjs.github.io/) |Talk is cheap. Show me the code|
 |Finen| [Finen](https://www.finen.top/) |Stay Hungry! Stay Foolish!|
 
 
@@ -21,4 +52,5 @@
 :::
 
 
+ -->
 

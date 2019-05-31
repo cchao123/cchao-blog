@@ -35,14 +35,23 @@
 import Vue from "vue";
 import nprogress from "nprogress";
 import Home from "./components/Home.vue";
-import TagsLayout from "./components/TagsLayout.vue";
-import Navbar from "./components/Navbar.vue";
 import Page from "./components/Page.vue";
+import Navbar from "./components/Navbar.vue";
 import Sidebar from "./components/Sidebar.vue";
+import TagsLayout from "./components/TagsLayout.vue";
+import PageLayout from "./components/PageLayout.vue";
 import SWUpdatePopup from "./components/SWUpdatePopup.vue";
 import { resolveSidebarItems } from "./util/util";
 export default {
-  components: { Home, Page, Sidebar, Navbar, SWUpdatePopup, TagsLayout },
+  components: {
+    Home,
+    Page,
+    Sidebar,
+    Navbar,
+    SWUpdatePopup,
+    TagsLayout,
+    PageLayout
+  },
 
   data() {
     return {
@@ -51,6 +60,7 @@ export default {
       swUpdateEvent: null
     };
   },
+
   watch: {
     scrollTop: {
       handler(val) {
@@ -67,7 +77,8 @@ export default {
             /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
           )
         ) {
-          document.querySelectorAll(".categories")[1].className = "categories ca-fixed";
+          document.querySelectorAll(".categories")[1].className =
+            "categories ca-fixed";
         } else {
           if (document.querySelectorAll(".categories")[1])
             document.querySelectorAll(".categories")[1].className =

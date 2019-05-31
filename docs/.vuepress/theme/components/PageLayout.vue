@@ -1,19 +1,33 @@
 <template>
   <div class="page-layout">
-    {{this.$site}}
-    <!-- <transition-group appear tag="ul">
+    <transition-group appear tag="ul">
       <li
         class="item shake-slow"
-        v-for="(item, ind) in 10"
-        :key="item"
+        v-for="(item, ind) in friendsList"
+        :key="ind"
         :style="`transition-delay: ${ind * 0.15}s`"
-      >测试动画</li>
-    </transition-group> -->
+      >
+      {{item.name}}
+
+      </li>
+    </transition-group>
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    friendsList() {
+      return this.$site.pages[10].frontmatter.friends;
+    }
+  },
+  mounted() {
+    console.log(this.$site.pages[10].frontmatter);
+  }
+};
+</script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 @import './../styles/config.styl';
 @import './../styles/shake-slow.styl';
 
@@ -30,16 +44,16 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
 
-.item {
-  border-radius: 8px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  margin-top: 20px;
-  border: 1px solid #ccc;
+  li {
+    border-radius: 8px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    margin-top: 20px;
+    border: 1px solid #e4e4ee;
+  }
 }
 
 .page-layout {
