@@ -5,12 +5,12 @@
       <article-skeleton v-if="currentPost.length === 0 && this.$page.path === '/' "/>
       <!-- 文章列表 -->
       <template v-else v-for="item in currentPost">
-        <template>
-          <!-- <div
+        <div class="article-flow-item">
+          <div
             v-if="item.frontmatter.headimg"
             class="article-headimg"
             :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"
-          ></div> -->
+          ></div>
           <div class="article-item">
             <h3 class="article-title">
               <router-link :to="item.frontmatter.link || item.path">{{ item.title }}</router-link>
@@ -28,7 +28,7 @@
             <div class="article-description">{{ item.frontmatter.description }}</div>
             <div class="article-more" @click="goDetail(item)">READ MORE</div>
           </div>
-        </template>
+        </div>
       </template>
       <!-- 文章主题 -->
       <slot name="content"></slot>
@@ -129,7 +129,7 @@ export default {
     },
     // 标签筛选
     tagFillter(tagItem) {
-      this.$refs.Tags.tagItem = tagItem
+      this.$refs.Tags.tagItem = tagItem;
       this.currentPage = 1;
       this.postsArr = [];
       if (!tagItem) {
@@ -197,7 +197,19 @@ export default {
     flex: 1;
     width: 100%;
 
+    .article-flow-item {
+      overflow: hidden;
+
+      &:hover {
+        .article-headimg {
+          // transform: scale(1.005);
+          // filter: blur(1px);
+        }
+      }
+    }
+
     .article-headimg {
+      transition: 1s;
       background-color: #959dae;
       widht: 100%;
       height: 15rem;
@@ -266,22 +278,6 @@ export default {
       color: #fff;
     }
   }
-
-  // .article-tag {
-  //   span {
-  //     transition: 0.3s;
-  //     font-size: 14px;
-  //     background: #e0e0e0;
-  //     color: #333333;
-  //     padding: 2px 5px;
-  //     margin-right: 5px;
-
-  //     &:hover {
-  //       background: #a161bf;
-  //       color: #fff;
-  //     }
-  //   }
-  // }
 }
 
 @media (max-width: $MQNarrow) {

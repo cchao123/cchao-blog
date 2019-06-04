@@ -2,14 +2,12 @@
   <div class="page-layout">
     <transition-group appear tag="ul">
       <li
+        @click="openBlog"
         class="item shake-slow"
         v-for="(item, ind) in friendsList"
         :key="ind"
         :style="`transition-delay: ${ind * 0.15}s`"
-      >
-      {{item.name}}
-
-      </li>
+      >{{item.name}}</li>
     </transition-group>
   </div>
 </template>
@@ -23,6 +21,9 @@ export default {
   },
   mounted() {
     console.log(this.$site.pages[10].frontmatter);
+  },
+  methods: {
+    openBlog() {}
   }
 };
 </script>
