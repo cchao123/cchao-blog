@@ -6,11 +6,11 @@
       <!-- 文章列表 -->
       <template v-else v-for="item in currentPost">
         <div class="article-flow-item">
-          <div
+          <!-- <div
             v-if="item.frontmatter.headimg"
             class="article-headimg"
             :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"
-          ></div>
+          ></div> -->
           <div class="article-item">
             <h3 class="article-title">
               <router-link :to="item.frontmatter.link || item.path">{{ item.title }}</router-link>
