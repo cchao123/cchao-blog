@@ -65,7 +65,7 @@ tags:       文章标签
 ---
 home: true
 head: '头像'
-hideInfo: false         是否隐藏个人信息 默认不传均为false
+hideInfo: false         是否隐藏个人信息 默认不传为false
 footer: footer部分
 ---
 ```

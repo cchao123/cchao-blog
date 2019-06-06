@@ -8,23 +8,22 @@
           alt="headimg"
         >
         <!-- <div class="card-title" slot="card-title">About Me</div> -->
+        <!-- TODO这里太丑了 -->
         <div class="author-info">
           <div class="info-item">
             <i class="iconfont iconwenzhang"></i>
-            <CountUp startNum="0" :endNum="postsNum" times="10" speed="50" />
+            <CountUp startNum="0" :endNum="postsNum" times="10" speed="50"/>
           </div>
           <!-- <div class="info-item">
             <i class="iconfont iconwenjianjia"></i>
             <CountUp startNum="0" :endNum="classNum" times="10" speed="50" />
-          </div> -->
+          </div>-->
           <div class="info-item">
             <i class="iconfont icontag"></i>
-            <CountUp startNum="0" :endNum="tagsNum" times="10" speed="50" />
+            <CountUp startNum="0" :endNum="tagsNum" times="10" speed="50"/>
           </div>
         </div>
-        <div class="introduction">
-          {{ introduction }}
-        </div>
+        <div class="introduction">{{ introduction }}</div>
       </div>
     </div>
   </article-card>
@@ -32,7 +31,7 @@
 
 <script>
 import ArticleCard from "./ArticleCard.vue";
-import CountUp from './CountUp';
+import CountUp from "./CountUp";
 export default {
   // props: {
   //   postsNum: {
@@ -48,33 +47,38 @@ export default {
   //     default: 0
   //   }
   // },
-  data () {
+  data() {
     return {
       postsNum: 0,
       tagsNum: 0,
-      introduction: ''
-    }
+      introduction: ""
+    };
   },
-  components: { ArticleCard , CountUp },
+  components: { ArticleCard, CountUp },
   mounted() {
-    if (!sessionStorage.getItem('introduction')) { sessionStorage.setItem('introduction', this.$page.frontmatter.introduction) }
+    if (!sessionStorage.getItem("introduction")) {
+      sessionStorage.setItem(
+        "introduction",
+        this.$page.frontmatter.introduction
+      );
+    }
     setTimeout(() => {
-      this.postsNum = sessionStorage.getItem('postsNum')
-      this.tagsNum = sessionStorage.getItem('tagsNum')
-      this.introduction = sessionStorage.getItem('introduction')
+      this.postsNum = sessionStorage.getItem("postsNum");
+      this.tagsNum = sessionStorage.getItem("tagsNum");
+      this.introduction = sessionStorage.getItem("introduction");
     }, 0);
   },
   computed: {
-    options () {
+    options() {
       return {
         useEasing: true,
         useGrouping: true,
-        separator: '',
-        decimal: '.',
-        decimalPlaces: '',
-        prefix: '',
-        suffix: ''
-      }
+        separator: "",
+        decimal: ".",
+        decimalPlaces: "",
+        prefix: "",
+        suffix: ""
+      };
     }
   }
 };
@@ -83,18 +87,33 @@ export default {
 <style lang="stylus" scoped>
 .author {
   .author-head {
-    width 192px
-    height 192px
+    border-top-left-radius: 59%;
+    border-top-right-radius: 52%;
+    border-bottom-left-radius: 59%;
+    border-bottom-right-radius: 56%;
+    -webkit-transform: rotate(-6deg);
+    -ms-transform: rotate(-6deg);
+    transform: rotate(-6deg);
+    width: 192px;
+    height: 192px;
     transition: 0.5s;
     display: table;
     margin: -120px auto 30px;
     padding: 5px;
     border: 1px solid #e0e0e0;
-    border-radius: 50%;
+    border: 3px solid #e0e0e0;
     background-color: #fff;
-
+    img {
+      border-radius: 50%;
+    }
     &:hover {
-      transform: rotate(360deg);
+      border-top-left-radius: 52%;
+      border-top-right-radius: 49%;
+      border-bottom-left-radius: 54%;
+      border-bottom-right-radius: 58%;
+      -webkit-transform: rotate(0);
+      -ms-transform: rotate(0);
+      transform: rotate(0);
     }
   }
 }
@@ -105,24 +124,28 @@ export default {
 }
 
 .author-info {
-  cursor pointer
-  display flex
+  cursor: pointer;
+  display: flex;
+
   .info-item {
     &:nth-child(1) {
-      border 0
+      border: 0;
     }
-    border-left 1px dashed #e0e0e0
-    text-align center
-    flex 1
-    display flex
-    flex-direction column
-    justify-content center
+
+    border-left: 1px dashed #e0e0e0;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     i {
-      font-size 20px
+      font-size: 20px;
     }
+
     span {
-      font-size 10px
-      justify-content center
+      font-size: 10px;
+      justify-content: center;
     }
   }
 }

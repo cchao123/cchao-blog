@@ -5,29 +5,30 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
+    <!-- 导航栏 -->
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
-
+    <!-- 遮罩层 -->
     <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
-
+    <!-- 侧边栏 -->
     <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
       <slot name="sidebar-top" slot="top"/>
       <slot name="sidebar-bottom" slot="bottom"/>
     </Sidebar>
-
+    <!-- 布局 -->
     <div class="custom-layout" v-if="$page.frontmatter.layout">
       <component :is="$page.frontmatter.layout"/>
     </div>
-    <!-- 主页 -->
+    <!-- 博客主页 -->
     <Home v-else-if="$page.frontmatter.home"/>
-
+    <!-- 文章页 -->
     <Page v-else :sidebar-items="sidebarItems">
       <slot name="page-top" slot="top"/>
       <slot name="page-bottom" slot="bottom"/>
     </Page>
-
+    <!-- 更新通知 -->
     <SWUpdatePopup :updateEvent="swUpdateEvent"/>
-
-    <div v-show="isShowGotoTop" @click="goTop" class="goTop iconfont iconicon-test"></div>
+    <!-- 回到顶部 -->
+    <back-top :isShow="isShowGotoTop" />
   </div>
 </template>
 
@@ -41,6 +42,8 @@ import Sidebar from "./components/Sidebar.vue";
 import TagsLayout from "./components/TagsLayout.vue";
 import PageLayout from "./components/PageLayout.vue";
 import SWUpdatePopup from "./components/SWUpdatePopup.vue";
+import BackTop from "./components/BackTop.vue";
+
 import { resolveSidebarItems } from "./util/util";
 export default {
   components: {
@@ -50,7 +53,8 @@ export default {
     Navbar,
     SWUpdatePopup,
     TagsLayout,
-    PageLayout
+    PageLayout,
+    BackTop
   },
 
   data() {
@@ -160,9 +164,6 @@ export default {
   },
 
   methods: {
-    goTop() {
-      document.body.scrollTop = document.documentElement.scrollTop = 0;
-    },
     onScroll() {
       this.scrollTop =
         document.documentElement.scrollTop || document.body.scrollTop;
@@ -201,13 +202,4 @@ export default {
 <style src="./iconfont/iconfont.css"></style>
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="./styles/theme.styl" lang="stylus"></style>
-<style lang="stylus">
-.goTop {
-  cursor: pointer;
-  border-radius: 50%;
-  position: fixed;
-  right: 3%;
-  bottom: 5%;
-  font-size: 30px;
-}
-</style>
+

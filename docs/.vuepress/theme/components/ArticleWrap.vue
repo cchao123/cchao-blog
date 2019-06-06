@@ -2,7 +2,7 @@
   <div class="article-wrap">
     <div class="article-flow">
       <!-- 龙骨屏 -->
-      <article-skeleton v-if="currentPost.length === 0 && this.$page.path === '/' "/>
+      <skeleton v-if="currentPost.length === 0 && this.$page.path === '/' "/>
       <!-- 文章列表 -->
       <template v-else v-for="item in currentPost">
         <div class="article-flow-item">
@@ -61,7 +61,7 @@ import Search from "./Search.vue";
 import AboutMe from "./AboutMe.vue";
 import Pagination from "./Pagination.vue";
 import Categories from "./Categories.vue";
-import ArticleSkeleton from "./ArticleSkeleton.vue";
+import Skeleton from "./Skeleton.vue";
 import { formatTime } from "./../util/date.js";
 import { resolveSidebarItems } from "./../util/util";
 
@@ -72,7 +72,7 @@ export default {
     AboutMe,
     Categories,
     Pagination,
-    ArticleSkeleton
+    Skeleton
   },
 
   filters: {

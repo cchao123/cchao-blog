@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="hero">
+    <!-- <div class="hero">
       <p class="action" v-if="data.actionText && data.actionLink">
         <NavLink class="action-button" :item="actionLink"/>
       </p>
@@ -11,26 +11,25 @@
         <h2>{{ feature.title }}</h2>
         <p>{{ feature.details }}</p>
       </div>
-    </div>
+    </div>-->
 
-    <ArticleWrap :posts="this.$site.pages" @toast-show="toastShow" />
-    <Content custom/>
+    <ArticleWrap :posts="this.$site.pages" @toast-show="toastShow"/>
+    <!-- <Content custom/> -->
 
     <div class="footer" v-if="data.footer">{{ data.footer }}</div>
-    <Toast ref="Toast" />
+    <Toast ref="Toast"/>
   </div>
 </template>
 
 <script>
 import NavLink from "./NavLink.vue";
 import ArticleWrap from "./ArticleWrap.vue";
-import Toast from './Toast'
+import Toast from "./Toast";
 
 export default {
   components: { NavLink, ArticleWrap, Toast },
 
   computed: {
-
     data() {
       return this.$page.frontmatter;
     },
@@ -43,10 +42,10 @@ export default {
     }
   },
   methods: {
-    toastShow (lenght) {
-      this.$refs.Toast.show(`共筛选出${lenght}条`)
+    toastShow(lenght) {
+      this.$refs.Toast.show(`共筛选出${lenght}条`);
     }
-  },
+  }
 };
 </script>
 

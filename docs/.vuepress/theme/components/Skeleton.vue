@@ -1,3 +1,4 @@
+<!-- 骨架屏 -->
 <template>
   <div>
     <template v-for="item in 3">
