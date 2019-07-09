@@ -8,7 +8,7 @@
   dest: './dist',
   port: '9999',
   themeConfig: {
-    // logo: 'http://cchao.123hao123.top/images/logo.png',
+    logo: 'http://cchao.123hao123.top/images/logo.png',
     comments: {
       appId: 'VIha7MxNXOoUuwgzVFCIVVp5-gzGzoHsz',
       appKey: 'pDfJpFxpyuStv2HMBgccu347'

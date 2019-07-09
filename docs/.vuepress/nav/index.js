@@ -33,7 +33,7 @@ module.exports = [
       {
         icon: 'iconjuejin',
         color: 'blue',
-        text: 'Juejin',
+        text: '掘金',
         link: 'https://juejin.im/user/5be8e994e51d454b1a2f8a82'
       },
       {

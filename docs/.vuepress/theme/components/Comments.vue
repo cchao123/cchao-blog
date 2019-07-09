@@ -11,7 +11,7 @@ export default {
       return this.$page.frontmatter;
     }
   },
-  mounted: function() {
+  mounted () {
     this.createValine();
   },
   methods: {

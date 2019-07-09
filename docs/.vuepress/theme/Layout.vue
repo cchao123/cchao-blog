@@ -7,28 +7,35 @@
   >
     <!-- 导航栏 -->
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
+
     <!-- 遮罩层 -->
     <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
+
     <!-- 侧边栏 -->
     <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
       <slot name="sidebar-top" slot="top"/>
       <slot name="sidebar-bottom" slot="bottom"/>
     </Sidebar>
+
     <!-- 布局 -->
     <div class="custom-layout" v-if="$page.frontmatter.layout">
       <component :is="$page.frontmatter.layout"/>
     </div>
+
     <!-- 博客主页 -->
     <Home v-else-if="$page.frontmatter.home"/>
+
     <!-- 文章页 -->
     <Page v-else :sidebar-items="sidebarItems">
       <slot name="page-top" slot="top"/>
       <slot name="page-bottom" slot="bottom"/>
     </Page>
+
     <!-- 更新通知 -->
     <SWUpdatePopup :updateEvent="swUpdateEvent"/>
+
     <!-- 回到顶部 -->
-    <back-top :isShow="isShowGotoTop" />
+    <back-top :isShow="isShowGotoTop"/>
   </div>
 </template>
 
@@ -38,11 +45,11 @@ import nprogress from "nprogress";
 import Home from "./components/Home.vue";
 import Page from "./components/Page.vue";
 import Navbar from "./components/Navbar.vue";
+import BackTop from "./components/BackTop.vue";
 import Sidebar from "./components/Sidebar.vue";
 import TagsLayout from "./components/TagsLayout.vue";
 import PageLayout from "./components/PageLayout.vue";
 import SWUpdatePopup from "./components/SWUpdatePopup.vue";
-import BackTop from "./components/BackTop.vue";
 
 import { resolveSidebarItems } from "./util/util";
 export default {

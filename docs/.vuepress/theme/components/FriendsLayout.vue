@@ -8,10 +8,23 @@
         :key="item"
         :style="`transition-delay: ${ind * 0.15}s`"
       >测试动画</li>
-    </transition-group> -->
+    </transition-group>-->
+    <Comments v-bind:is="viewComments"></Comments>
   </div>
 </template>
 
+<script>
+import Comments from "./Comments.vue";
+
+export default {
+  data() {
+    return {
+      viewComments: "Comments"
+    };
+  },
+  components: { Comments }
+};
+</script>
 
 <style lang="stylus">
 @import './../styles/config.styl';

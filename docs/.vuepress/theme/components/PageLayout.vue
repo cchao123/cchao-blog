@@ -9,11 +9,19 @@
         :style="`transition-delay: ${ind * 0.15}s`"
       >{{item.name}}</li>
     </transition-group>
+    <Comments v-bind:is="viewComments"></Comments>
   </div>
 </template>
 
 <script>
+import Comments from "./Comments.vue";
 export default {
+  data() {
+    return {
+      viewComments: "Comments"
+    };
+  },
+  components: { Comments },
   computed: {
     friendsList() {
       return this.$site.pages[10].frontmatter.friends;

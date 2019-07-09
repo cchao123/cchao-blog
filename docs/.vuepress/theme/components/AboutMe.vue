@@ -4,7 +4,7 @@
       <div class="author">
         <img
           class="author-head"
-          :src="$page.frontmatter.head || 'https://user-gold-cdn.xitu.io/2019/5/15/16aba753c5c2e3b5?w=406&h=392&f=gif&s=155219'"
+          :src="$page.frontmatter.head || 'http://cchao.123hao123.top/images/head.gif'"
           alt="headimg"
         >
         <!-- <div class="card-title" slot="card-title">About Me</div> -->

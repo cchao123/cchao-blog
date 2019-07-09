@@ -193,6 +193,7 @@ export default {
   display: flex;
 
   .article-flow {
+    max-width 880px;
     position: relative;
     flex: 1;
     width: 100%;
