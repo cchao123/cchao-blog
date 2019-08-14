@@ -4,13 +4,9 @@
       <!-- 龙骨屏 -->
       <skeleton v-if="currentPost.length === 0 && this.$page.path === '/' "/>
       <!-- 文章列表 -->
-      <template v-else v-for="item in currentPost">
-        <div class="article-flow-item">
-          <!-- <div
-            v-if="item.frontmatter.headimg"
-            class="article-headimg"
-            :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"
-          ></div> -->
+      <transition-group appear tag="div" v-else class="article-flow-item" v-for="(item, ind) in currentPost">
+        <div :key="item" :style="`transition-delay: ${(ind + 1) * 0.1}s`">
+          <div v-if="item.frontmatter.headimg" class="article-headimg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"></div>
           <div class="article-item">
             <h3 class="article-title">
               <router-link :to="item.frontmatter.link || item.path">{{ item.title }}</router-link>
@@ -29,7 +25,7 @@
             <div class="article-more" @click="goDetail(item)">READ MORE</div>
           </div>
         </div>
-      </template>
+      </transition-group>
       <!-- 文章主题 -->
       <slot name="content"></slot>
       <!-- 分页器 -->
@@ -171,6 +167,7 @@ export default {
       }
     },
     handleCurrentChange(val) {
+      console.log(val)
       this.currentPage = val;
     }
   }
@@ -295,5 +292,14 @@ export default {
   .article-aside {
     display: none;
   }
+}
+
+.v-enter, .v-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.v-enter-active, .v-leave-active {
+  transition: all 0.6s ease;
 }
 </style>

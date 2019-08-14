@@ -1,21 +1,7 @@
 <template>
   <div class="home">
-    <!-- <div class="hero">
-      <p class="action" v-if="data.actionText && data.actionLink">
-        <NavLink class="action-button" :item="actionLink"/>
-      </p>
-    </div>
-
-    <div class="features" v-if="data.features && data.features.length">
-      <div class="feature" v-for="(feature, index) in data.features" :key="index">
-        <h2>{{ feature.title }}</h2>
-        <p>{{ feature.details }}</p>
-      </div>
-    </div>-->
-
     <ArticleWrap :posts="this.$site.pages" @toast-show="toastShow"/>
-    <!-- <Content custom/> -->
-
+    <Content custom/>
     <div class="footer" v-if="data.footer">{{ data.footer }}</div>
     <Toast ref="Toast"/>
   </div>

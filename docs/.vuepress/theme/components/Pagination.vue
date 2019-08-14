@@ -40,15 +40,9 @@ export default {
       if (item === "prev" && this.currentPage > 1) {
         this.$emit("current-change", --page);
       }
-      if (
-        item === "next" &&
-        this.currentPage < Math.ceil(this.total / this.pageSize)
-      ) {
+      if ( item === "next" && this.currentPage < Math.ceil(this.total / this.pageSize)) {
         this.$emit("current-change", ++page);
       }
-    },
-    pageTurning(item) {
-      if (!isNaN(item)) this.currentPage = item;
     }
   }
 };
