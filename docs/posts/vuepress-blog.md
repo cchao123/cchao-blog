@@ -138,15 +138,15 @@ GitHub要站点的仓库名称必须是 用户名.github.io
 
 点击`解析`
 
-![](https://user-gold-cdn.xitu.io/2019/5/30/16b066f6bfdece12?w=668&h=446&f=png&s=27319)
+![](http://cchao.123hao123.top/20190906-jx1.png)
 
 点击`添加记录`
 
-![](https://user-gold-cdn.xitu.io/2019/5/30/16b0670444dfae17?w=428&h=405&f=png&s=20694)
+![](http://cchao.123hao123.top/20190906-jx2.png)
 
 记录类型选择`CNAME`
 
-![](https://user-gold-cdn.xitu.io/2019/5/30/16b067161ebaa4cc?w=661&h=483&f=png&s=25358)
+![](http://cchao.123hao123.top/20190906-jx3.png)
 
 
 
@@ -205,7 +205,7 @@ $ cchao-cli init
 
 
 ### 功能演示
-![](https://user-gold-cdn.xitu.io/2019/5/15/16abab5f9703cec4?w=542&h=603&f=gif&s=40537)
+![](http://cchao.123hao123.top/20190906-cchao-cli.gif)
 
 
 

@@ -23,7 +23,7 @@
             <CountUp startNum="0" :endNum="tagsNum" times="10" speed="50"/>
           </div>
         </div>
-        <div class="introduction">{{ introduction }}</div>
+        <!-- <div class="introduction">{{ introduction }}</div> -->
       </div>
     </div>
   </article-card>

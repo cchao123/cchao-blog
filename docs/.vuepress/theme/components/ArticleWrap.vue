@@ -1,10 +1,20 @@
 <template>
   <div class="article-wrap">
     <div class="article-flow">
+      <div class="article-flow-item-test">
+        <div class="left">
+        </div>
+        <div class="right">
+          
+        </div>
+      </div>
       <!-- 龙骨屏 -->
       <skeleton v-if="currentPost.length === 0 && this.$page.path === '/' "/>
+      <!-- <div class="article-flow-item">
+        123123
+      </div> -->
       <!-- 文章列表 -->
-      <transition-group appear tag="div" v-else class="article-flow-item" v-for="(item, ind) in currentPost">
+      <!-- <transition-group appear tag="div" v-else class="article-flow-item" v-for="(item, ind) in currentPost">
         <div :key="item" :style="`transition-delay: ${(ind + 1) * 0.1}s`">
           <div v-if="item.frontmatter.headimg" class="article-headimg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"></div>
           <div class="article-item">
@@ -25,7 +35,7 @@
             <div class="article-more" @click="goDetail(item)">READ MORE</div>
           </div>
         </div>
-      </transition-group>
+      </transition-group> -->
       <!-- 文章主题 -->
       <slot name="content"></slot>
       <!-- 分页器 -->
@@ -283,6 +293,14 @@ export default {
     display: none;
   }
 
+  .article-headimg {
+    border-radius 0px!important;
+  }
+
+  .article-item {
+    border-radius 0px!important;
+  
+  }
   .article-wrap {
     margin-top: 0;
   }
@@ -302,4 +320,21 @@ export default {
 .v-enter-active, .v-leave-active {
   transition: all 0.6s ease;
 }
+
+.article-flow-item-test {
+  display flex;
+  width 100%
+  height 300px
+  .left {
+    width 300px
+    height 100%
+    background-image url(http://cchao.123hao123.top/images/eventloop.web)
+    background-size contain
+  }
+  .right {
+    flex 1
+  }
+}
+
+// 这里
 </style>
