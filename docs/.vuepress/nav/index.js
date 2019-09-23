@@ -4,8 +4,17 @@ module.exports = [
     link: '/'
   },
   {
-    text: 'NOTE',
-    link: '/note/'
+    text: 'REDIRECT',
+    link: '/redirect/'
+  },
+  {
+    text: 'FRIENDS',
+    items: [
+      {
+        text: '友情链接待加',
+        link: 'https://www.123hao123.top/'
+      }
+    ]
   },
   {
     text: 'MORE',

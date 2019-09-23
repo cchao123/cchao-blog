@@ -1,5 +1,7 @@
 ---
 home: true
-AboutMe: true
-footer: 晋ICP备16007968号-5
+head: 'https://user-gold-cdn.xitu.io/2019/5/15/16aba753c5c2e3b5?w=406&h=392&f=gif&s=155219'
+introduction: '我是介绍'
+hideInfo: false
+footer: 我是footer
 ---
