@@ -1,8 +1,7 @@
 <template>
   <article-card>
     <div class="card-title" slot="card-title">
-      <span>TAGS </span>
-      <!-- <i v-show="this.tagItem !== ''" class="iconfont iconqinglihuancun" @click="clearTags"></i> -->
+      <span>标签</span>
     </div>
     <div class="card-content tags-content" slot="card-content">
       <span :class="tagItem === item ? 'tags-item tags-active' : 'tags-item' " v-for="item in tags" @click="tagFillter(item)"># {{ item }}
@@ -53,15 +52,19 @@ export default {
   flex-wrap wrap
   justify-content space-between
   // justify-content space-around
-  justify-content space-around
+  justify-content flex-start
   .tags-item
     position relative
     font-size 12px
+    // @TODO 变量
     color #fff
+    color #8a92a9
     margin 5px
     padding 3px 5px
+    // @TODO 变量
     background-color rgb(44,62,80)
     background-color rgb(170, 170, 170)
+    background-color #f4f6f9
     transition .5s
     border-radius 3px
     i
@@ -74,10 +77,13 @@ export default {
       border-radius 50%
       text-align center
       line-height 12px
-      background-color rgb(44,62,80)
+      // @TODO 变量
+      background-color #010a13
     &:hover
-      background-color rgb(44,62,80)
+      background-color #010a13
+      color #fff
   .tags-active
-      background-color rgb(44,62,80)
+      background-color #010a13
+      color #fff
 
 </style>

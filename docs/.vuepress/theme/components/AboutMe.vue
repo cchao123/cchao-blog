@@ -4,7 +4,7 @@
       <div class="author">
         <img
           class="author-head"
-          :src="$page.frontmatter.head || 'http://cchao.123hao123.top/images/head.gif'"
+          :src="$page.frontmatter.head || 'http://cchao.123hao123.top/balebale-head.jpg'"
           alt="headimg"
         >
         <!-- <div class="card-title" slot="card-title">About Me</div> -->

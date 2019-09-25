@@ -61,7 +61,8 @@ export default {
   li {
     color: #333;
     cursor: pointer;
-    background: white;
+    // 变量
+    background-color: #5a6b79;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -73,7 +74,8 @@ export default {
   }
 
   .pag-atcive {
-    background: #2c3e50;
+    // @TODO 变量
+    background: #010a13;
     color: #fff;
   }
 

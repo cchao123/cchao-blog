@@ -1,11 +1,33 @@
 <template>
   <div class="article-wrap">
     <div class="article-flow">
+      <div class="article-flow-item-test">
+        <div class="left">
+          <div class="box"></div>
+        </div>
+        <div class="right">
+        </div>
+      </div>
+      <div class="article-flow-item-test">
+        <div class="left" style="background-image: url(https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=777242464,306041244&fm=173&app=25&f=JPEG?w=640&h=320&s=DCC9C20B1A2008909605ECDC0100C0B3)">
+          <div class="box"></div>
+        </div>
+        <div class="right">
+        </div>
+      </div>
+      <div class="article-flow-item-test">
+        <div class="left" style="background-image: url(http://cchao.123hao123.top/%E6%9C%AA%E6%A0%87%E9%A2%98-4.png)">
+          <div class="box"></div>
+        </div>
+        <div class="right">
+        </div>
+      </div>
+    </div>
       <!-- 龙骨屏 -->
       <skeleton v-if="currentPost.length === 0 && this.$page.path === '/' "/>
       <!-- 文章列表 -->
       <transition-group appear tag="div" v-else class="article-flow-item" v-for="(item, ind) in currentPost">
-        <div :key="item" :style="`transition-delay: ${(ind + 1) * 0.1}s`">
+        <div :key="item.title" :style="`transition-delay: ${(ind + 1) * 0.1}s`">
           <div v-if="item.frontmatter.headimg" class="article-headimg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"></div>
           <div class="article-item">
             <h3 class="article-title">
@@ -25,28 +47,6 @@
             <div class="article-more" @click="goDetail(item)">READ MORE</div>
           </div>
         </div>
-        
-        <!-- <div class="article-flow-item-test" :key="item" :style="`transition-delay: ${(ind + 1) * 0.1}s`">
-          <div class="cover-map" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"><div class="cover-map-mask"></div></div>
-          <div class="right">
-            <div class="article-item" style="padding-bottom: 0">
-              <h3 class="article-title">
-                <router-link :to="item.frontmatter.link || item.path">{{ item.title }}</router-link>
-              </h3>
-              <div class="article-date">
-                <i class="iconfont iconrili"></i>
-                {{ item.frontmatter.date || item.lastUpdated | formatTime('yyyy-MM-dd') }}
-                <template
-                  class="article-tag"
-                  v-if="item.frontmatter.tags"
-                >
-                  <span v-for="tag in item.frontmatter.tags" @click="tagFillter(tag)">/ {{ tag }}</span>
-                </template>
-              </div>
-              <div class="article-description">{{ item.frontmatter.description }}</div>
-            </div>
-          </div>
-        </div> -->
       </transition-group>
       <!-- 文章主题 -->
       <slot name="content"></slot>
@@ -74,7 +74,6 @@
 </template>
 
 <script>
-import UAParser from 'cchao-util/uaparser.js'
 import Tags from "./Tags.vue";
 import Search from "./Search.vue";
 import AboutMe from "./AboutMe.vue";
@@ -83,7 +82,7 @@ import Categories from "./Categories.vue";
 import Skeleton from "./Skeleton.vue";
 import { formatTime } from "./../util/date.js";
 import { resolveSidebarItems } from "./../util/util";
-const uaparser$ = new UAParser()
+
 export default {
   components: {
     Tags,
@@ -93,6 +92,7 @@ export default {
     Pagination,
     Skeleton
   },
+
   filters: {
     formatTime(time, format) {
       return formatTime(time, format);
@@ -103,8 +103,8 @@ export default {
       isFirst: true,
       tags: [],
       postsArr: [], // 文章列表
-      currentPage: 1, // 当前页码
-      pageSize: 3 // 显示文章数目
+      currentPage: 1,
+      pageSize: 3
     };
   },
   computed: {
@@ -139,7 +139,6 @@ export default {
   },
   mounted() {
     this.getPosts();
-    console.log('\n' + ' %c cchao https://github.com/2020807070/vuepress-theme-cchao ' + '\n', 'color: rgb(54, 72, 94); background: rgb(68, 182, 132); padding:5px 0; font-size:18px;');
   },
   methods: {
     goDetail(item) {
@@ -210,7 +209,6 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 20px;
-  min-height 86vh;
   display: flex;
 
   .article-flow {
@@ -247,7 +245,7 @@ export default {
       padding: 20px 30px;
       border-radius: 8px;
       transition: 0.5s;
-      // box-shadow: 5px 5px 10px rgb(224, 246, 249);
+      box-shadow: 5px 5px 10px rgb(224, 246, 249);
 
       .article-title {
         a {
@@ -307,6 +305,14 @@ export default {
     display: none;
   }
 
+  .article-headimg {
+    border-radius: 0px !important;
+  }
+
+  .article-item {
+    border-radius: 0px !important;
+  }
+
   .article-wrap {
     margin-top: 0;
   }
@@ -328,42 +334,28 @@ export default {
 }
 
 .article-flow-item-test {
-  overflow hidden
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   display: flex;
   width: 100%;
   height: 200px;
-  .article-title {
-    position relative
-    left -10px
-  }
-  .article-date {
-    position relative
-    left -25px
-  }
-  .article-description {
-    width 100%
-    text-indent 1em
-    position relative
-    left -50px
-  }
+
   &:hover {
-    .cover-map {
-      width:40%;
+    .left {
+      width: 50%;
     }
   }
 
-  .cover-map {
+  .left {
     // h5 不显示
     position: relative;
     transition: 0.3s;
     width: 250px;
-    width: 30%;
+    width: 40%;
     height: 100%;
+    background-image: url('http://cchao.123hao123.top/images/eventloop.webp'); // cchao.123hao123.top/images/eventloop.webp)
     background-size: auto 230px;
     background-position: center center;
-    background-color #eee
-    .cover-map-mask {
+    .box {
       position: absolute;
       right: 0;
       width: 0;
@@ -378,6 +370,9 @@ export default {
   .right {
     flex: 1;
     background: #fff;
+    .article-item {
+      padding-right 0
+    }
   }
 }
 </style>

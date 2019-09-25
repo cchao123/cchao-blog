@@ -2,7 +2,9 @@
   <div class="home">
     <ArticleWrap :posts="this.$site.pages" @toast-show="toastShow"/>
     <Content custom/>
-    <div class="footer" v-if="data.footer">{{ data.footer }}</div>
+    <div class="footer" v-if="data.footer">
+      Copyright © 2011-2019 cchao ©
+    </div>
     <Toast ref="Toast"/>
   </div>
 </template>
@@ -40,7 +42,7 @@ export default {
 
 .home {
   // padding: $navbarHeight 0rem 0;
-  max-width: 1200px;
+  // max-width: 1200px;
   margin: 0px auto;
 
   .hero {
@@ -114,10 +116,13 @@ export default {
   }
 
   .footer {
-    padding: 2.5rem;
+    background #010a13;
+    padding: .5rem;
+    font-size 12px;
     border-top: 1px solid $borderColor;
     text-align: center;
     color: lighten($textColor, 25%);
+    color #fff
   }
 }
 

@@ -6,9 +6,14 @@
 @require './wrapper'
 @require './toc'
 
+
 html, body
   padding 0
   margin 0
+  @font-face {
+    font-family: 'BarlowCondensed-Regular';   /*字体名称*/
+    src: url('BarlowCondensed-Regular.ttf');       /*字体源文件*/
+  }
 
 body
   font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
@@ -16,7 +21,7 @@ body
   -moz-osx-font-smoothing grayscale
   font-size 16px
   color $textColor
-  background #f4f8fb
+  background-color rgb(246, 248, 247)
   overflow-y scroll
 .page
   // padding-left $sidebarWidth
