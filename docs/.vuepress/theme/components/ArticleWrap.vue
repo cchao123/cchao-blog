@@ -4,8 +4,9 @@
       <!-- 龙骨屏 -->
       <skeleton v-if="currentPost.length === 0 && this.$page.path === '/' "/>
       <!-- 文章列表 -->
-      <transition-group appear tag="div" v-else class="article-flow-item" v-for="(item, ind) in currentPost">
-        <div :key="item" :style="`transition-delay: ${(ind + 1) * 0.1}s`">
+      <transition-group appear tag="article" v-else class="article-flow-item" v-for="(item, ind) in currentPost">
+        <!-- 手机端用这个 -->
+        <!-- <div :key="item" :style="`transition-delay: ${(ind + 1) * 0.1}s`">
           <div v-if="item.frontmatter.headimg" class="article-headimg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"></div>
           <div class="article-item">
             <h3 class="article-title">
@@ -24,7 +25,7 @@
             <div class="article-description">{{ item.frontmatter.description }}</div>
             <div class="article-more" @click="goDetail(item)">READ MORE</div>
           </div>
-        </div>
+        </div> -->
         
         <!-- <div class="article-flow-item-test" :key="item" :style="`transition-delay: ${(ind + 1) * 0.1}s`">
           <div class="cover-map" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"><div class="cover-map-mask"></div></div>
@@ -47,6 +48,14 @@
             </div>
           </div>
         </div> -->
+
+
+        <article class="article-flow-item-3" :key="item" :style="`transition-delay: ${(ind + 1) * 0.1}s`">
+          <div class="art-bg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}">
+
+          </div>
+          
+        </article>
       </transition-group>
       <!-- 文章主题 -->
       <slot name="content"></slot>
@@ -65,8 +74,10 @@
       <AboutMe v-show="!$page.frontmatter.hideInfo"/>
       <!-- 搜索 -->
       <Search/>
-      <!-- 标签分类 -->
-      <Tags ref="Tags" :tags="tags" @tag-fillter="tagFillter" v-if="tagShow"/>
+      <!-- 标签 -->
+      <Tags ref="Tags" :tags="tags" @tag-fillter="tagFillter" v-if="tagShow" />
+      <!-- 分类 -->
+      <Classification v-if="tagShow" />
       <!-- 导航 -->
       <Categories :categories="sidebarItems"/>
     </div>
@@ -76,6 +87,7 @@
 <script>
 import UAParser from 'cchao-util/uaparser.js'
 import Tags from "./Tags.vue";
+import Classification from "./Classification.vue";
 import Search from "./Search.vue";
 import AboutMe from "./AboutMe.vue";
 import Pagination from "./Pagination.vue";
@@ -87,6 +99,7 @@ const uaparser$ = new UAParser()
 export default {
   components: {
     Tags,
+    Classification,
     Search,
     AboutMe,
     Categories,
@@ -332,24 +345,29 @@ export default {
   margin-bottom: 30px;
   display: flex;
   width: 100%;
-  height: 200px;
-  .article-title {
-    position relative
-    left -10px
-  }
-  .article-date {
-    position relative
-    left -25px
-  }
+  height: 230px;
+  // .article-title {
+  //   position relative
+  //   left -10px
+  // }
+  // .article-date {
+  //   position relative
+  //   left -25px
+  // }
   .article-description {
-    width 100%
-    text-indent 1em
-    position relative
-    left -50px
+    color: gray;
+    font-size: 12px;
+    padding-top: 10px;
+    height: 65px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
   &:hover {
     .cover-map {
-      width:40%;
+      width: 350px;
     }
   }
 
@@ -360,7 +378,7 @@ export default {
     width: 250px;
     width: 30%;
     height: 100%;
-    background-size: auto 230px;
+    background-size: auto 350px;
     background-position: center center;
     background-color #eee
     .cover-map-mask {
@@ -368,16 +386,29 @@ export default {
       right: 0;
       width: 0;
       height: 0;
-      border-top: 100px solid transparent;
-      border-right: 30px solid #fff;
-      border-bottom: 100px solid #fff;
-      border-left: 30px solid transparent;
+      border-top: 115px solid transparent;
+      border-right: 20px solid #fff;
+      border-bottom: 115px solid #fff;
+      border-left: 20px solid transparent;
     }
   }
 
   .right {
     flex: 1;
     background: #fff;
+  }
+}
+
+
+.article-flow-item-3 {
+  width 100%
+  height 300px
+  background #fff
+  margin-bottom 20px
+  .art-bg {
+    width 100%
+    height 100%
+    background-size cover
   }
 }
 </style>

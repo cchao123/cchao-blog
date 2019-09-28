@@ -6,27 +6,29 @@
     </a>
 
     <DropdownTransition>
-      <ul class="nav-dropdown" v-show="open">
-        <li
-          class="dropdown-item"
-          :key="subItem.link || index"
-          v-for="(subItem, index) in item.items"
-        >
-          <h4 v-if="subItem.type === 'links'">{{ subItem.text }}</h4>
+      <transition name="fade">
+        <ul class="nav-dropdown" v-show="open">
+          <li
+            class="dropdown-item"
+            :key="subItem.link || index"
+            v-for="(subItem, index) in item.items"
+          >
+            <h4 v-if="subItem.type === 'links'">{{ subItem.text }}</h4>
 
-          <ul class="dropdown-subitem-wrapper" v-if="subItem.type === 'links'">
-            <li
-              class="dropdown-subitem"
-              :key="childSubItem.link"
-              v-for="childSubItem in subItem.items"
-            >
-              <NavLink :item="childSubItem"/>
-            </li>
-          </ul>
+            <ul class="dropdown-subitem-wrapper" v-if="subItem.type === 'links'">
+              <li
+                class="dropdown-subitem"
+                :key="childSubItem.link"
+                v-for="childSubItem in subItem.items"
+              >
+                <NavLink :item="childSubItem"/>
+              </li>
+            </ul>
 
-          <NavLink v-else :item="subItem"/>
-        </li>
-      </ul>
+            <NavLink v-else :item="subItem"/>
+          </li>
+        </ul>
+      </transition>
     </DropdownTransition>
   </div>
 </template>
@@ -186,7 +188,7 @@ export default {
 
     &:hover .nav-dropdown {
       // override the inline style.
-      display: block !important;
+      // display: block !important;
     }
 
     .dropdown-title .arrow {
@@ -198,7 +200,7 @@ export default {
     }
 
     .nav-dropdown {
-      display: none;
+      // display: none;
       // Avoid height shaked by clicking
       height: auto !important;
       box-sizing: border-box;

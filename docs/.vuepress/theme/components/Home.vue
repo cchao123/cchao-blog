@@ -3,7 +3,38 @@
     <ArticleWrap :posts="this.$site.pages" @toast-show="toastShow"/>
     <Content custom/>
     <div class="footer" v-if="data.footer">
-      Copyright © 2011-2019 cchao ©
+      <div class="footer-container">
+        <div class="f-top">
+          <div class="f-aside">
+            <h3>关于</h3>
+            <p>ZdasdasasdsadsasdasddsadadasdasjkdaskldsadFDASKLJDA架飞机卡拉斯科拉进口量式ZdasdasasdsadsasdasddsadadasdasjkdaskldsadFDASKLJDA架飞机卡拉斯科拉进口量式ZdasdasasdsadsasdasddsadadasdasjkdaskldsadFDASKLJDA架飞机卡拉斯科拉进口量式</p>
+          </div>
+          <div class="f-aside">
+            <h3>最近文章</h3>
+            <ul>
+              <li>阿里云的服务器...</li>
+              <li>嘻嘻</li>
+              <li>嘻嘻</li>
+              <li>嘻嘻</li>
+              <li>嘻嘻</li>
+            </ul>
+          </div>
+          <div class="f-aside">
+            <h3>哈哈哈</h3>
+          </div>
+        </div>
+          <div class="f-bottom">
+            <span v-for="item in this.$site.themeConfig.nav">{{ item.text }} - </span>
+            <div class="f-links">
+              <i class="iconfont iconsf"></i>
+              <i class="iconfont iconcsdn"></i>
+              <i class="iconfont iconjuejin"></i>
+              <i class="iconfont iconjianshu1"></i>
+              <i class="iconfont icongithub1"></i>
+            </div>
+          <p>Copyright © 2011-2019 cchao ©</p>
+        </div>
+      </div>
     </div>
     <Toast ref="Toast"/>
   </div>
@@ -28,6 +59,9 @@ export default {
         text: this.data.actionText
       };
     }
+  },
+  mounted () {
+    console.log(this.$site)
   },
   methods: {
     toastShow(lenght) {
@@ -116,13 +150,43 @@ export default {
   }
 
   .footer {
-    background #010a13;
-    padding: .5rem;
-    font-size 12px;
+    background: #010a13;
+    padding: 0.5rem;
+    font-size: 12px;
     border-top: 1px solid $borderColor;
-    text-align: center;
     color: lighten($textColor, 25%);
-    color #fff
+    color: #fff;
+    .footer-container {
+      width 1200px
+      margin 0 auto
+      display flex
+      flex-direction column
+      .f-top {
+        padding 10px
+        display flex
+        .f-aside {
+          flex: 1
+          margin-right 50px
+        }
+      }
+      .f-bottom {
+        padding 10px
+        color #cbcfd8
+        border-top 1px solid #0e1725
+        .f-links {
+          float right
+        }
+      }
+    }
+    i {
+      font-size 20px
+      transition 0.3s
+      color #cbcfd8
+      padding: 0 10px;
+      &:hover {
+        color #fff
+      }
+    }
   }
 }
 

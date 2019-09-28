@@ -7,6 +7,7 @@
 
 <style lang="stylus">
 .article-card
+  overflow hidden
   box-shadow 5px 5px 10px rgb(224,246,249)
   background white
   padding 20px

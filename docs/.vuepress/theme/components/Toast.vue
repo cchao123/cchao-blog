@@ -30,14 +30,6 @@ export default {
 <style lang="stylus">
 @import './../styles/config.styl';
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter, .fade-leave-to { /* .fade-leave-active below version 2.1.8 */
-  opacity: 0;
-}
-
 .toast {
   padding: 18px 12px;
   min-width: 196px;

@@ -1,29 +1,33 @@
 <template>
-  <article-card style="margin-top: 100px">
+  <article-card style="padding: 0;">
     <div slot="card-content">
-      <div class="author">
-        <img
-          class="author-head"
-          :src="$page.frontmatter.head || 'http://cchao.123hao123.top/balebale-head.jpg'"
-          alt="headimg"
-        >
-        <!-- <div class="card-title" slot="card-title">About Me</div> -->
-        <!-- TODO这里太丑了 -->
-        <div class="author-info">
-          <div class="info-item">
-            <i class="iconfont iconwenzhang"></i>
-            <CountUp startNum="0" :endNum="postsNum" times="10" speed="50"/>
-          </div>
-          <!-- <div class="info-item">
-            <i class="iconfont iconwenjianjia"></i>
-            <CountUp startNum="0" :endNum="classNum" times="10" speed="50" />
-          </div>-->
-          <div class="info-item">
-            <i class="iconfont icontag"></i>
-            <CountUp startNum="0" :endNum="tagsNum" times="10" speed="50"/>
+      <div class="author-card">
+        <div class="author-card-bg">
+          <img
+            class="author-card-head"
+            :src="$page.frontmatter.head || 'https://avatars1.githubusercontent.com/u/24643401?s=460&v=4'"
+            alt="headimg"
+          >
+          <span class="author-card-name">郝陈晨</span>
+          <!-- @TODO 这里做成动效 -->
+          <span class="author-card-des">无折腾不前端.</span>
+        </div>
+        <div class="author-card-info">
+          <div class="author-info">
+            <div class="info-item">
+              <i class="iconfont iconwenzhang"></i>
+              <CountUp startNum="0" :endNum="postsNum" times="10" speed="50"/>
+            </div>
+            <div class="info-item">
+              <i class="iconfont iconwenjianjia"></i>
+              <CountUp startNum="0" :endNum="classNum" times="10" speed="50" />
+            </div>
+            <div class="info-item">
+              <i class="iconfont icontag"></i>
+              <CountUp startNum="0" :endNum="tagsNum" times="10" speed="50"/>
+            </div>
           </div>
         </div>
-        <!-- <div class="introduction">{{ introduction }}</div> -->
       </div>
     </div>
   </article-card>
@@ -85,44 +89,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.author {
-  .author-head {
-    border-top-left-radius: 59%;
-    border-top-right-radius: 52%;
-    border-bottom-left-radius: 59%;
-    border-bottom-right-radius: 56%;
-    -webkit-transform: rotate(-6deg);
-    -ms-transform: rotate(-6deg);
-    transform: rotate(-6deg);
-    width: 192px;
-    height: 192px;
-    transition: 0.5s;
-    display: table;
-    margin: -120px auto 30px;
-    padding: 5px;
-    border: 1px solid #e0e0e0;
-    border: 3px solid #e0e0e0;
-    background-color: #fff;
-    img {
-      border-radius: 50%;
-    }
-    &:hover {
-      border-top-left-radius: 52%;
-      border-top-right-radius: 49%;
-      border-bottom-left-radius: 54%;
-      border-bottom-right-radius: 58%;
-      -webkit-transform: rotate(0);
-      -ms-transform: rotate(0);
-      transform: rotate(0);
-    }
-  }
-}
-
-.introduction {
-  text-align: center;
-  margin-top: 15px;
-}
-
 .author-info {
   cursor: pointer;
   display: flex;
@@ -153,5 +119,56 @@ export default {
 .atc-title {
   border-left: 5px solid red;
   padding-left: 5px;
+}
+
+.author-card {
+    .author-card-bg {
+      position relative
+      width 100%
+      height 200px
+      background-size cover
+      background-image url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569670243409&di=77621e8579902db3525fde546f621bcb&imgtype=jpg&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D1480687983%2C1233012128%26fm%3D214%26gp%3D0.jpg)
+      &:before {
+        display block
+        content: ''
+        top 0
+        left 0
+        position absolute
+        width 100%
+        height 100%
+        // @TODO 变量
+        background #3e39ff06
+      }
+      .author-card-head {
+        position absolute
+        border-radius 50%
+        width 100px
+        height 100px
+        top 50%
+        transform translateY(50%)
+        left 20px
+      }
+      .author-card-name {
+        bottom 10px
+        position absolute
+        color #fff
+        left 150px
+        font-weight bold
+        font-size 20px
+      }
+      .author-card-des {
+        position absolute
+        color #010a13
+        left 150px
+        bottom -30px
+        font-size 14px
+      }
+    }
+    .author-card-info {
+      padding-top 80px
+
+      padding-bottom 20px
+    }
+
 }
 </style>

@@ -40,14 +40,14 @@ export default {
 @import './../styles/config.styl';
 @import './../styles/shake-slow.styl';
 
-.v-enter, .v-leave-to {
-  opacity: 0;
-  transform: translateY(80px);
-}
+// .v-enter, .v-leave-to {
+//   opacity: 0;
+//   transform: translateY(80px);
+// }
 
-.v-enter-active, .v-leave-active {
-  transition: all 0.6s ease;
-}
+// .v-enter-active, .v-leave-active {
+//   transition: all 0.6s ease;
+// }
 
 ul {
   display: flex;
