@@ -174,9 +174,9 @@ export default {
     transition all .2s ease
     background #fff url(./search.svg) 0.6rem 0.5rem no-repeat
     background-size 1rem
-    &:focus
-      cursor auto
-      border-color $accentColor
+    // &:focus
+    //   cursor auto
+    //   border-color $accentColor
   .suggestions
     z-index 999
     background #fff

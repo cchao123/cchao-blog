@@ -1,8 +1,8 @@
 <!-- Pagination 分页 当数据量过多时，使用分页分解数据 -->
 <template>
-  <ul class="pagination-wrap" v-if="false">
+  <ul class="pagination-wrap" v-if="!false">
     <!-- prev, pager, next -->
-    <li @click="currentChange('prev')" class="iconfont iconhoutui"></li>
+    <!-- <li @click="currentChange('prev')" class="iconfont iconhoutui"></li> -->
     <li class="pag-atcive" v-if="!total">{{ currentPage }}</li>
     <li
       :class="item === currentPage ? 'pag-atcive' :''"
@@ -10,7 +10,7 @@
       :key="item"
       @click="currentChange(item)"
     >{{ item }}</li>
-    <li @click="currentChange('next')" class="iconfont iconqianjin"></li>
+    <!-- <li @click="currentChange('next')" class="iconfont iconqianjin"></li> -->
   </ul>
   <ul class="pagination-wrap style2" v-else>
     <!-- prev, pager, next -->
@@ -18,7 +18,7 @@
     <div class="pagination-style-2">
       <span class="currentPage">{{currentPage}}</span>
       <span class="line"></span>
-      <span class="pageSize">{{pageSize}}</span>
+      <span class="pageSize">{{ Math.ceil(total/ pageSize) }}</span>
     </div>
     <li @click="currentChange('next')" class="button">下一页</li>
   </ul>
@@ -45,6 +45,8 @@ export default {
   },
   methods: {
     currentChange(item) {
+      if (item === this.currentPage) return
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
       if (!isNaN(item)) this.$emit("current-change", item);
       var page = this.currentPage;
       if (item === "prev" && this.currentPage > 1) {
@@ -65,8 +67,6 @@ export default {
   list-style: none;
   display: flex;
   margin-bottom: 20px;
-  border-radius: 8px;
-  padding: 5px 0;
 
   li {
     // 变脸
@@ -77,11 +77,13 @@ export default {
     align-items: center;
     justify-content: center;
     display: flex;
-    margin: 0 5px;
     width: 30px;
     height: 30px;
-    border-radius: 8px;
     // box-shadow 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12)
+    &:hover {
+      background: #010a13;
+      color: #fff;
+    }
   }
 
   .pag-atcive {

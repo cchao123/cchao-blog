@@ -1,6 +1,6 @@
 ---
 title: 记录脚开发
-headimg: 'http://cchao.123hao123.top/images/cchao-cli.png'
+coverMap: 'http://cchao.123hao123.top/images/cchao-cli.png'
 date: 2019/4/25
 description: 开发过程中经常有很多重复的工作量
 tags:

@@ -49,7 +49,7 @@ module.exports = {
 ```
 ---
 title: 标题
-headimg: '封面图'
+coverMap: '封面图'
 date: 2019/4/21
 description: 文章描述
 tags:       文章标签

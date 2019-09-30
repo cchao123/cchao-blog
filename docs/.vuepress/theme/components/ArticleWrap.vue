@@ -1,61 +1,31 @@
 <template>
-  <div class="article-wrap">
-    <div class="article-flow">
+  <div class="art-wrap">
+    <div class="art-flow">
       <!-- 龙骨屏 -->
       <skeleton v-if="currentPost.length === 0 && this.$page.path === '/' "/>
       <!-- 文章列表 -->
-      <transition-group appear tag="article" v-else class="article-flow-item" v-for="(item, ind) in currentPost">
+      <transition-group appear tag="article" v-else class="art-flow-item" v-for="(item, ind) in currentPost">
         <!-- 手机端用这个 -->
-        <!-- <div :key="item" :style="`transition-delay: ${(ind + 1) * 0.1}s`">
-          <div v-if="item.frontmatter.headimg" class="article-headimg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"></div>
-          <div class="article-item">
-            <h3 class="article-title">
+        <div :key="item" class="art-content" :style="`transition-delay: ${(ind + 1) * 0.08}s`">
+          <div class="art-coverMap" v-if="item.frontmatter.coverMap" :style="{backgroundImage: `url(${item.frontmatter.coverMap})`}"></div>
+          <div class="art-info">
+            <h3 class="art-tit">
               <router-link :to="item.frontmatter.link || item.path">{{ item.title }}</router-link>
             </h3>
-            <div class="article-date">
+            <div class="art-date">
               <i class="iconfont iconrili"></i>
               {{ item.frontmatter.date || item.lastUpdated | formatTime('yyyy-MM-dd') }}
               <template
-                class="article-tag"
+                class="art-tag"
                 v-if="item.frontmatter.tags"
               >
                 <span v-for="tag in item.frontmatter.tags" @click="tagFillter(tag)">/ {{ tag }}</span>
               </template>
             </div>
-            <div class="article-description">{{ item.frontmatter.description }}</div>
-            <div class="article-more" @click="goDetail(item)">READ MORE</div>
+            <div class="art-des" style="-webkit-box-orient: vertical">{{ item.frontmatter.description }}</div>
+            <div class="art-read iconfont iconxiazai9"></div>
           </div>
-        </div> -->
-        
-        <!-- <div class="article-flow-item-test" :key="item" :style="`transition-delay: ${(ind + 1) * 0.1}s`">
-          <div class="cover-map" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"><div class="cover-map-mask"></div></div>
-          <div class="right">
-            <div class="article-item" style="padding-bottom: 0">
-              <h3 class="article-title">
-                <router-link :to="item.frontmatter.link || item.path">{{ item.title }}</router-link>
-              </h3>
-              <div class="article-date">
-                <i class="iconfont iconrili"></i>
-                {{ item.frontmatter.date || item.lastUpdated | formatTime('yyyy-MM-dd') }}
-                <template
-                  class="article-tag"
-                  v-if="item.frontmatter.tags"
-                >
-                  <span v-for="tag in item.frontmatter.tags" @click="tagFillter(tag)">/ {{ tag }}</span>
-                </template>
-              </div>
-              <div class="article-description">{{ item.frontmatter.description }}</div>
-            </div>
-          </div>
-        </div> -->
-
-
-        <article class="article-flow-item-3" :key="item" :style="`transition-delay: ${(ind + 1) * 0.1}s`">
-          <div class="art-bg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}">
-
-          </div>
-          
-        </article>
+        </div>
       </transition-group>
       <!-- 文章主题 -->
       <slot name="content"></slot>
@@ -212,13 +182,12 @@ export default {
 
 <style lang="stylus">
 @import './../styles/config.styl';
-
 .content {
   background: #fff;
   border-radius: 8px;
 }
 
-.article-wrap {
+.art-wrap {
   padding: $navbarHeight 0rem 0;
   max-width: 1200px;
   margin: 0 auto;
@@ -226,103 +195,101 @@ export default {
   min-height 86vh;
   display: flex;
 
-  .article-flow {
+  .art-flow {
     max-width: 880px;
     position: relative;
     flex: 1;
     width: 100%;
-
-    .article-flow-item {
-      overflow: hidden;
-
-      &:hover {
-        .article-headimg {
-          // transform: scale(1.005);
-          // filter: blur(1px);
-        }
-      }
-    }
-
-    .article-headimg {
-      transition: 1s;
-      background-color: #959dae;
-      widht: 100%;
-      height: 15rem;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-      background-size: cover;
-      background-position: center center;
-    }
-
-    .article-item {
-      background: #fff;
-      margin-bottom: 20px;
-      padding: 20px 30px;
-      border-radius: 8px;
-      transition: 0.5s;
-      // box-shadow: 5px 5px 10px rgb(224, 246, 249);
-
-      .article-title {
-        a {
-          transition: 0.5s;
-          font-size: 20px;
-          color: #262626;
-
-          &:hover {
-            color: #b09dae;
-          }
-        }
-      }
-    }
   }
 
   .article-aside {
-    margin-bottom: 20px;
+    // @TODO 变量$间隙
+    margin-bottom: 25px;
     width: 300px;
     margin-left: 20px;
   }
-
-  .article-date {
-    font-size: 14px;
-    color: #565656;
-    cursor: pointer;
-  }
-
-  .article-description {
-    line-height: 30px;
-    margin: 16px 0;
-    font-size: 16px;
-    color: #393939;
-    color: #656565;
-    font-size: 14px;
-    // color: #976666;
-  }
-
-  .article-more {
-    font-size: 12px;
-    cursor: pointer;
-    transition: 0.5s;
-    border: 1px solid #959dae;
-    color: #959dae;
-    padding: 2px 0;
-    width: 7em;
-    text-align: center;
-
-    &:hover {
-      background: #959dae;
-      color: #fff;
-    }
+}
+.art-content {
+  transition .3s
+  &:hover {
+    box-shadow 5px 5px 10px #c8e9ee
   }
 }
 
+.art-content {
+  transition .3s
+  padding 20px 20px
+  position relative
+  // overflow hidden
+  box-shadow 5px 5px 10px #e0f6f9
+  border-radius 5px
+  background #fff
+  margin-bottom 25px
+  display flex
+  .art-coverMap {
+    background-color #eee
+    border-radius 5px
+    // flex 600
+    width 440px
+    height 250px
+    width 300px
+    height 220px
+    background-size cover
+    background-position center center
+  }
+  .art-info {
+    padding 30px
+    flex 1
+    .art-tit {
+      // @TODO 变量
+      a {
+        color #000
+      }
+    }
+    .art-date {
+      margin-bottom 10px
+      color #8a92a9
+    }
+    .art-des {
+      font-size 14px
+      display -webkit-box
+      -webkit-line-clamp 3
+      overflow hidden
+      color #062743
+      line-height 16px
+    }
+    .art-read {
+      position absolute  
+      right 20px
+      bottom 20px
+    }
+  }
+}
 @media (max-width: $MQNarrow) {
   .article-aside {
     display: none;
   }
 
-  .article-wrap {
+  .art-wrap {
     margin-top: 0;
   }
+
+  .art-flow {
+    padding 10px
+  }
+  .art-content {
+    .art-coverMap {
+      width 100%
+    }
+    .art-info {
+      padding 0
+    }
+    display block
+  }
+  .art-read {
+    display none
+  }
+
 }
 
 @media (max-width: $MQNarrow) and (min-width: $MQMobile) {
@@ -339,76 +306,5 @@ export default {
 .v-enter-active, .v-leave-active {
   transition: all 0.6s ease;
 }
-
-.article-flow-item-test {
-  overflow hidden
-  margin-bottom: 30px;
-  display: flex;
-  width: 100%;
-  height: 230px;
-  // .article-title {
-  //   position relative
-  //   left -10px
-  // }
-  // .article-date {
-  //   position relative
-  //   left -25px
-  // }
-  .article-description {
-    color: gray;
-    font-size: 12px;
-    padding-top: 10px;
-    height: 65px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-  &:hover {
-    .cover-map {
-      width: 350px;
-    }
-  }
-
-  .cover-map {
-    // h5 不显示
-    position: relative;
-    transition: 0.3s;
-    width: 250px;
-    width: 30%;
-    height: 100%;
-    background-size: auto 350px;
-    background-position: center center;
-    background-color #eee
-    .cover-map-mask {
-      position: absolute;
-      right: 0;
-      width: 0;
-      height: 0;
-      border-top: 115px solid transparent;
-      border-right: 20px solid #fff;
-      border-bottom: 115px solid #fff;
-      border-left: 20px solid transparent;
-    }
-  }
-
-  .right {
-    flex: 1;
-    background: #fff;
-  }
-}
-
-
-.article-flow-item-3 {
-  width 100%
-  height 300px
-  background #fff
-  margin-bottom 20px
-  .art-bg {
-    width 100%
-    height 100%
-    background-size cover
-  }
-}
 </style>
+

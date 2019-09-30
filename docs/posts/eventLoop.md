@@ -1,6 +1,6 @@
 ---
 title: JS事件循环
-headimg: 'http://cchao.123hao123.top/images/eventloop.webp'
+coverMap: 'http://cchao.123hao123.top/images/eventloop.webp'
 date: 2019/4/21
 description: 为什么js设计为单线程？ 单线程为什么要存在异步操作？ 单线程又是如何实现的异步？ 今天，简单总结一下js中的事件循环，了解代码的执行过程。
 tags:

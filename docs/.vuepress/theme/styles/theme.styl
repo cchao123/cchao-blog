@@ -7,19 +7,15 @@
 @require './toc'
 // @require './animation.css'
   
-// @font-face {
-//   font-family: myfont;
-//   src: url('./BarlowCondensed-Regular.ttf')
-// }
 @font-face {
-  font-family: "Bitstream Vera Serif Bold";
-  src: url("http://developer.mozilla.org/@api/deki/files/2934/=VeraSeBd.ttf");
+  font-family: '幼圆';
+  src: url('./幼圆.ttf')
 }
 
 html, body
   padding 0
   margin 0
-  font-family: "Bitstream Vera Serif Bold", serif;
+  font-family: '幼圆'!important
 
 body
   font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
@@ -42,6 +38,18 @@ body
   background-color #fff
   box-sizing border-box
   border-bottom 1px solid $borderColor
+
+// .navbar-hide {
+//   animation: navbarHide 0.3s ease 0s;
+// }
+// @keyframes navbarHide {
+//     0% {
+//         height: 60px;
+//     }
+//     100% {
+//         height: 0
+//     }
+// }
 
 .sidebar-mask
   position fixed

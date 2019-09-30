@@ -28,7 +28,7 @@
       <!-- 文章列表 -->
       <transition-group appear tag="div" v-else class="article-flow-item" v-for="(item, ind) in currentPost">
         <div :key="item.title" :style="`transition-delay: ${(ind + 1) * 0.1}s`">
-          <div v-if="item.frontmatter.headimg" class="article-headimg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"></div>
+          <div v-if="item.frontmatter.coverMap" class="article-coverMap" :style="{backgroundImage: `url(${item.frontmatter.coverMap})`}"></div>
           <div class="article-item">
             <h3 class="article-title">
               <router-link :to="item.frontmatter.link || item.path">{{ item.title }}</router-link>
@@ -221,14 +221,14 @@ export default {
       overflow: hidden;
 
       &:hover {
-        .article-headimg {
+        .article-coverMap {
           // transform: scale(1.005);
           // filter: blur(1px);
         }
       }
     }
 
-    .article-headimg {
+    .article-coverMap {
       transition: 1s;
       background-color: #959dae;
       widht: 100%;
@@ -305,7 +305,7 @@ export default {
     display: none;
   }
 
-  .article-headimg {
+  .article-coverMap {
     border-radius: 0px !important;
   }
 

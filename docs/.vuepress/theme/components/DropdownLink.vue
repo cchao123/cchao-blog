@@ -6,7 +6,6 @@
     </a>
 
     <DropdownTransition>
-      <transition name="fade">
         <ul class="nav-dropdown" v-show="open">
           <li
             class="dropdown-item"
@@ -28,7 +27,6 @@
             <NavLink v-else :item="subItem"/>
           </li>
         </ul>
-      </transition>
     </DropdownTransition>
   </div>
 </template>
@@ -188,7 +186,7 @@ export default {
 
     &:hover .nav-dropdown {
       // override the inline style.
-      // display: block !important;
+      display: block !important;
     }
 
     .dropdown-title .arrow {
@@ -200,7 +198,6 @@ export default {
     }
 
     .nav-dropdown {
-      // display: none;
       // Avoid height shaked by clicking
       height: auto !important;
       box-sizing: border-box;

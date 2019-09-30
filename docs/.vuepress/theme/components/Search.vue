@@ -1,5 +1,5 @@
 <template>
-  <article-card>
+  <article-card style="overflow: visible">
     <div slot="card-content">
       <SearchBox />
     </div>
@@ -14,6 +14,3 @@ export default {
   components: { ArticleCard , SearchBox}
 }
 </script>
-<style lang="stylus">
-
-</style>

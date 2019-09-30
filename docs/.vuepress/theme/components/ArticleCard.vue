@@ -7,12 +7,16 @@
 
 <style lang="stylus">
 .article-card
+  transition .3s
   overflow hidden
   box-shadow 5px 5px 10px rgb(224,246,249)
   background white
   padding 20px
   border-radius 8px
-  margin-bottom 20px
+  margin-bottom 25px
+  &:hover {
+    box-shadow 5px 5px 10px #c8e9ee
+  }
   .card-title
     font-size 10px
     padding-bottom 10px

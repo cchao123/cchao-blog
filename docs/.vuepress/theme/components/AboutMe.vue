@@ -6,7 +6,7 @@
           <img
             class="author-card-head"
             :src="$page.frontmatter.head || 'https://avatars1.githubusercontent.com/u/24643401?s=460&v=4'"
-            alt="headimg"
+            alt="coverMap"
           >
           <span class="author-card-name">郝陈晨</span>
           <!-- @TODO 这里做成动效 -->
@@ -55,6 +55,7 @@ export default {
     return {
       postsNum: 0,
       tagsNum: 0,
+      classNum: 10,
       introduction: ""
     };
   },
