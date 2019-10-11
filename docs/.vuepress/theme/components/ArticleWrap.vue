@@ -13,7 +13,7 @@
               <router-link :to="item.frontmatter.link || item.path">{{ item.title }}</router-link>
             </h3>
             <div class="art-des" style="-webkit-box-orient: vertical">{{ item.frontmatter.description }}</div>
-            <!-- <div class="art-more">
+            <div class="art-more">
               <div class="art-date">
                 <i class="iconfont iconrili"></i>
                 {{ item.frontmatter.date || item.lastUpdated | formatTime('yyyy-MM-dd') }}
@@ -22,7 +22,7 @@
                 </template>
               </div>
               <div class="art-read iconfont iconxiazai9"></div>
-            </div> -->
+            </div>
           </div>
         </div>
       </transition-group>
@@ -192,6 +192,7 @@ export default {
 }
 
 .art-wrap {
+  overflow-x hidden
   padding: $navbarHeight 0rem 0;
   max-width: 1200px;
   margin: 0 auto;
@@ -255,6 +256,9 @@ export default {
       // @TODO 变量
       a {
         color #000
+        &:first-letter {
+          font-size 26px
+        }
       }
     }
     .art-date {
@@ -268,26 +272,27 @@ export default {
     .art-des {
       font-size 16px
       display -webkit-box
-      -webkit-line-clamp 3
+      -webkit-line-clamp 4
       overflow hidden
       color #062743
       line-height 28px
       margin-top 20px
     }
     .art-more {
-      width 500px
+      width 480px
       position absolute
       bottom 0px
       display flex
       justify-content space-between
     }
     .art-read {
+      position relative
+      left 30px
       padding 5px
       transition 0.3s
       border-radius 50%
       &:hover {
-        color #fff
-        background #000
+        transform scale(1.2)
       }
     }
   }
