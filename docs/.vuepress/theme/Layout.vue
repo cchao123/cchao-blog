@@ -23,7 +23,7 @@
     </div>
 
     <!-- 博客主页 -->
-    <Home v-else-if="$page.frontmatter.home"/>
+    <Home v-else-if="$page.frontmatter.home" />
 
     <!-- 文章页 -->
     <Page v-else :sidebar-items="sidebarItems">
@@ -50,6 +50,7 @@ import Sidebar from "./components/Sidebar.vue";
 import TagsLayout from "./components/TagsLayout.vue";
 import PageLayout from "./components/PageLayout.vue";
 import SWUpdatePopup from "./components/SWUpdatePopup.vue";
+import { $BUS } from "./util/bus.js"
 
 import { resolveSidebarItems } from "./util/util";
 export default {
@@ -177,6 +178,7 @@ export default {
     },
     toggleSidebar(to) {
       this.isSidebarOpen = typeof to === "boolean" ? to : !this.isSidebarOpen;
+      $BUS.$emit('is-sidebar-open', this.isSidebarOpen)
     },
 
     // side swipe

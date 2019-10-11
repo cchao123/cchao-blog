@@ -1,6 +1,6 @@
 <template>
   <div class="art-wrap">
-    <div class="art-flow">
+    <div :class="isSidebarOpen ? 'art-flow push' : 'art-flow'">
       <!-- 龙骨屏 -->
       <skeleton v-if="currentPost.length === 0 && this.$page.path === '/' "/>
       <!-- 文章列表 -->
@@ -12,18 +12,17 @@
             <h3 class="art-tit">
               <router-link :to="item.frontmatter.link || item.path">{{ item.title }}</router-link>
             </h3>
-            <div class="art-date">
-              <i class="iconfont iconrili"></i>
-              {{ item.frontmatter.date || item.lastUpdated | formatTime('yyyy-MM-dd') }}
-              <template
-                class="art-tag"
-                v-if="item.frontmatter.tags"
-              >
-                <span v-for="tag in item.frontmatter.tags" @click="tagFillter(tag)">/ {{ tag }}</span>
-              </template>
-            </div>
             <div class="art-des" style="-webkit-box-orient: vertical">{{ item.frontmatter.description }}</div>
-            <div class="art-read iconfont iconxiazai9"></div>
+            <!-- <div class="art-more">
+              <div class="art-date">
+                <i class="iconfont iconrili"></i>
+                {{ item.frontmatter.date || item.lastUpdated | formatTime('yyyy-MM-dd') }}
+                <template v-if="item.frontmatter.tags">
+                  <span class="art-tag" v-for="tag in item.frontmatter.tags" @click="tagFillter(tag)">/ {{ tag }}</span>
+                </template>
+              </div>
+              <div class="art-read iconfont iconxiazai9"></div>
+            </div> -->
           </div>
         </div>
       </transition-group>
@@ -55,7 +54,7 @@
 </template>
 
 <script>
-import UAParser from 'cchao-util/uaparser.js'
+// import UAParser from 'cchao-util/uaparser.js'
 import Tags from "./Tags.vue";
 import Classification from "./Classification.vue";
 import Search from "./Search.vue";
@@ -65,7 +64,8 @@ import Categories from "./Categories.vue";
 import Skeleton from "./Skeleton.vue";
 import { formatTime } from "./../util/date.js";
 import { resolveSidebarItems } from "./../util/util";
-const uaparser$ = new UAParser()
+import { $BUS } from "./../util/bus.js"
+// const uaparser$ = new UAParser()
 export default {
   components: {
     Tags,
@@ -84,6 +84,7 @@ export default {
   data() {
     return {
       isFirst: true,
+      isSidebarOpen: false,
       tags: [],
       postsArr: [], // 文章列表
       currentPage: 1, // 当前页码
@@ -122,6 +123,9 @@ export default {
   },
   mounted() {
     this.getPosts();
+    $BUS.$on('is-sidebar-open', (isSidebarOpen) => {
+      this.isSidebarOpen = isSidebarOpen
+    })
     console.log('\n' + ' %c cchao https://github.com/2020807070/vuepress-theme-cchao ' + '\n', 'color: rgb(54, 72, 94); background: rgb(68, 182, 132); padding:5px 0; font-size:18px;');
   },
   methods: {
@@ -196,10 +200,15 @@ export default {
   display: flex;
 
   .art-flow {
+    // left 0;
     max-width: 880px;
     position: relative;
     flex: 1;
     width: 100%;
+    transition .3s ease
+  }
+  .push {
+    left 260px
   }
 
   .article-aside {
@@ -238,30 +247,48 @@ export default {
     background-position center center
   }
   .art-info {
-    padding 30px
+    position relative
+    padding 0 30px
     flex 1
     .art-tit {
+      line-height 30px
       // @TODO 变量
       a {
         color #000
       }
     }
     .art-date {
-      margin-bottom 10px
+      // opacity 0
       color #8a92a9
+      font-size 14px
+    }
+    .art-tag {
+
     }
     .art-des {
-      font-size 14px
+      font-size 16px
       display -webkit-box
       -webkit-line-clamp 3
       overflow hidden
       color #062743
-      line-height 16px
+      line-height 28px
+      margin-top 20px
+    }
+    .art-more {
+      width 500px
+      position absolute
+      bottom 0px
+      display flex
+      justify-content space-between
     }
     .art-read {
-      position absolute  
-      right 20px
-      bottom 20px
+      padding 5px
+      transition 0.3s
+      border-radius 50%
+      &:hover {
+        color #fff
+        background #000
+      }
     }
   }
 }

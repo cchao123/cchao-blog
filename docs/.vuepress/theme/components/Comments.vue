@@ -1,10 +1,10 @@
 <template>
-  <div class="vcomment">
-    <div id="vcomments"></div>
-  </div>
+  <div id="gitalk-container"></div>
 </template>
 
 <script>
+import Gitalk from 'gitalk'
+import 'gitalk/dist/gitalk.css'
 export default {
   computed: {
     data() {
@@ -16,29 +16,17 @@ export default {
   },
   methods: {
     createValine() {
-      const Valine = require("valine");
-      window.AV = require("leancloud-storage");
-      const valine = new Valine({
-        el: "#vcomments",
-        appId: this.$site.themeConfig.comments.appId,
-        appKey: this.$site.themeConfig.comments.appKey,
-        notify: false,
-        verify: false,
-        avatar: "monsterid",
-        path: window.location.pathname,
-        placeholder: "来谈一谈对这篇文章的看法吧~"
-      });
-      this.valineRefresh = false;
-    }
-  },
-  watch: {
-    $route(to, from) {
-      if (to.path !== from.path) {
-        setTimeout(() => {
-          //重新刷新valine
-          this.createValine();
-        }, 300);
-      }
+      var gitalk = new Gitalk({
+      clientID: 'e5d6bfc205c709e29e62',
+      clientSecret: '1375c471fb411fe18c687431716bf9587cddf546',
+      repo: '2020807070',
+      owner: '2020807070@qq.com',
+      admin: ['2020807070@qq.com'],
+      id: location.pathname,      // Ensure uniqueness and length less than 50
+      distractionFreeMode: false  // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
     }
   }
 };
@@ -46,13 +34,4 @@ export default {
 
 
 <style lang="stylus">
-.vcomment {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-
-  .info {
-    display: none;
-  }
-}
 </style>

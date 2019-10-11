@@ -1,21 +1,21 @@
 <template>
-  <div class="sidebar-button" @click="toggle">
-    <i :class="isClose ? 'icon close' : 'icon'"></i>
+  <div class="sidebar-button" @click="$emit('toggle-sidebar')">
+    <i :class="isSidebarOpen ? 'icon close' : 'icon'"></i>
   </div>
 </template>
 
 <script>
+import { $BUS } from "./../util/bus.js"
 export default {
   data () {
     return {
-      isClose: false
+      isSidebarOpen: false
     }
   },
-  methods: {
-    toggle () {
-      this.isClose = !this.isClose
-      this.$emit('toggle-sidebar')
-    }
+  created () {
+      $BUS.$on('is-sidebar-open', (isSidebarOpen) => {
+        this.isSidebarOpen = isSidebarOpen
+    })
   }
 }
 </script>
