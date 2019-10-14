@@ -12,9 +12,9 @@
     :target="isMailto(link) || isTel(link) ? null : '_blank'"
     :rel="isMailto(link) || isTel(link) ? null : 'noopener noreferrer'"
   >
-    <i :class="`iconfont ${item.icon}`" :style="`color: ${item.color}`"/>
     {{ item.text }}
-    <OutboundLink/>
+    <!-- @TODO 外部 -->
+    <!-- <OutboundLink/> -->
   </a>
 </template>
 

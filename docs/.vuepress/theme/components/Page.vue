@@ -4,7 +4,7 @@
 
     <ArticleWrap>
       <template v-slot:content>
-        <Content :custom="false"/>
+        <Content class="translateIn" :custom="false"/>
         <div class="page-edit">
           <div class="edit-link" v-if="editLink">
             <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
@@ -246,6 +246,23 @@ function find(page, items, offset) {
       float: none;
       text-align: left;
     }
+  }
+}
+
+.translateIn {
+  animation-duration: 0.35s;
+  animation-name: translateIn;
+}
+
+@keyframes translateIn {
+  0% {
+    opacity: 0;
+    transform translateY(30px)
+  }
+
+  to {
+    opacity: 1;
+    transform translateY(0)
   }
 }
 </style>

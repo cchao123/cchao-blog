@@ -1,15 +1,16 @@
 <template>
   <article-card>
     <div class="card-title" slot="card-title">
-      <span>类别</span>
+      <span>Classification</span>
+      <span class="iconfont icongengduo"></span>
     </div>
-    <div class="card-content tags-content" slot="card-content">
+    <div class="card-content classification-content" slot="card-content">
       <ul>
-        <li><i class="iconfont iconwenjianjia" />前端</li>
-        <li><i class="iconfont iconwenjianjia" />后端</li>
-        <li><i class="iconfont iconwenjianjia" />3</li>
-        <li><i class="iconfont iconwenjianjia" />4</li>
-        <li><i class="iconfont iconwenjianjia" />5</li>
+        <li><i class="iconfont iconfolder-line" /><span>Vue</span></li>
+        <li><i class="iconfont iconfolder-line" /><span>React</span></li>
+        <li><i class="iconfont iconfolder-line" /><span>Node</span></li>
+        <li><i class="iconfont iconfolder-line" /><span>CDN</span></li>
+        <li><i class="iconfont iconfolder-line" /><span>Javascript</span></li>
       </ul>
     </div>
   </article-card>
@@ -45,49 +46,50 @@ export default {
   },
 };
 </script>
-<style lang="stylus">
-.iconqinglihuancun
-  cursor pointer
-  font-size 20px!important
-
-.tags-content
+<style lang="stylus" scoped>
+.classification-content
+  font-size 12px
   cursor pointer
   display flex
   flex-wrap wrap
   justify-content space-between
   // justify-content space-around
   justify-content flex-start
-  .tags-item
-    position relative
-    font-size 12px
-    // @TODO 变量
-    color #fff
-    color #8a92a9
-    margin 5px
-    padding 3px 5px
-    // @TODO 变量
-    background-color rgb(44,62,80)
-    background-color rgb(170, 170, 170)
-    background-color #f4f6f9
-    transition .5s
-    border-radius 3px
-    i
-      position absolute
-      font-size 14px
-      right -5px
-      top -5px
-      width 12px
-      height 12px
-      border-radius 50%
-      text-align center
-      line-height 12px
-      // @TODO 变量
-      background-color #010a13
-    &:hover
-      background-color #010a13
-      color #fff
-  .tags-active
-      background-color #010a13
-      color #fff
+  ul
+    margin 0
+    padding-left 10px
+    li
+      display flex
+      align-items center
+      span
+        position relative
+        transition .3s
+        &:after
+          transition .3s
+          left 50%
+          bottom 0
+          width 0
+          content ''
+          position absolute
+          height 2px
+          background #000
+        &:before
+          transition .3s
+          right 50%
+          bottom 0
+          width 0
+          content ''
+          position absolute
+          height 2px
+          background #000
+        &:hover
+          &:after
+            width 50%
+          &:before
+            width 50%
+      .iconfont
+        margin-right 5px
+        color #000
+        font-size 20px!important
 
 </style>

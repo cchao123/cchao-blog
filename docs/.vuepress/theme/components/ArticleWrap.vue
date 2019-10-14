@@ -13,13 +13,14 @@
               <router-link :to="item.frontmatter.link || item.path">{{ item.title }}</router-link>
             </h3>
             <div class="art-des" style="-webkit-box-orient: vertical">{{ item.frontmatter.description }}</div>
-            <div class="art-more">
+            <div class="art-more" :style="!item.frontmatter.coverMap ? 'position: static;margin-top: 10px' : '' ">
               <div class="art-date">
-                <i class="iconfont iconrili"></i>
+                Apr 14, 2019
+                <!-- <i class="iconfont iconrili"></i>
                 {{ item.frontmatter.date || item.lastUpdated | formatTime('yyyy-MM-dd') }}
                 <template v-if="item.frontmatter.tags">
                   <span class="art-tag" v-for="tag in item.frontmatter.tags" @click="tagFillter(tag)">/ {{ tag }}</span>
-                </template>
+                </template> -->
               </div>
               <div class="art-read iconfont iconxiazai9"></div>
             </div>
@@ -205,11 +206,11 @@ export default {
     max-width: 880px;
     position: relative;
     flex: 1;
-    width: 100%;
-    transition .3s ease
+    // width: 100%;
+    transition .2s ease
   }
   .push {
-    left 260px
+    transform translateX(262px)
   }
 
   .article-aside {
@@ -219,6 +220,7 @@ export default {
     margin-left: 20px;
   }
 }
+
 .art-content {
   transition .3s
   &:hover {
@@ -237,6 +239,7 @@ export default {
   margin-bottom 25px
   display flex
   .art-coverMap {
+    box-shadow: 0px 10px 30px -10px rgba(45, 55, 86, 0.1);
     background-color #eee
     border-radius 5px
     // flex 600
@@ -253,11 +256,12 @@ export default {
     flex 1
     .art-tit {
       line-height 30px
+      font-weight normal
       // @TODO 变量
       a {
         color #000
         &:first-letter {
-          font-size 26px
+          // font-size 26px
         }
       }
     }
@@ -274,12 +278,12 @@ export default {
       display -webkit-box
       -webkit-line-clamp 4
       overflow hidden
-      color #062743
+      color rgba(0, 0, 0, .8)
       line-height 28px
       margin-top 20px
     }
     .art-more {
-      width 480px
+      width 100%
       position absolute
       bottom 0px
       display flex
@@ -287,7 +291,7 @@ export default {
     }
     .art-read {
       position relative
-      left 30px
+      right 30px
       padding 5px
       transition 0.3s
       border-radius 50%
@@ -298,6 +302,9 @@ export default {
   }
 }
 @media (max-width: $MQNarrow) {
+  .art-more {
+    position static!important
+  }
   .article-aside {
     display: none;
   }
@@ -308,6 +315,7 @@ export default {
 
   .art-flow {
     padding 10px
+    width 90%
   }
   .art-content {
     .art-coverMap {
@@ -321,7 +329,9 @@ export default {
   .art-read {
     display none
   }
-
+  .art-des {
+    margin-bottom 10px!important  
+  }
 }
 
 @media (max-width: $MQNarrow) and (min-width: $MQMobile) {

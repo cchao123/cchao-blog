@@ -1,11 +1,12 @@
 <template>
   <article-card>
     <div class="card-title" slot="card-title">
-      <span>标签</span>
+      <span>Tags</span>
+      <span class="iconfont icongengduo"></span>
     </div>
     <div class="card-content tags-content" slot="card-content">
       <span :class="tagItem === item ? 'tags-item tags-active' : 'tags-item' " v-for="item in tags" @click="tagFillter(item)"># {{ item }}
-        <i v-show="tagItem === item" @click.stop="clearTags">&times;</i>
+        <i v-show="tagItem === item" @click.stop="clearTags" class="iconwebicon309 iconfont"></i>
       </span>
     </div>
   </article-card>
@@ -65,6 +66,7 @@ export default {
     background-color rgb(44,62,80)
     background-color rgb(170, 170, 170)
     background-color #f4f6f9
+    background-color #fff
     transition .5s
     border-radius 3px
     i

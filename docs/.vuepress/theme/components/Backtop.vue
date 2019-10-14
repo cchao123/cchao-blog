@@ -1,6 +1,6 @@
 <!-- Backtop 回到顶部 -->
 <template>
-  <div v-show="isShow" @click="backTop" class="back-top iconfont iconicon-test"></div>
+  <div v-show="isShow" @click="backTop" class="back-top iconfont iconUpward"></div>
 </template>
 
 <script>
@@ -22,8 +22,8 @@ export default {
 <style lang="stylus" scoped>
 .back-top {
   cursor: pointer;
-  border-radius: 50%;
   position: fixed;
+  padding 5px
   right: 3%;
   bottom: 5%;
   font-size: 30px;

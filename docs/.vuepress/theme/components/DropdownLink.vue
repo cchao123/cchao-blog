@@ -2,11 +2,12 @@
   <div class="dropdown-wrapper" :class="{ open }">
     <a class="dropdown-title" @click="toggle">
       <span class="title">{{ item.text }}</span>
-      <span class="arrow" :class="open ? 'down' : 'right'"></span>
+      <!-- @TODO 向下箭头 -->
+      <!-- <span class="arrow" :class="open ? 'down' : 'right'"></span> -->
     </a>
 
     <DropdownTransition>
-        <ul class="nav-dropdown" v-show="open">
+        <ul class="nav-dropdown animated fadeIn" v-show="open">
           <li
             class="dropdown-item"
             :key="subItem.link || index"
@@ -83,12 +84,12 @@ export default {
       line-height: 40px;
       font-size: 10px;
       padding: 10px 20px;
-      border-bottom: 1px dashed #e7e7e9;
+      // border-bottom: 1px dashed #e7e7e9;
       color: #565656;
       line-height: 1.7rem;
 
       &:last-child {
-        border: 0 dashed #e7e7e9;
+        // border: 0 dashed #e7e7e9;
       }
 
       h4 {
@@ -199,7 +200,8 @@ export default {
 
     .nav-dropdown {
       // Avoid height shaked by clicking
-      height: auto !important;
+      // height: auto !important;
+      box-shadow: 0 0.067em 1.2em rgba(0,0,0,.14);
       box-sizing: border-box;
       max-height: calc(100vh - 2.7rem);
       overflow-y: auto;

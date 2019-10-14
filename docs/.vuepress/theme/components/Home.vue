@@ -38,14 +38,17 @@
     </div> -->
     <div class="footer">
       <div class="footer-container">
-        <div class="f-links">
+        <!-- <div class="f-links">
           <i class="iconfont iconsf"></i>
           <i class="iconfont iconcsdn"></i>
           <i class="iconfont iconjuejin"></i>
           <i class="iconfont iconjianshu1"></i>
           <i class="iconfont icongithub1"></i>
-        </div>
-        <p>Copyright © 2011-2019 cchao ©</p>
+        </div> -->
+        <p class="copy-right">
+          晋ICP备16007968号-5
+          <br>
+        Copyright © 2011-2019 cchao blog  </p>
       </div>
     </div>
     <Toast ref="Toast"/>
@@ -162,14 +165,20 @@ export default {
   }
 
   .footer {
+    box-shadow: 0 5px 60px 0 rgba(17,58,93, .1);
     background: #010a13;
     padding: 10px;
     .footer-container {
-      text-align center
+      text-align left
       max-width: 1200px;
       margin: 0 auto;
       color #fff
-    }    
+    }   
+    .copy-right {
+      font-size 12px
+      padding 10px 0
+      border-top 1px solid #0e1725
+    }
   //   font-size: 12px;
   //   border-top: 1px solid $borderColor;
   //   color: lighten($textColor, 25%);

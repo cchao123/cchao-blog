@@ -1,5 +1,5 @@
 <template>
-  <div class="categories" v-if="categories.lenght || this.$page.headers">
+  <div class="categories animated fadeIn" v-if="categories.lenght || this.$page.headers">
     <div class="atc-title" v-if="categories.lenght">Categories</div>
     <div v-if="categories.length">
       <ul class="sidebar-links">
@@ -74,7 +74,8 @@ a {
     display: block;
     line-height: 1.25rem;
     font-size: 1.1em;
-    padding: 0.5rem 0 0.5rem 1.5rem;
+    // @TODO 间距
+    padding: 0.5rem 0 0.5rem .1rem;
   }
 }
 

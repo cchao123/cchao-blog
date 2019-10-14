@@ -133,7 +133,7 @@ export default {
     .nav-item {
       width: 100%;
       line-height: 1.25rem;
-      border-bottom 1px dashed #e7e7e9;
+      // border-bottom 1px dashed #e7e7e9;
     }
     a {
       font-size 12px

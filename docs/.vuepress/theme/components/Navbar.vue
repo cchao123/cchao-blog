@@ -1,6 +1,6 @@
 <template>
   <header class="navbar">
-    <div class="navbar-wrap">
+    <div class="navbar-wrap animated fadeIn">
       <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
       <router-link :to="$localePath" class="home-link">
@@ -105,6 +105,7 @@ $navbar-horizontal-padding = 1.5rem;
   padding: $navbar-vertical-padding $navbar-horizontal-padding;
   line-height: $navbarHeight - 1.4rem;
   position: relative;
+  box-shadow: 0 5px 60px 0 rgba(17,58,93,.1);
 
   a, span, img {
     display: inline-block;
@@ -137,10 +138,17 @@ $navbar-horizontal-padding = 1.5rem;
     .nav-links {
       flex: 1;
       .nav-item {
+        &:hover {
+          > a {
+            color rgba(0, 0, 0, .5)
+          }
+        }
         a {
-          font-size 12px
+          transition .3s
+          font-size 14px
           letter-spacing 2px
           font-weight normal
+          color #000
         }
       }
     }

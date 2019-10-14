@@ -152,7 +152,9 @@ export default {
 
   mounted() {
     window.addEventListener("scroll", this.onScroll);
-
+    window.onresize = function () {
+      $BUS.$emit('is-sidebar-open', this.isSidebarOpen)
+    }
     // configure progress bar
     nprogress.configure({ showSpinner: false });
 

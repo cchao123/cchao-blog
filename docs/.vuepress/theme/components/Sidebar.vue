@@ -100,6 +100,7 @@ function resolveOpenGroupIndex (route, items) {
     padding 0
     margin 0
     list-style-type none
+    padding-left 20px
   a
     display inline-block
   .nav-links

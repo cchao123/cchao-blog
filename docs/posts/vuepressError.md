@@ -1,6 +1,6 @@
 ---
 title: VuePress报错TypeError：res.getHeader is not a function
-# description: 我是一片文章我是一片文章我是一片文章我是一片文章我是一片文章的介绍
+description: 我是一片文章我是一片文章我是一片文章我是一片文章我是一片文章的介绍
 tags:
   - vuepress
 ---

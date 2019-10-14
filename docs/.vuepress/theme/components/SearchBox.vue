@@ -1,7 +1,7 @@
 <template>
   <div class="search-box">
     <input
-      placeholder="检索关键词..."
+      placeholder="Please enter search keywords..."
       @input="query = $event.target.value"
       aria-label="Search"
       :value="query"

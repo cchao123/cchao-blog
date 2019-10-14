@@ -8,22 +8,25 @@
             :src="$page.frontmatter.head || 'https://avatars1.githubusercontent.com/u/24643401?s=460&v=4'"
             alt="coverMap"
           >
-          <span class="author-card-name">郝陈晨</span>
+          <span class="author-card-name">一个名字</span>
           <!-- @TODO 这里做成动效 -->
-          <span class="author-card-des">无折腾不前端.</span>
+          <span class="author-card-des">我写了六个字。</span>
         </div>
         <div class="author-card-info">
           <div class="author-info">
             <div class="info-item">
-              <i class="iconfont iconwenzhang"></i>
+              <!-- <i class="iconfont iconwenzhang"></i> -->
+              <span>Posts</span>
               <CountUp startNum="0" :endNum="postsNum" times="10" speed="50"/>
             </div>
             <div class="info-item">
-              <i class="iconfont iconwenjianjia"></i>
+              <!-- <i class="iconfont iconwenjianjia"></i> -->
+              <span>Classification</span>
               <CountUp startNum="0" :endNum="classNum" times="10" speed="50" />
             </div>
             <div class="info-item">
-              <i class="iconfont icontag"></i>
+              <!-- <i class="iconfont icontag"></i> -->
+              <span>Tags</span>
               <CountUp startNum="0" :endNum="tagsNum" times="10" speed="50"/>
             </div>
           </div>
@@ -99,7 +102,7 @@ export default {
       border: 0;
     }
 
-    border-left: 1px dashed #e0e0e0;
+    border-left: 1px solid rgba(0, 0, 0, .05);
     text-align: center;
     flex: 1;
     display: flex;
@@ -113,6 +116,7 @@ export default {
     span {
       font-size: 10px;
       justify-content: center;
+      margin-bottom 10px
     }
   }
 }
@@ -128,7 +132,8 @@ export default {
       width 100%
       height 200px
       background-size cover
-      background-image url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569670243409&di=77621e8579902db3525fde546f621bcb&imgtype=jpg&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D1480687983%2C1233012128%26fm%3D214%26gp%3D0.jpg)
+      background-color rgba(120, 120, 120, 0.1)
+      background-image url(https://southcat.net/wp-content/themes/easter/img/infobg.jpg)
       &:before {
         display block
         content: ''
@@ -141,6 +146,7 @@ export default {
         background #3e39ff06
       }
       .author-card-head {
+        box-shadow: 0px 10px 30px -10px rgba(45, 55, 86, .3)
         position absolute
         border-radius 50%
         width 100px
