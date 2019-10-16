@@ -1,43 +1,10 @@
 /**
- * 获得一个当前时间的整数时间戳
- *
- * @returns {number} 时间戳
- * @export
- */
-export const nowtstamp = Date.now || function () {
-  return new Date().getTime()
-}
-
-/**
- * 判断是否是同一天
- *
- * @example
- *  let data1 = new Date('2018-05-01')
- *  let data2 = new Date('2018-05-02')
- *  isSameDay(date1, date2)     // false
- *
- * @export
- * @param {Date} date1 待判断的时间
- * @param {Date} [date2=new Date()] 被判断的时间，默认为当天
- * @returns {boolean} true为同一天，否则不是同一天
- */
-export function isSameDay (date1, date2 = new Date()) {
-  let d1Y = date1.getFullYear()
-  let d1M = date1.getMonth() + 1
-  let d1D = date1.getDate()
-  let d2Y = date2.getFullYear()
-  let d2M = date2.getMonth() + 1
-  let d2D = date2.getDate()
-
-  return d1Y === d2Y && d1M === d2M && d1D === d2D
-}
-
-/**
  * 格式化时间
  *
  * @example
  *  formatTime('2018-03-03 12:12:12', 'yyyy/MM/dd hh:mm:ss') // 2018/03/03 12:12:12
  *  formatTime(1520035200000, 'yyyy/MM/dd hh:mm:ss') // 2018/03/03 08:00:00
+ *  formatTime(1520035200000, 'yyyy/MM/dd hh:mm:ss') // Apr 14, 2019
  *
  * @export
  * @param {string|number} time  时间字符串或者时间戳（'2018-03-03' | 1520035200000）
@@ -54,18 +21,31 @@ export function formatTime (time, format) {
 		's+': t.getSeconds(), // second
 		'q+': Math.floor((t.getMonth() + 3) / 3), // quarter
 		'S': t.getMilliseconds() // millisecond
-	}
+  }
+  let m = {
+    1: 'Jan',
+    2: 'Feb',
+    3: 'Mar',
+    4: 'Apr',
+    5: 'May',
+    6: 'Jun',
+    7: 'Jul',
+    8: 'Aug',
+    9: 'Sept',
+    10: 'Oct',
+    11: 'Nov',
+    12: 'Dec'
+  }
 	if (/(y+)/.test(format)) {
 		format = format.replace(RegExp.$1, (t.getFullYear() + '').substr(4 - RegExp.$1.length))
 	}
 
 	for (var k in o) {
+    o['M+'] = m[o['M+']]
 		if (new RegExp('(' + k + ')').test(format)) {
-			format = format.replace(RegExp.$1, RegExp.$1.length === 1
-				? o[k] : ('00' + o[k]).substr(('' + o[k]).length))
-		}
-	}
-
+			format = o['M+'] + ' ' + + o['d+'] + ',' + t.getFullYear()
+    }
+  }
 	return format
 }
 
@@ -111,3 +91,7 @@ export function pastTimeDiffNow (pasttime, ymd = 'yyyy/MM/dd') {
     return '刚刚'
   }
 }
+
+
+
+

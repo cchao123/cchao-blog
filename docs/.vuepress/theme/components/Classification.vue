@@ -72,7 +72,8 @@ export default {
           content ''
           position absolute
           height 2px
-          background #000
+          // @TODO
+          background #010a13
         &:before
           transition .3s
           right 50%
@@ -81,7 +82,7 @@ export default {
           content ''
           position absolute
           height 2px
-          background #000
+          background #010a13
         &:hover
           &:after
             width 50%

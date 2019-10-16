@@ -17,11 +17,11 @@ export default {
   methods: {
     createValine() {
       var gitalk = new Gitalk({
-      clientID: 'e5d6bfc205c709e29e62',
-      clientSecret: '1375c471fb411fe18c687431716bf9587cddf546',
+      clientID: '58eb9e2337215272e65e',
+      clientSecret: '8eaa9e69b93e85a7e78677d4e19c539a05d9dc16',
       repo: '2020807070',
-      owner: '2020807070@qq.com',
-      admin: ['2020807070@qq.com'],
+      owner: '2020807070',
+      admin: ['2020807070'],
       id: location.pathname,      // Ensure uniqueness and length less than 50
       distractionFreeMode: false  // Facebook-like distraction free mode
     })

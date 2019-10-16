@@ -24,7 +24,6 @@
     position relative
     display flex
     justify-content space-between
-    // border-bottom 1px solid rgba(0, 0, 0, .05)
     .iconfont
       color #8a92a9
       font-size 12px

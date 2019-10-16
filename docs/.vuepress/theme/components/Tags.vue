@@ -60,6 +60,7 @@ export default {
     // @TODO 变量
     color #fff
     color #8a92a9
+    color #2c3e50
     margin 5px
     padding 3px 5px
     // @TODO 变量
@@ -79,6 +80,9 @@ export default {
       border-radius 50%
       text-align center
       line-height 12px
+      display flex
+      justify-content center
+      align-items center
       // @TODO 变量
       background-color #010a13
     &:hover

@@ -1,15 +1,6 @@
 <template>
   <div class="page-layout">
     {{this.$site}}
-    <!-- <transition-group appear tag="ul">
-      <li
-        class="item shake-slow"
-        v-for="(item, ind) in 10"
-        :key="item"
-        :style="`transition-delay: ${ind * 0.15}s`"
-      >测试动画</li>
-    </transition-group>-->
-    <!-- <Comments v-bind:is="viewComments"></Comments> -->
     <Comments ></Comments>
   </div>
 </template>

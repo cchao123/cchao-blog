@@ -159,6 +159,11 @@ export default {
   display inline-block
   position relative
   margin-right 1rem
+  /* WebKit browsers  */
+  input::-webkit-input-placeholder {
+    color #2c3e50
+    font-size 12px
+  }
   input
     cursor text
     width 100%

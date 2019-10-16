@@ -8,24 +8,21 @@
             :src="$page.frontmatter.head || 'https://avatars1.githubusercontent.com/u/24643401?s=460&v=4'"
             alt="coverMap"
           >
-          <span class="author-card-name">一个名字</span>
+          <span class="author-card-name">{{ $page.frontmatter.name }}</span>
           <!-- @TODO 这里做成动效 -->
-          <span class="author-card-des">我写了六个字。</span>
+          <span class="author-card-des">{{ $page.frontmatter.introduction }}</span>
         </div>
         <div class="author-card-info">
           <div class="author-info">
             <div class="info-item">
-              <!-- <i class="iconfont iconwenzhang"></i> -->
               <span>Posts</span>
               <CountUp startNum="0" :endNum="postsNum" times="10" speed="50"/>
             </div>
             <div class="info-item">
-              <!-- <i class="iconfont iconwenjianjia"></i> -->
               <span>Classification</span>
               <CountUp startNum="0" :endNum="classNum" times="10" speed="50" />
             </div>
             <div class="info-item">
-              <!-- <i class="iconfont icontag"></i> -->
               <span>Tags</span>
               <CountUp startNum="0" :endNum="tagsNum" times="10" speed="50"/>
             </div>

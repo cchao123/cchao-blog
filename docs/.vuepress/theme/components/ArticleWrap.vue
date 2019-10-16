@@ -15,7 +15,7 @@
             <div class="art-des" style="-webkit-box-orient: vertical">{{ item.frontmatter.description }}</div>
             <div class="art-more" :style="!item.frontmatter.coverMap ? 'position: static;margin-top: 10px' : '' ">
               <div class="art-date">
-                Apr 14, 2019
+                {{ item.frontmatter.date || item.lastUpdated | formatTime('yyyy-MM-dd') }}
                 <!-- <i class="iconfont iconrili"></i>
                 {{ item.frontmatter.date || item.lastUpdated | formatTime('yyyy-MM-dd') }}
                 <template v-if="item.frontmatter.tags">
@@ -127,7 +127,7 @@ export default {
     $BUS.$on('is-sidebar-open', (isSidebarOpen) => {
       this.isSidebarOpen = isSidebarOpen
     })
-    console.log('\n' + ' %c cchao https://github.com/2020807070/vuepress-theme-cchao ' + '\n', 'color: rgb(54, 72, 94); background: rgb(68, 182, 132); padding:5px 0; font-size:18px;');
+    console.log("\n %c vuepress-theme-cchao %chttps://123hao123.cn \n\n","color: #fff; background-image: linear-gradient(90deg, rgb(50, 71, 94) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;","background-image: linear-gradient(90deg, rgb(68, 185, 132) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
   },
   methods: {
     goDetail(item) {
@@ -203,11 +203,11 @@ export default {
 
   .art-flow {
     // left 0;
+    width 880px;
     max-width: 880px;
     position: relative;
     flex: 1;
-    // width: 100%;
-    transition .2s ease
+    transition .2s ease;
   }
   .push {
     transform translateX(262px)

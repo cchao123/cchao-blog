@@ -62,6 +62,20 @@
       "unicode_decimal": 58884
     },
     {
+      "icon_id": "3699652",
+      "name": "上一页",
+      "font_class": "shangyiye",
+      "unicode": "e6aa",
+      "unicode_decimal": 59050
+    },
+    {
+      "icon_id": "3699770",
+      "name": "下一页",
+      "font_class": "xiayiye",
+      "unicode": "e6ab",
+      "unicode_decimal": 59051
+    },
+    {
       "icon_id": "3778038",
       "name": "简书",
       "font_class": "jianshu1",
@@ -111,13 +125,6 @@
       "unicode_decimal": 58890
     },
     {
-      "icon_id": "5387397",
-      "name": "文件夹",
-      "font_class": "wenjianjia1",
-      "unicode": "eac6",
-      "unicode_decimal": 60102
-    },
-    {
       "icon_id": "6119295",
       "name": "文件夹",
       "font_class": "folder-line",
@@ -137,13 +144,6 @@
       "font_class": "ico",
       "unicode": "e646",
       "unicode_decimal": 58950
-    },
-    {
-      "icon_id": "8758513",
-      "name": "文件夹",
-      "font_class": "wenjianjia2",
-      "unicode": "e6c5",
-      "unicode_decimal": 59077
     },
     {
       "icon_id": "9097089",
