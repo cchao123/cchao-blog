@@ -1,5 +1,8 @@
 ---
-layout: PageLayout
+# 使用自定义页面
+layout: CustomPage
+# 显示也页面
+page: FriendsLayout
 tags:
   - JS
   - eventLoop

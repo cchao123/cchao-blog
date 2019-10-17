@@ -1,6 +1,6 @@
 <template>
-  <div class="page-layout">
-    <slot name="page-layout"></slot>
+  <div>
+    123123
   </div>
 </template>
 

@@ -49,6 +49,7 @@ import BackTop from "./components/BackTop.vue";
 import Sidebar from "./components/Sidebar.vue";
 import TagsLayout from "./components/TagsLayout.vue";
 import PageLayout from "./components/PageLayout.vue";
+import CustomPage from "./components/CustomPage.vue";
 import SWUpdatePopup from "./components/SWUpdatePopup.vue";
 import { $BUS } from "./util/bus.js"
 
@@ -62,6 +63,7 @@ export default {
     SWUpdatePopup,
     TagsLayout,
     PageLayout,
+    CustomPage,
     BackTop
   },
 
