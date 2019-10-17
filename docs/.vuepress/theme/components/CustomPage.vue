@@ -1,18 +1,16 @@
 <template>
-  <div :data-page="$page.frontmatter.page" class="page-layout translateIn">
-    <component :is="$page.frontmatter.page"/>
-  </div>
+  <component :is="$page.frontmatter.page"/>
 </template>
 
 <script>
 import FriendsLayout from "./FriendsLayout.vue";
-import AboutMe from "./AboutMe.vue";
+import TagsLayout from "./TagsLayout.vue";
 
 
 export default {
   components: {
     FriendsLayout,
-    AboutMe
+    TagsLayout
   }
 }
 </script>

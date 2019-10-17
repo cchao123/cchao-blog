@@ -1,15 +1,13 @@
 <template>
-    <!-- <ArticleWrap :posts="this.$site.pages">
-    </ArticleWrap> -->
-    <div>
-
-    </div>
+  <page-layout>
+    <div slot="page-layout-container">TagsLayout</div>
+  </page-layout>
 </template>
 
 <script>
-import ArticleWrap from "./ArticleWrap.vue";
+import PageLayout from "./PageLayout.vue";
 export default {
-  components: { ArticleWrap }
-
+  components: { PageLayout }
 }
 </script>
+

@@ -69,3 +69,18 @@ $ npm run upload
 
 
 Author：cchao
+
+
+
+
+npm run create
+
+/pages/xxx.md
+```
+---
+# 使用自定义页面
+layout: CustomPage
+# 页面名称
+page: xxx
+---
+```

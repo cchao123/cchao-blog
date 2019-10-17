@@ -1,11 +1,8 @@
 <template>
   <div class="page-layout translateIn">
-    <component :is="$page.frontmatter.page"/>
+    <slot name="page-layout-container"></slot>
   </div>
 </template>
-
-<script>
-</script>
 
 <style>
 .page-layout {

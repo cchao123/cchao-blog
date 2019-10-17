@@ -1,10 +1,13 @@
 <template>
-  <div>
-    123123
-  </div>
+  <page-layout>
+    <div slot="page-layout-container">FriendLayout</div>
+  </page-layout>
 </template>
 
-<style lang="stylus">
-
-</style>
+<script>
+import PageLayout from "./PageLayout.vue";
+export default {
+  components: { PageLayout }
+}
+</script>
 
