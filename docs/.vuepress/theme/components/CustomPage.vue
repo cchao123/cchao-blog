@@ -5,12 +5,14 @@
 <script>
 import FriendsLayout from "./FriendsLayout.vue";
 import TagsLayout from "./TagsLayout.vue";
+import ClassificationLayout from "./ClassificationLayout.vue";
 
 
 export default {
   components: {
     FriendsLayout,
-    TagsLayout
+    TagsLayout,
+    ClassificationLayout
   }
 }
 </script>

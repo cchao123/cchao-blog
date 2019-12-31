@@ -16,6 +16,10 @@ module.exports = [
     link: '/pages/tags'
   },
   {
+    text: 'Classification',
+    link: '/pages/classification'
+  },
+  {
     text: 'More',
     items: [
       {

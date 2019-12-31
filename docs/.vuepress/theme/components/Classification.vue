@@ -6,7 +6,7 @@
     </div>
     <div class="card-content classification-content" slot="card-content">
       <ul>
-        <li><i class="iconfont iconfolder-line" /><span>Vue</span></li>
+        <li @click="goDetail"><i class="iconfont iconfolder-line" /><span>Vue</span></li>
         <li><i class="iconfont iconfolder-line" /><span>React</span></li>
         <li><i class="iconfont iconfolder-line" /><span>Node</span></li>
         <li><i class="iconfont iconfolder-line" /><span>CDN</span></li>
@@ -42,11 +42,16 @@ export default {
     },
     tagFillter (item) {
       this.$emit('tag-fillter', item)
+    },
+    goDetail () {
+      console.log(this)
     }
   },
 };
 </script>
 <style lang="stylus" scoped>
+@import './../styles/config.styl'
+
 .classification-content
   font-size 12px
   cursor pointer
@@ -72,8 +77,7 @@ export default {
           content ''
           position absolute
           height 2px
-          // @TODO
-          background #010a13
+          background $bgColor
         &:before
           transition .3s
           right 50%
@@ -82,7 +86,7 @@ export default {
           content ''
           position absolute
           height 2px
-          background #010a13
+          background $bgColor
         &:hover
           &:after
             width 50%

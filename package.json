@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "create": "gulp create",
     "start": "npm run docs:dev",
     "build": "npm run docs:build",
     "docs:dev": "vuepress dev docs",

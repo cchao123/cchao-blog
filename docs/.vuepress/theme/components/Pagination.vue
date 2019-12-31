@@ -1,7 +1,7 @@
 <template>
   <div class="pagination">
     <div class="p-prev" @click="currentChange('prev')"><i class="iconfont iconshangyiye" /><span>Prev</span></div>
-    <span>{{ currentPage }}/ {{ pageSize }}</span>
+    <span>{{ currentPage }} / {{ Math.ceil(total / pageSize) }}</span>
     <div class="p-next" @click="currentChange('next')"><span>Next</span><i class="iconfont iconxiayiye" /></div>
   </div>
 </template>
@@ -54,12 +54,7 @@ export default {
     align-items center
     border-radius 3px
     padding 3px 5px
-    transition .3s
-    box-shadow: 5px 5px 10px #e0f6f9
     cursor pointer
-    &:hover {
-      box-shadow 5px 5px 10px #c8e9ee
-    }
   }
 }
 </style>

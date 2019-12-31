@@ -203,7 +203,7 @@ export default {
 
   .art-flow {
     // left 0;
-    width 880px;
+    // width 880px;
     max-width: 880px;
     position: relative;
     flex: 1;

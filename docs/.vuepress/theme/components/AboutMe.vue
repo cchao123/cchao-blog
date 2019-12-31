@@ -10,7 +10,7 @@
           >
           <span class="author-card-name">{{ $page.frontmatter.name }}</span>
           <!-- @TODO 这里做成动效 -->
-          <span class="author-card-des">{{ $page.frontmatter.introduction }}</span>
+          <span class="author-card-des" style="-webkit-box-orient: vertical;">{{ $page.frontmatter.introduction }}</span>
         </div>
         <div class="author-card-info">
           <div class="author-info">
@@ -139,7 +139,6 @@ export default {
         position absolute
         width 100%
         height 100%
-        // @TODO 变量
         background #3e39ff06
       }
       .author-card-head {
@@ -163,9 +162,13 @@ export default {
       .author-card-des {
         position absolute
         color #010a13
+        line-height  18px
         left 150px
-        bottom -30px
+        top 210px
         font-size 14px
+        overflow hidden
+        display -webkit-box
+        -webkit-line-clamp 2
       }
     }
     .author-card-info {

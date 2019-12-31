@@ -78,7 +78,7 @@ export default {
   watch: {
     scrollTop: {
       handler(val) {
-        var top = 100; // about 的margin
+        var top = 0; // about 的margin
         var len = document.querySelectorAll(".article-card").length;
         document.querySelectorAll(".article-card").forEach(e => {
           top += e.offsetHeight;

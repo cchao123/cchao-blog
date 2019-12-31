@@ -43,6 +43,8 @@ export default {
 };
 </script>
 <style lang="stylus">
+@import './../styles/config.styl'
+  
 .iconqinglihuancun
   cursor pointer
   font-size 20px!important
@@ -57,17 +59,11 @@ export default {
   .tags-item
     position relative
     font-size 12px
-    // @TODO 变量
-    color #fff
-    color #8a92a9
-    color #2c3e50
+    color $white
+    color $textColor
     margin 5px
     padding 3px 5px
-    // @TODO 变量
-    background-color rgb(44,62,80)
-    background-color rgb(170, 170, 170)
-    background-color #f4f6f9
-    background-color #fff
+    background-color $white
     transition .5s
     border-radius 3px
     i
@@ -83,13 +79,12 @@ export default {
       display flex
       justify-content center
       align-items center
-      // @TODO 变量
-      background-color #010a13
+      background-color $bgColor
     &:hover
-      background-color #010a13
-      color #fff
+      background-color $bgColor
+      color $white
   .tags-active
-      background-color #010a13
-      color #fff
+      background-color $bgColor
+      color $white
 
 </style>
